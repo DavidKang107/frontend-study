@@ -12,3 +12,5 @@
   12) 다중 선택: ctrl + d 또는 ctrl + alt + up/down 또는 alt + 마우스 클릭/드래그
   13) 라인 삭제: ctrl + shift + k
   14) 주석: ctrl + / 
+
+GUI 툴 연습
