@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 인라인 요소는 글자를 다루기 위한 요소(그 자체가 글자처럼 취급됨)-->
+  <!-- 수평으로 쌓임, 가로/세로가 콘템츠 크기만큼 줄어듦(auto) -->
+  <span>Hello</span><span>World</span>
+  <span>Hello</span>
+  <span>World</span>
+  <br>
+  <!-- 글자는 가로/세로 사이즈를 가질 수 없음(지정 불가) -->
+  <span style="width: 100px;">Hello</span>
+  <span style="height: 100px;">World</span>
+  <br>
+  <!-- 상하 여백 불가, 좌우 여백은 가능하다 -->
+  <span style="margin: 20px;background-color: orange;">Hello</span>
+  <span style="padding: 20px;background-color: orange;">World</span>
+  <br>
+  <br>
+  <!-- 인라인 요소 안에 블록 요소 사용 금지 (웹 표준 애러) -->
+  <!-- 글자 안에는 상자를 넣을 수 없음 -->
+  <span><div>div in span</div></span>
+  <!-- 웹 표준 검사에서 애러로 인식 -->
+  <span><span>span in span</span></span>
+  
+  
+</body>
+</html>

@@ -1,0 +1,14 @@
+div{
+  width: 200px;
+  height: 100px;
+  background-color: orange;
+}
+
+.logo {
+  /* w200 */
+  width: 200px;
+  /* h100 */
+  height: 100px;
+  /* bc:orange */
+  background-color: orange;
+}

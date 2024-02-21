@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <!-- 뷰포트는 모바일에서 어떻게 보일지 -->
+  <!-- css, js 연결하기 -->
+  <!-- 외부 스타일 시트 -->
+  <link rel="stylesheet" href="./css/main.css">
+
+  <!-- 내부 스타일 시트 -->
+  <style>
+    div {
+      text-decoration: underline;
+    }
+  </style>
+
+  <!-- 외부 스크립트 -->
+  <script src="./js/main.js"></script>
+  <!-- 내부 스크립트 -->
+  <script>
+    console.log('내부 스트립트');
+  </script>
+
+</head>
+<body>
+  <!-- 사용자 눈에 보이는 구조는 <body>태그 안에 작성 -->
+  <div>Hello world!</div>
+
+  <!-- 화면에 이미지 출력하기 -->
+  <img src="./images/logo.png" alt="logo">
+  <img src="/02_test/images/logo.png" alt="logo">
+  <!-- scr는 source, alt는 대체 텍스트, 이미지가 출력되지 못하는 경우 대신 출력할 텍스트 
+  이미지의 경로가 잘못 되었거나, 네트워크가 불안정해서 + 웹 접근성과 관련 (스크린 리더가 alt 텍스트를 읽어줌)-->
+
+
+  <!-- 저가 블로그에서 로그 이미지 따옴 -->
+  <img src="https://heropy.blog/css/images/logo.png" alt="logo">
+
+  <!-- css로 배경이미지 넣기 -->
+  <div class="logo"></div>
+
+  <!-- 페이지를 나누고 연결(링크) 하기 -->
+  <!-- href: 다른 페이지로 이동할 수 있는 참조가 되는 경로를 입력 -->
+  <a href="./about/about.html">about</a>
+  <a href="./about/">about</a>
+
+  <!-- index.html로 만들면 생략 가능. 브라우저가 해당 이름을 가진 파일을 우선적으로 찾아 실행하기 때문 --> 
+
+
+</body>
+</html>
+
+<!-- 개발자 도구 사용하기 -->
+<!-- 
+  브라우저에서 제공하는 개발자 도구를 이용해서 웹사이트를 분석하고 테스트 하는 방법, f12
+  셀렉트 기능 단축키: ctrl + shift + c
+
+  1)Element 탭: html 요소에 대한 정보 확인 가능
+  
+  2)Styles 탭: 특정 html 요소에 어떤 스타일이 적용되었는지 css에 대한 정보를 확인
+    element style을 이용해서 다른 스타일을 임시로 적용 가능. 실제로 개발할 때 자주 사용.
+    여기서 임의로 적용한 스타일은 새로 고침하면 다시 리셋됨.
+    다른 사람이 만든 웹 사이트에도 내가 원하는 스타일을 적용해 볼 수 있음
+  
+  3)Computed 탭: CSS 박스 모델과 함께 실제로 적용된 스타일 값만 모아서 볼 수 있음
+    최종 적용된 스타일 정보를 볼 수 있음
+
+  4)Console 탭: js를 다룰때 주로 사용
+  
+  
+ -->
