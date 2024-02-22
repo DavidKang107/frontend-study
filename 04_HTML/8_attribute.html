@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+    #abc {
+      color: royalblue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 태그마다 사용 가능한 속성이 정해져 있음 -->
+  <img src="https://via.placeholder.com/150" alt="샘플">
+  <!-- img 태그에 href 속성은 동작 안함 -->
+  <img href="https://via.placeholder.com/150" alt="샘플">
+
+  <br><br>
+
+  <!-- HTML 전역(global) 속성: 모든 태그에서 사용 가능한 속성 -->
+  <!-- title: 요소의 설명, 마우스 커서를 올리면 지정한 설명이 나타남 -->
+  <a href="https://naver.com" target="_blank" title="네이버">NAVER</a>
+
+  <br><br>
+
+  <!-- stlye: 요소에 직접 스타일 적용(인라인) -->
+  <span style="color: yellow; background-color: black;">노란색 글자</span>
+  <hr>
+  <!-- class: 요소를 지칭하는 "중복 가능한" 이름 -->
+  <!-- 선택자로 class를 사용하여 스타일 지정 또는 js로 DOM 조작(제어) -->
+  <span class="red">동해물</span>과 <span class="red">백두산이</span> 마르고 닳도록
+  하느님이 보우하사 <span class="red">우리나라</span> 만세
+
+  <br><br>
+
+  <!-- id: 요소를 지칭하는 "고유한" 이름(하나의 웹 문서 내에 1개만 존재) -->
+  <!-- class보다는 사용 빈도가 낮음(특히 react에서는 사용 안함) -->
+  <!-- id는 고유하기 때문에 중요한 요소를 쉽게 찾을 수 있다 -->
+
+  <span id="abc">동해물</span>과 <span class="red">백두산이</span> 마르고 닳도록
+  하느님이 보우하사 <span class="red">우리나라</span> 만세
+
+  <br><br>
+  <!-- data: 요소에 데이터를 저장하는 용도(사용자 정의 속성을 만듦) -->
+  <!-- JS에서 이 속성에 저장한 데이터를 꺼내서 이용 가능 -->
+  <!-- 사용법: data-내가 원하는 이름 작명 = "데이터" -->
+  <div data-fruit-name="apple">사과</div>
+  <div data-fruit-name="banana">바나나</div>
+  <script>
+    // div 태그를 모두 찾아서 elements라는 이름의 그릇(저장 공간)에 담아라
+    const elements = document.querySelectorAll('div');
+    // 찾은 요소들을 하나씩 반복해가면서 element에 다시 담고
+    elements.forEach(element => {
+      //element안에 datasetd안에 fruitName으로 접근
+      // console.log(element.dataset.fruit-name); 안됨
+      console.log(element.dataset.fruitName); //js 표기법
+    })
+  </script>
+
+
+
+</body>
+</html>
