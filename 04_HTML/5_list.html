@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    span {
+      color: red;
+      background-color: blue;
+    }
+    div {
+      color: red;
+      background-color: blue;
+    }
+  </style>
 </head>
 <body>
   <!-- list(목록) 요소는 주로 메뉴나 탭 목록 등에 쓰임 -->
@@ -56,6 +66,75 @@
       </ul>
     </li>
   </ul>
+  <!-- anchor(인라인): 닻, 페이지를 이동하는 하이퍼링크를 지정 -->
+  <!-- 인라인 요소라 스평 배열 -->
+  <!-- target 속성은 리으된 페이지를 어디에 표시할지 타겟 지정
+  _self: 현재 탭(기본값)
+  _blank: 새로운 탭 -->
+  <a href="https://naver.com">naver</a>
+  <a href="https://google.com" target="_blank">Google</a>
+
+  <!-- (추가 설명) 임시 태그 -->
+  <a href="#" target="_top">임시 태그</a>
+  <!-- 해당 #id 영역으로 이동 -->
+  <a href="#Intro">Intro</a>
+  <a href="#Guide">Guide</a>
+  
+  <!-- span(인라인): 텍스트 구분을 위해 사용(주로 글자의 스타일 적용할 때) -->
+  <!-- div는 글자를 다루는데 적합하지 않음 -->
+  <p>
+    <span>동해물</span>과 백두산이 마르고 닳도록
+  </p>
+  
+  <p>
+    <div>동해물</div>과 백두산이 마르고 닳도록
+  </p>
+
+  <!-- break(인라인): 줄바꿈-->
+  <p>
+    동해물과 백두산이<br>   마르고 닳도록
+  </p>
+  
+  <p>
+    동해물과 백두산이
+    
+    
+    마르고 닳도록
+  </p>
+  
+  <!-- (참고) html 특수문자(html Entities)
+    대표적으로 &lt; &gt; &nbsp; &copy; 등
+  -->
+  
+  <p>
+    동해물과 백두산이<br>&nbsp;마르고 닳도록
+  </p>
+
+  <!-- 사용예2: <div>를 태그가 아닌 그냥 출력하고 싶다면 -->
+  &lt;div&gt;
+  &copy;
+
+  <!-- horizontal rule(블록): 수평줄 -->
+  
+  <p>
+    동해물과 백두산이 마르고 닳도록<br>
+    하느님이 보우하사 <span style="background-color: black;color: yellow;">우리나라</span> 만세
+  </p>
+
+
+  <!-- 임시 태그 이동 테스트 -->
+  <hr>
+  <h2 id="Intro">Intro</h2>
+  <p style="height: 300px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum expedita saepe quis pariatur ex quae obcaecati. Eum accusamus repudiandae tenetur nobis ipsa ipsum debitis labore. Nostrum ipsam beatae eligendi quaerat?</p>
+  <p style="height: 300px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum expedita saepe quis pariatur ex quae obcaecati. Eum accusamus repudiandae tenetur nobis ipsa ipsum debitis labore. Nostrum ipsam beatae eligendi quaerat?</p>
+  <p style="height: 300px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum expedita saepe quis pariatur ex quae obcaecati. Eum accusamus repudiandae tenetur nobis ipsa ipsum debitis labore. Nostrum ipsam beatae eligendi quaerat?</p>
+  
+  <h2 id="Guide">Guide</h2>
+  <p style="height: 300px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum expedita saepe quis pariatur ex quae obcaecati. Eum accusamus repudiandae tenetur nobis ipsa ipsum debitis labore. Nostrum ipsam beatae eligendi quaerat?</p>
+  <p style="height: 300px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum expedita saepe quis pariatur ex quae obcaecati. Eum accusamus repudiandae tenetur nobis ipsa ipsum debitis labore. Nostrum ipsam beatae eligendi quaerat?</p>
+  <p style="height: 300px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum expedita saepe quis pariatur ex quae obcaecati. Eum accusamus repudiandae tenetur nobis ipsa ipsum debitis labore. Nostrum ipsam beatae eligendi quaerat?</p>
+  
+
 
 
 </body>
