@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- 1. 외부 스타일 시트(링크 방식) -->
+  <!-- main.css 통째로 가지고 옴 -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/box.css">
+  <!-- 2. 내부 스타일 시트(내장 방식) -->
+  <!--  
+    장점: 별도의 CSS 파일을 만들지 않고 바로 적용 가능
+    단점: CSS 내용이 많아질 경우 HTML 내부 코드가 복잡해지고,
+    여러 HTML 문서에서 같은 스타일이 반복될 경우 문서마다 반복 장성
+    수정할 떄도 문서마다 찾아다니면서 모두 수정해야 하므로 비효율적
+    (유지 보수에 안좋음)
+  -->
+
+  <style>
+    div {
+      color: red;
+      margin: 20px;
+    }
+  </style>
+  
+</head>
+<body>
+  <!-- 3. 인라인 스타일(인라인 방식) -->
+  <!--  
+    장점: 선택자 없이 해당 요소에 직접 스타일을 작성하므로 편리함
+    단점: 우선 순위가 제일 높아 스타일을 덮어쓸 수 없음(남발하면 유지보수에 안좋음)
+  -->
+  <div style="color: green;" class="box">David</div>
+</body>
+</html>

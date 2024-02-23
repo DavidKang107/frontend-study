@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 시멘틱 태그(블록 요소): 의미론적인, 의미가 있는 태그(HTML5에서 등장) 
+    div처럼 어떠한 기능도 없음(즉, 시각적으로 어떠한 변화도 없음)
+  -->
+
+  <!-- 1. header:
+    웹 사이트 전체에 대한 중요한 정보가 표현되는 부분이라는 의미만을 가지고 있는 태그
+    최상단이나 좌축에 위치
+    로고, 제목, 검색, 메뉴와 같은 요소들을 포함
+  -->
+  <header>
+    <h1>
+      <a href="#">프론트엔드 개발 첫 걸음</a>
+    </h1>
+  </header>
+
+  <!-- 3. nav:
+    웹 사이트의 주요 탐색 영역을 구분하는데 사용
+    내이게이션 역할(메뉴, 목차)에 해당되는 정보가 이 곳에 담김
+    보통 header 안에 들어가거나 header 바깥쪽 밑에 위치하기도 함 (룰이 엄격X)
+  -->
+  <nav>
+    <ul>
+      <li><a href="#html">HTML5</a></li>
+      <li><a href="#css">CSS3</a></li>
+      <li><a href="#js">JavaScript</a></li>
+      <li><a href="#react">React</a></li>
+    </ul>
+  </nav>
+
+  <!-- 6. main:
+    메인 콘텐츠 영역을 의마, 웹페이지의 가장 핵심적인 주요 내용이 들어감
+    본문의 전체 또는 일부를 묶음
+
+    article, aside, footer, header, nav 태그의 하위에 들어갈 수 없음
+  -->
+  
+  <main>
+    <section>
+      <h2>Frontend 기본</h2>
+      <!-- 5. section:
+        문서의 구획을 정의, 관련있는 내용들을 묶어 하나의 영역으로 구분할 때 사용
+        아니면 어떤 특정한 역할로 정의하기 애매한 것들은 섹션으로 묶어줌
+  
+        (참고) heading 태그 미사용 시 warning 발생
+      -->
+  
+  
+      <!--  
+        4. article: 
+        글, 기사라는 뜻, 하나의 본분 글(독립적인 콘텐츠)을 의미
+        독립적으로 사용될 수 있는 영역을 구분할 때 사용
+      -->
+      <article id="html">
+        <h3>HTML5 학습</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+      </article>
+      <article id="css">
+        <h3>CSS3 학습</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+      </article>
+      <article id="js">
+        <h3>JavaScript 학습</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+      </article>
+    </section>
+    <section>
+      <h2>Frontend 고급</h2>
+      <article id="react">
+        <h3>React 학습</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+          Saepe culpa facilis, atque impedit nisi,<br>
+          asperiores maxime amet perferendis magni consectetur accusantium tempore odio!<br>
+          Nemo quia reiciendis ipsa nostrum impedit autem?
+        </p>
+      </article>
+    </section>
+  </main>
+  
+
+  <!-- 2. footer:
+    웹 사이트에 대한 부가적인 설명이 들어오는 영역
+    일반적으로 최하단에 위치
+    저작권 정보, 연락처, 사이트 맵 등의 요소들을 포함
+  -->
+  <footer>
+    <ul>
+      <li><a href="#">회사소개</a></li>
+      <li><a href="#">개인정보 보호정책</a></li>
+    </ul>
+  </footer>
+
+  <!-- 7. aside:
+    웹 페이지 안에서 주력이나 독립적인 내용으로 보기 어려워서
+    article이나 section 태그로 영역을 구분할 수 없을 때 사용
+  -->
+
+</body>
+</html>
