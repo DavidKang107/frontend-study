@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 스타일상속: 해당 요소와 하위 요소까지 스타일 적용 */
+    .animal {
+      color: red;
+
+      /*상속이 가능한 CSS 속성은 대부분 글자와 관련
+        (모든 글자/문자 속성은 아님에 주의!)
+        개발자 도구에서 상속 받은 스타일 확인 가능
+       */
+    }
+
+    /* 강제 상속: 자동으로 상속되지 않는 CSS 속성을 강제로 상속하는 방법 */
+    /* inherit: 부모의 값을 물려받음 */
+    .parent {
+      width: 300px;
+      height: 500px;
+      background-color: red;
+    }
+    .child {
+      width: 100px;
+      height: inherit;
+      background-color: inherit;
+
+      /* 뷰포트 기준으로 배치 */
+      position: fixed;
+      top: 100px;
+      right: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="ecosystem">생태계
+    <div class="animal">동물
+      <div class="tiger">호랑이</div>
+      <div class="lion">사자</div>
+      <div class="elephant">코끼리</div>
+    </div>
+    <div class="plant">식물</div>
+  </div>
+
+  <br><br>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container-1 {
+      /* 길이를 안주면 기본 값이 auto (div는 블록 요소라 부모의 크기만큼 가로 길이가 꽉 참) */
+      /* width: auto;
+      height: auto; */
+
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+
+    span {
+      /* 가로/세로 길이 지정 안됨 => 레이아웃을 작업하는 용도가 아님, 글자를 제어하는 용도 */
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+
+    .parent-1 {
+      height: 200px;
+      background-color: purple;
+      /* width: 300px; */
+      max-width: 1000;
+    }
+    .child-1 {
+      height: 100px;
+      background-color: orange;
+      /* max-width: 300px; */
+      min-width: 400px;
+    }
+    html {
+      font-size: 20px;
+    }
+    .parent-2 {
+      width: 300px;
+      height: 200px;
+      background-color: royalblue;
+    }
+    .child-2 {
+      /* width: 50%; */
+      /* width: 10em;
+      font-size: 10px; */
+      /* width: 10rem; */
+      width: 50vw;
+      min-width: 200px;
+      height: 100px;
+      /* height: 60%; */
+      /* height: 50vh; */
+      background-color: orange;
+    }
+    body {
+      height: 2000px;
+    }
+
+    .container-2 > .item {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      border: 4px solid red;
+    }
+    .container-2 > .item:first-child {
+      /* margin: -50px; */
+      /* 음수는 잘 사용X(간혹 요소 배치 시 사용함) */
+      /* margin: 10px 20px 30px 40px; */
+      /* margin-bottom: 20px; */
+
+      /* Tip! "가로 길이를 갖는" 블록 요소의 수평 가운데 정렬 */
+      margin: 0 auto;
+
+    }
+
+    .container-2 .item:last-child {
+      /* 내부 여백 지정 시 요소의 크기가 커짐 */
+      /* 즉, width, height는 콘텐츠의 크기를 의미함 */
+      /* padding: 10px; */
+      /* padding: 10px 20px 30px 40px; */
+      padding-left: 20px;
+      padding-bottom: 20px;
+    }
+
+    .container-3 .item {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+
+    .container-3 .item:first-child {
+      /* 실선 */
+      border: 10px solid gray;
+      /* padding 과 마찬가지로 요소의 크기가 커진다. */
+    }
+
+    .container-3 .item:nth-child(2) {
+      border: 10px dashed #ff0000;
+    }
+
+    .container-3 .item:last-child {
+      /* border: 10px dotted #0000ff; */
+      border: 10px dotted rgba(0,0,255,0.5);
+    }
+    .container-3 .item:last-child > div {
+      width: 50%;
+      margin: 0 auto;
+      color: blue;
+    }
+
+    .container-4 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      margin: 20px;
+      /* border-radius: 20px; */
+      border-radius: 50%;
+      /* Tip! 원을 만들 떄도 사용 */
+    }
+
+    .container-5 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+    .container-5.compare {
+      /* border로 인해 요소의 크기 10px 증가 */
+      border: 5px solid red;
+      /* padding으로 인해 요소의 크기가 40px 증가 */
+      padding: 20px;
+      /*  
+        요소의 크기는 150 x 150으로 늘어남
+        만약 요소의 가로/세로 길이를 100px로 유지하고 싶다면 늘어난 50px만큼 빼줘야 함
+      */
+
+      box-sizing: border-box;
+      /* 가로/세로 계산에 padding과 border 값도 포함해서 자동으로 content 영역이 줄어듬 */
+      /*  
+      요소에 padding과 border 값이 추가될 때 지정한 크기보다 커지는 것을 방지
+      */
+    }
+
+  </style>
+</head>
+<body>
+  <h4>1-1. width, height 실습</h4>
+  <div class="container-1">Hello</div>
+  <span>Hello</span>
+  <hr>
+  <h4>1-2. max-, min- 실습</h4>
+  <div class="parent-1">
+    <div class="child-1"></div>
+  </div>
+  <!-- 
+    자주 사용하는 CSS 단위(*많이 사용)
+
+    1. px(픽셀)*: 
+      디바이스가 표현할 수 있는 화면의 점
+      1920 x 1080 해상도에서 1920, 1080 숫자들이 가로, 세로에 들어가는 픽셀의 수를 의미
+    2. %(상대적 백분율)*:
+      특정 값을 기준으로 몇 퍼센트의 크기를 가지는지 표현하는 상대 단위
+    3. em(요소의 글꼴 크기):
+      요소 자신의 글꼴 크기를 기준으로 하는 상대 단위
+      예를 들어 요소의 글꼴 크기가 10px이면 1em은 10px을 의미
+    4. rem(root-em, 루트 요소의 글꼴 크기):
+      루트(최상위) 요소(html)의 글꼴 크기를 기준으로 하는 상대 단위
+      루트의 글꼴 크기 기본값은 16px이므로 1rem은 16px을 의미
+    5. vw(뷰포트의 가로 너비의 백분율):
+      예를 들어 뷰포트의 가로가 1920px인 경우 10vw는 192px
+      브라우저 창 크기 조절 시 상대적으로 바뀜 
+    6. vh(뷰포트의 세로 높이의 백분율):
+      예를 들어 뷰포트의 세로가 1080px인 경우 10vh는 108px 
+      브라우저 창 크기 조절 시 상대적으로 바뀜 
+  -->
+
+  <hr>
+  <h4>CSS 단위 실습</h4>
+  <div class="parent-2">
+    <div class="child-2"></div>
+  </div>
+  <hr>
+
+  <h4>2. margin, padding 실습</h4>
+  <div class="container-2">
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <hr>
+
+  <h4>3. Border 실습</h4>
+  <div class="container-3">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item">
+      <div>item</div>
+    </div>
+  </div>
+  <hr>
+
+  <h4>4. border-radius 실습</h4>
+  <div class="container-4"></div>
+  <hr>
+
+  <h4>5. Box-sizing 실습</h4>
+  <div class="container-5 compare">hello</div>
+  <div class="container-5">hello</div>
+
+
+
+
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: width와 height 속성의 역할은?
+  A1: 가로 세로를 지정할 때 쓰임
+
+  Q2: width와 height 속성의 기본값은?
+  A2: auto(블록 요소와 인라인 요소에 따라 auto 값의 특정이 달라진다는 것이 중요)
+
+  Q3: max-width와 max-height 속성의 기본값은?
+  A3: none (최대치의 제한이 없다.) 
+
+  Q4: min-width와 min-height 속성의 기본값은?
+  A4: 0 (최소치 제한 없음) 0에는 따로 단위를 붙일 필요가 없음
+
+  Q5: em 단위의 기준은?
+  A5: 해당 요소의 글꼴 크기 
+
+  Q6: 0px과 0vw 중 더 큰 값은?
+  A6: 두 개의 크기가 0으로 같음
+
+  Q7: margin 속성의 역할은?
+  A7: 요소의 외부 여백
+
+  Q8: margin: 40px 30px 20px;
+      위 코드에서 30px은 어느 방향을 의미하는가?
+  A8: 좌/우
+  
+  Q9: margin: 20px 10px;
+      위 코드에서 20px은 어느 방향을 의미하는가?
+  A9: 상/하
+
+  Q10: padding 속성의 역할은?
+  A10: 요소의 내부 여백 지정
+
+  Q11: padding: 20px 10px 40px 30px;
+      위 코드에서 30px은 어느 방향을 의미하는가?
+  A11: 좌측
+  
+  Q12: padding 속성의 특징은?
+  A12: 기준을 지정하지 않을 경우 요소의 크기가 커짐
+
+  Q13: border 속성의 특징은?
+  A13: 기준을 지정하지 않을 경우 요소의 크기가 커짐
+
+  Q14: 두께 2px, 종류 실선, 색상 빨강의 테두리 선을 코드로 작성하시오!
+  A14: border: 2px solid red;
+
+  Q15: 요소의 모서리를 둥글게 깎기 위한 속성은?
+  A15: border-radius
+
+  Q16: width: 100px; padding: 20px; border: 1px solid red;
+      위 코드가 지정된 요소의 실제 가로 너비는?
+  A16: 142px
+
+  Q17: width: 100px; padding: 20px; border: 1px solid red; box-sizing: border-box;
+      위 코드가 지정된 요소의 실제 가로 너비는?
+  A17: 100px
+
+  Q18: box-sizing 속성의 기본값은?
+  A18: content-box
+-->
