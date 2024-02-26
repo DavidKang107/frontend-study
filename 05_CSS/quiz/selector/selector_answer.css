@@ -1,31 +1,64 @@
 /* 1. 14 라인의 <img>태그를 선택하는 선택자를 작성 */
-header img:first-child {
+/* header img:first-child {
+  border: 2px solid red;  => 명확하게 어디 하위에 있는지 언급해줘야함
+} */
+
+header .logo img {
   border: 2px solid red;
 }
+
 /* 2. 18~28 라인의 <ul>태그를 선택하는 선택자를 작성(하위[후손] 선택자 필수) */
-nav ul {
+/* nav ul {
+  border: 2px solid red;  =>좀 더 명확하게 선택해 줘야 함
+} */
+/* header ul.main-menu {  => ul 이라고 업급해줘도 됨
+  border: 2px solid red;
+} */
+
+header .main-menu {
   border: 2px solid red;
 }
+
+
 /* 3. 33~40 라인의 5번째 <a>태그의 <img>를 선택하는 선택자를 작성(가상 클래스 선택자 필수) */
-aside a:nth-child(5) > img {
+/* aside a:nth-child(5) > img {  => 좀 더 명확하게 표현해줘야 함
   border: 2px solid red;
-}
+} */
+
+#global_aside > a:nth-child(5) > img {
+  border: 2px solid red;
+  }
+
 /* 4. 45~60 라인의 class가 header인 태그를 선택하는 선택자를 작성(자식 선택자 필수) */
-ul > .header {
+/* ul > .header {
+  border: 2px solid red;  => 좀 더 명확하게 지칭하고 표현
+} */
+
+#detail_list > .column-1 > .header {
   border: 2px solid red;
 }
+
+
 /* 5. 62~77 라인의 <ul>태그에서 3번째 <li>을 선택하는 선택자를 작성(가상 클래스 선택자 필수) */
-#detail_list ul:nth-child(4) li:nth-child(3) {
+/* #detail_list ul:nth-child(4) li:nth-child(3) {
+  border: 2px solid red; ==> 후손 말고 자식으로 명확하게 표현
+} */
+#detail_list > ul:nth-child(4) > li:nth-child(3) {
   border: 2px solid red;
 }
+
+
 /* 6. 78 라인의 <h3>태그에 마우스를 올렸을 때의 선택자를 작성 */
-#detail_list h3:last-child:hover {
+#detail_list > h3:last-child:hover {  /* 후손으로 표현하기 말고 자손으로 표현할 것 */
   border: 2px solid red;
 }
 /* 7. 82~85 라인의 type이 text인 <input>태그에 focus 됐을 때의 선택자를 작성(속성 선택자 필수) */
 /* 단, 마지막 읽기 전용 input은 선택에서 제외 */
-/* border가 아닌 background-color로 테스트 할 것! */
-[type="text"]:not([readonly]):focus {
+/* border가 아닌 background-color로 테스트 할 것! , 보통 focus outline을 초기화 한 후 사용*/
+/* input[type="text"]:not([readonly]):focus { ==> 명확하게 지칭 할 것)
+  background-color: red;
+} */
+input[type="text"]:focus:not(input[readonly]) {
   background-color: red;
 }
 
