@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .test {
+      width: 200px;
+      height: 200px;
+      /* 배경색을 안넣으면 기본이 투명색 */
+      background-color: orange;
+      /* 요소의 크기보다 이미지가 크면 잘려 보임
+        (이미지를 요소의 배경으로 깔았기 때문에) */
+      background-image: url("./images/logo.png");
+      /* 사이즈 조정 가능 */
+      /* background-size: 200px; */
+      /* 기본적으로 반복해서 출력(바둑판식 배열) */
+      background-size: 50px;
+      /* 반복을 제어하는 속성 */
+      background-repeat: no-repeat;
+      /* 위치를 조정하는 속성 */
+      background-position: center;
+    }
+
+    .container-1 {
+      width: 800px;
+      height: 500px;
+      background-color: orange;
+      background-image: url("./images/logo_resize.png");
+
+      /* background-repeat: repeat-x; */
+      /* background-repeat: repeat-y; */
+      background-repeat: no-repeat;
+
+      /* 방향을 입력: 순서 상관없음 */
+      /* background-position: top right; */
+      /* background-position: center; */
+      /* 단위를 입력: 왼쪽에서의 거리(x축), 위에서의 거리(y축) */
+      /* background-position: 100px 30px; */
+
+      /* 단위를 입력: 가로 길이, 세로 길이 */
+      /* background-size: 100px 200px; */
+      /* 단위를 입력: 가로 길이 (세로는 비율에 맞게 자동 지정) */
+      /* background-size: 300px; */
+      /* cover: 비율을 유지, 더 넓은 너비에 가득 덮음
+        (배경이 잘려도 상관없으니 빈 공간 없이 꽉 채워라)
+      */
+      /* background-size: cover; */
+      /* contain: 비율을 유지, 더 짧은 너비에 포함시킴
+        (박스 내 여백이 남아도 좋으니까 배경이 잘리지 않게)
+      */
+      background-size: contain;
+    }
+
+    .container-2 {
+      height: 800px;
+      background-color: yellow;
+    }
+    .fixed-bg {
+      height: 200px;
+      background-color: pink;
+      background-image: url("./images/logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body>
+  <div class="test"></div>
+
+  <br>
+
+  <div class="container-1"></div>
+
+  <br>
+
+  <p>fixed: 배경 이미지가 뷰포트에 고정, 스크롤 되지 않음</p>
+  <div class="fixed-bg"></div>
+  <div class="container-2">스크롤링을 하기 위한 800px 높이의 div 영역</div>
+
+  <!-- 특정 섹션의 뒷배경으로 이미지가 고정이 돼서 요소는 올라가는데 이미지는 멈춰있으면 이런 것을 배경 이미지 시차 효과(Parallax)라 부름 -->
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: 요소 배경에 이미지를 삽입하는 속성은?
+  A1: background-image
+  
+  Q2: 요소 배경에 이미지를 삽입할 때 사용하는 함수는?
+  A2: url("이미지 경로")
+
+  Q3: 배경 이미지를 반복하지 않는 속성 값은?
+  A3: no-repeat
+
+  Q4: 요소가 스크롤 될 때 배경 이미지는 뷰포트에 고정되는 속성 값은?
+  A4: fixed
+-->

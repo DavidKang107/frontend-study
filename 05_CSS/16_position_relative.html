@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .parent {
+      width: 600px;
+      height: 350px;
+      background-color: royalblue;
+    }
+    .child-1 {
+      width: 250px;
+      height: 150px;
+      background-color: orange;
+    }
+    .child-2 {
+      width: 350px;
+      height: 250px;
+      background-color: coral;
+
+      /* 요소 자기 자신을 기준(내 원래 위치를 기준)으로 배치 */
+      /* position: relative; 속성만 넣으면 아무런 변화도 없음 */
+      position: relative;
+      top: 30px;
+      left: 300px;
+      /* 배치 전 자리는 비어있음!
+        결과적으로 relative를 써서 레이아웃을 배치하는 경우는 많이 없음
+      */
+    }
+    .child-3 {
+      width: 250px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+</body>
+</html>
