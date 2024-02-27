@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    h1.test {
+      font-size: 24px;
+      /* 글자의 두께 100~900 */
+      font-weight: 400;
+      /* 글자의 기울기 */
+      font-style: italic;
+      /* 글꼴(서체) */
+      font-family: serif;
+
+    }
+
+    p.test {
+      width: 350px;
+      padding: 10px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      /* 한 줄의 높이 */
+      line-height: 1.6;
+    }
+
+    /* class 값으로 스타일 만들어두기 
+      why? class 값만 넣으면 스타일 적용
+      => 자주 쓰는 스타일은 재사용 가능한 클래스로 만들어두면 좋음
+    */
+    .fst-italic {
+      font-style: italic;
+    }
+    .fw-bold {
+      font-weight: bold;
+    }
+    .fw-900 {
+      /* 폰트가 해당 두께를 지원해야만 적용됨, 지원하지 않을 경우 가장 근사한 값이 적용 */
+      font-weight: 900;
+    }
+    .fs-large {
+      font-size: large;
+    }
+    .fs-150 {
+      font-size: 150%;
+    }
+    /* 일반적으로 폰트 크기는 단위로 직접 지정 (px, em, rem) */
+
+    .lh-32 {
+      line-height: 32px;
+    }
+    .lh-2 {
+      line-height: 2;
+    }
+    .lh-200p {
+      line-height: 200%;
+    }
+
+  </style>
+</head>
+<>
+  <h1 class="test">Hello world!</h1>
+  <p class="test">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <hr>
+
+  <h1>font-style: 글꼴의 기울기</h1>
+  <p>이것은 문단입니다, normal.</p>
+  <p class="fst-italic">이것은 문단입니다, italic.</p>
+
+  <h1>font-weight: 글꼴 두께</h1>
+  <p>이것은 문단입니다, normal, 400.</p>
+  <p class="fw-bold">이것은 문단입니다, bold. (700과 동일)</p>
+  <!-- 폰트가 굵기를 지원해야함. 가장 가까운 굵기로 적용 -->
+  <p class="fw-900">이것은 문단입니다, 900.</p>
+
+  <h1>font-size: 글꼴 크기</h1>
+  <div>이것은 텍스트입니다, medium. (16px)</div>
+  <div class="fs-large">이것은 텍스트입니다, large.</div>
+  <div class="fs-150">이것은 텍스트입니다, 150%.</div>
+
+  <h1>line-height: 한 줄의 높이(행간)</h1>
+  <h2>line-height: normal:</h2>
+  <div>
+    이것은 표준 줄 높이를 갖는 문단입니다.<br>
+    대부분의 브라우저에서 표준 줄 높이는 약 110% ~ 120% 입니다.
+  </div>
+  <h2>line-height: 2 (권장 방식, 단위 없음):</h2>
+  <div class="lh-2">
+    이것은 권장 줄 높이를 갖는 문단입니다.<br>
+    줄 높이가 요소의 글꼴 크기에 배수로 지정됩니다.
+  </div>
+  <h2>line-height: 200%:</h2>
+  <div class="lh-200p">
+    이것은 비율 줄 높이를 갖는 문단입니다.<br>
+    줄 높이는 여기서 200%로 설정됩니다.
+  </div>
+
+  <!-- Tip! -->
+  <h2>글자 요소의 수직 정렬</h2>
+  <div style="height: 80px; background-color: orange; line-height: 80px; text-align: center;">
+    <span style="background-color: beige;">이것은 문장입니다.</span>
+  </div>
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: 글자 기울기를 지정할 때 사용하는 속성과 값은?
+  A1: font-style: italic;
+
+  Q2: 글자를 두껍게 지정할 때 사용하는 속성과 값은?
+  A2: font-weight: bold; 또는 font-weight: 700;
+
+  Q3: 고딕체 계열을 의미하는 속성 값은?
+  A3: sans-selif
+
+  Q4: line-height 속성을 사용할 때 권장하는 단위는?
+  A4: 숫자(배수), 예 line-height: 1.4;
+-->

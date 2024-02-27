@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* display: 요소의 화면 출력(보여짐) 특성 
+      각 요소의 이미 지정되어 있고 수정 가능
+    */
+
+    span {
+      width: 150px;
+      height: 50px;
+      background-color: royalblue;
+      color: white;
+      display: inline-block;
+      text-align: center;
+      
+      /* 가로/세로 길이 지정을 위해 보여짐 특성을 바꿔보기 */
+      /* display: block; */
+      /* 많은 경우에 인라인 요소를 블록 또는 인라인-블록으로 바꾸는 행위를 하게 될 것임 
+        (예: a태그, img태그) 수평인지 수직 정렬인지에 따라서 inline-block/block 결정
+        인라인으로 정렬되어 있는 메뉴에 수직 방향 여백을 줄 경우 사용 할 수 있음*/
+
+      /* 요소의 숨김 처리 */
+      /* display: none; */
+      /* 화면에서 요소를 일시적으로 혹은 영구적으로 사라지게 하는 목적으로 자주 사용
+        (예: 모달창, 메뉴, 탭 메뉴 항목)
+      */
+    }
+
+    /* 모달창 */
+    #modal {
+      width: 200px;
+      height: 200px;
+      border: 1px solid lightgray;
+      border-radius: 6px;
+      background-color: whitesmoke;
+      text-align: center;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+
+    .test {
+      height: 300px;
+      width: 300px;
+      background-color: yellow;
+    }
+
+    .parent {
+      width: 100px;
+      height: 100px;
+      padding: 30px;
+      background-color: royalblue;
+    }
+    .child {
+      width: 200px;
+      height: 100px;
+      background-color: orange;
+
+      /* 0과 1사이의 ㅅ수를 사용하여 투명도를 지정 */
+      opacity: 1;
+      opacity: 0.5;
+      opacity: 0.07;
+
+      /* 소숫점에서 앞의 정수 부분은 생략 가능 */
+      opacity: .5;
+    }
+  </style>
+</head>
+<body>
+  <span>Hello world!</span>
+  <span class="none">Hello world!</span>
+  <hr>
+  <!-- Tip! 모달창을 숨기거나 보일 떄 -->
+  <div id="modal">모달창</div>
+
+  <button type="button" onclick="showModal()">열기</button>
+  <button type="button" onclick="hideModal()">닫기</button>
+
+  <hr>
+
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+
+  <script>
+    // 함수(=기능)
+    function showModal() {
+      document.getElementById('modal').style.display = 'block';
+    }
+    function hideModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+  </script>
+
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: HTML <a></a>에 가로 너비를 지정하기 위해 사용해야 하는 속성과 값은?
+  A1: display: block;
+      display: inline-block;
+
+  Q2: opacity 속성의 기본값은?
+  A2: 1 (요소는 기본적으로 불투명함)
+-->
+
+<!-- (참고) 팝업창(Popup) VS 모달창(Modal)
+  1. 팝업창(Popup): 
+  현재 열려있는 브라우저 페이지에서 또 다른 브라우저 페이지를 띄우는 것
+  브라우저에서 이 창을 열기/닫기로 제어할 수 있음
+  그러나 브라우저에서 팝업창을 차단한 경우 보이지 않는 점이 있음
+
+  2. 모달창(Modal):
+  기존의 브라우저 페이지 위에 새로운 창이 아닌 레이어를 까는 것
+  모달창은 제거를 하지 않고도 페이지를 이동하면 자연히 사라짐
+  기존의 페이지와 부모-자식 관계를 갖으며, 브라우저의 새 창 제어 옵션에는 전혀 영향을 받지 않음
+
+  3. 정리:
+  팝업창의 경우 웹 시작과 동시에 공지, 프로모션, 주의사항, 안내문 등으로 띄우는 경우가 많음
+  (현재 의도하는 목적과 상관없이 뜨는 창에 주로 쓰임)
+
+  모달창의 경우 중간 중간 사용자에게 요구되는 사항에 맞게 보여주는 경우가 많음 
+  (다음 스텝으로 넘어가기 위한 필요에 의해 사용되는 창에 주로 쓰임)
+
+  또 다른 차이는 팝업창은 사용자가 원할 경우 브라우저의 옵션을 통해 열지 않도록 강제할 수 있는 기능이 있음
+  그렇기 때문에 반드시 노출해야하는 부분은 모달창을 사용하는 것이 좋음
+
+  그리고 모달창을 닫기 전에는 부모창에 직접 이벤트를 행할 수 없음(<- 만들기 나름)
+  때문에 모달창 안에서 특정 행동이 강요되는 경우가 많고, 
+  이에 비해 팝업창은 종속되는 개념이 아니기에 행동이 자유로움
+-->
