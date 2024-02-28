@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .profile {
+      width: 100px;
+      /* 요소를 원으로 만들기 */
+      border-radius: 50%;
+      /* 이미지 가운데 정렬하기(2가지) */
+      /* 부모에 text-align: center; */
+      display: block;
+      margin: 0 auto;
+    }
+    .title {
+      text-align: center;
+      font-size: 24px;
+    }
+    .content {
+      text-align: center;
+    }
+    /* 일부 글자만 스타일링 */
+    span {
+      color: red;
+      font-weight: 700;
+    }
+    .box {
+      width: 450px;
+      background-color: cornflowerblue;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      border-radius: 5px;
+      margin: 0 auto;
+      box-shadow: 5px 5px black;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div style="text-align: center;"> -->
+    <!-- img.profile -->
+    <img src="https://avatars.githubusercontent.com/u/40111690?v=4" alt="profile" class="profile">
+  <!-- </div> -->
+  
+  <!-- h3.title -->
+  <h3 class="title">Goni Kim</h3>
+
+  <!-- p.content -->
+  <p class="content">
+    <span>Full Stack</span> Developer
+  </p>
+
+  <!-- div.box -->
+  <div class="box">
+    안녕하세요. Goni Kim 입니다.<br>
+    현재 웹 프론트엔드/백엔드 교강사로 활동중이며<br>
+    취미는 배드민턴을 치는 것입니다.
+  </div>
+</body>
+</html>

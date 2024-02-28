@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .parent {
+      width: 600px;
+      height: 350px;
+      background-color: royalblue;
+      /* 자식 요소에서 absolute를 쓰는 경우 위치 기준을 잡기 위해 사용 */
+      position: relative;
+    }
+    .child-1 {
+      width: 250px;
+      height: 150px;
+      background-color: orange;
+
+      position:relative;
+      z-index: 999;
+    }
+    .child-2 {
+      width: 350px;
+      height: 250px;
+      background-color: coral;
+      position: absolute;
+      top: 80px;
+      left: 100px;
+      z-index: 1;
+    }
+    .child-3 {
+      width: 250px;
+      height: 300px;
+      background-color: red;
+      position: absolute;
+      bottom: 0;
+      right: 130px;
+      z-index: 2;
+    }
+    /* 
+    정리:
+    position이 적용된 요소들이 많을 때 누가 맨 앞에 올 것인가?
+    z-index로 조정: 요소 쌓임 정도를 지정 (숫자가 높을수록 위에 쌓임)
+    */
+    /* (중요) position 속성의 값(static 제외)이 같이 있어야 적용되고, 
+      Flex Items에서도 사용 가능 */
+    /* 주로 슬라이드 메뉴, 드롭다운(콤보 박스), 모달창이나 로딩, 
+      백그라운드 비활성화 영역 등에 사용 */
+
+      span {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        font-size: 40px;
+
+        position: absolute;
+      }
+  </style>
+  <script>
+    // 밑에 깔린 요소도 같이 클릭 되는지 확인하기 위한 함수 (기능)
+    function print(el) {
+      console.log(el);
+    }
+    // (참고) 이벤트 버블링
+    // 이벤트가 제일 깊은 곳에 있는 요소에서 시작해 부모 요소를 거슬러 올라가며 
+    // 발생하는 모양이 마치 물속 거품(bubble)과 닮았기 때문
+    // 몇몇 이벤트(Focus 등)를 제외하곤 대부분의 이벤트는 버블링 됨
+
+  </script>
+</head>
+<body>
+  <div class="parent" onclick="print('parent')">
+    <div class="child-1" onclick="print('child-1')">1</div>
+    <div class="child-2" onclick="print('child-2')">2</div>
+    <div class="child-3" onclick="print('child-3')">3</div>
+  </div>
+
+  <!-- (참고) position 속성의 값으로 absolute, fixed가 지정된 요소는 display가 block의로 변경됨 -->
+  <span>123</span>
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: position 속성의 기본값은?
+  A1: static (위치 기준 없음)
+
+  Q2: 위치상 부모 요소를 기준으로 배치하는 position 속성의 값은?
+  A2: absolute
+
+  Q3: 뷰포트를 기준으로 배치하는 position 속성의 값은?
+  A3: fixed
+
+  Q4: display 속성이 block의 값으로 바뀌지 않는 position 속성의 값은?
+    1) absolute  2) relative  3) fixed
+  A4: relative
+-->

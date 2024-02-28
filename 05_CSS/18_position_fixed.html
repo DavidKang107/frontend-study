@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      /* 세로 스크롤을 만들기 위해 추가 */
+      height: 3000px;
+    }
+    .grandparent {
+      width: 800px;
+      height: 550px;
+      background-color: plum;
+    }
+    .parent {
+      width: 600px;
+      height: 350px;
+      background-color: royalblue;
+
+
+    }
+    .child-1 {
+      width: 250px;
+      height: 150px;
+      background-color: orange;
+    }
+    .child-2 {
+      width: 350px;
+      height: 250px;
+      background-color: coral;
+      /* 뷰포트를 기준으로 배치 (화면을 스크롤해도 요소의 위치가 고정됨) */
+      /* 일반 배치 흐름에서 벗어남(제외됨) */
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      /* 보통 고정된 헤더, 광고 배너나 최상단으로 이동하는 버튼을 만들 때 주로 사용 */
+
+    }
+    .child-3 {
+      width: 250px;
+      height: 300px;
+      background-color: red;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="grandparent">
+    <div class="parent">
+      <div class="child-1">1</div>
+      <div class="child-2">2</div>
+      <div class="child-3">3</div>
+    </div>
+  </div>
+</body>
+</html>
