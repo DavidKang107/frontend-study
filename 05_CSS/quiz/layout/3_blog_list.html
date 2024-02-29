@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 공통 스타일은 앞부분에 작성 */
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .navbar {
+      display: flex;
+      column-gap: 10px;
+    }
+    .navbar > li {
+      width: 80px;
+      height: 40px;
+      background-color: #ddd;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .container {
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .blog-content {
+      width: 80%;
+      height: 200px;
+    }
+    .content-header {
+      display: flex;
+    }
+    .profile-image {
+      display: flex;
+      align-items: center;
+    }
+    .profile-image > img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      /* align-items: center; */
+      /* margin: auto 0; */
+    }
+    .name-time{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .name-time > p {
+      margin: 0;
+      padding: 4px;
+      
+    }
+    .blog-image {
+      width: 20%;
+      height: 200px;
+      background-image: url(./images/food.jpg);
+      background-size: cover;
+    }
+    .navbar > li:hover {
+      background-color: #999;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Tip! 레이아웃을 만드는 기본
+    뭘 만들든 레이아웃은 항상 수평(행)으로 자른 후 박스부터 만들고 시작하면 됨
+    그리고 이 박스들을 전부 <div>로 구현해 놓으면 됨 (물론 시맨틱 태그로 활용)
+    그리고 안에 글 넣고 그림 널고 하면 끝!
+
+    이 때 <div>는 블록 요소이기 때문에 위아래로 배치
+    좌우로 나란히 배치하고 싶으면 float(😟), inline-block(😐), Flexbox(😀)
+  -->
+
+  <!-- navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="#"></a>영화</li>
+      <li><a href="#"></a>맛집</li>
+      <li><a href="#"></a>IT</li>
+      <li><a href="#"></a>컴퓨터</li>
+    </ul>
+  </nav>
+  <!-- blog list -->
+  <div class="container">
+    <div class="blog-content">
+      <div class="content-header">
+        <div class="profile-image">
+          <img src="./images/photo.jpg" alt="profile image">
+        </div>
+        <div class="name-time">
+          <p style="font-weight: bold;">David</p>
+          <p style="color: #777;">1시간전</p>
+        </div>
+        <!-- 프로필 이미지 -->
+        <!-- 작성자, 시간 -->
+      </div>
+      <div class="content-body">
+        <h4>가성비 맛집을 발견했어요!</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quidem iure? Rem laboriosam debitis et, sunt ad eum velit totam nostr</p>
+        <!-- 글 제목, 글 내용 -->
+      </div>
+    </div>
+    <div class="blog-image">
+    
+    </div>
+  </div>
+</body>
+</html>

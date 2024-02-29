@@ -84,9 +84,34 @@
     .history > h4 {
       text-align: center;
     }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+    }
+    ul.menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      column-gap: 10px;
+    }
+    /* 메뉴 항목 사이에 간격을 넣는 방법 (2가지)
+      1) margin
+      2)gap (in Filebox) */
+    
+    /* .menu-item + .menu-item {
+      margin-left: 10px;
+    } */
   </style>
 </head>
 <body>
+  <nav class="nav-container">
+    <h1>Shoes Shop</h1>
+    <ul class="menu">
+      <li class="menu-item">Products</li>
+      <li class="menu-item">Services</li>
+    </ul>
+  </nav>
   <div class="main-background">
     <h4 class="main-title">Buy our excellent shoes!</h4>
     <p class="main-content">

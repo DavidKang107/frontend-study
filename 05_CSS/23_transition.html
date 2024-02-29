@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      /* 전 상태 */
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .test {
+      /* 전환 효과를 1초 동안 추가 */
+      /* 요소에 주어야 돌아오는 순간에도 시간 적용 */
+      transition: 1s;
+      /* width 값에만 전환 효과 주기 */
+      transition: width 1s;
+      /* 지속 시간을 더 짧게 지정 = 더 빠른 전환 효과 */
+      transition: width 0.1s;
+      /* 전환 효과 여러개 설정하기 */
+      transition: 
+      width 0.1s, 
+      background-color 2s;
+      /* 대기 시간 지정 - 두번째 ㅣ간은 대기 시간을 의미 */
+      transition: 1s 0.5s;
+    }
+    .test:active {
+      /* 후 상태 */
+      width: 300px;
+      background-color: royalblue;
+      /* padding: 10px; */
+
+    }
+    div + div {
+      margin-top: 20px;
+    }
+    .transition-1 {
+      transition: width 2s, height 4s linear 3s;
+    }
+    .transition-1:hover {
+      width: 300px;
+      height: 300px;
+    }
+    .transition-2:hover {
+      width: 300px;
+
+    }
+    .transition-2 {
+      transition: width 3s ease-out;
+    }
+    .transition-3 {
+      position: relative;
+      left: 0;
+      transition: left 2s;
+    }
+    .transition-3:active {
+      left: 300px;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>transition(전환 효과)</h1>
+  <h2>요소의 전, 후 상태의 중간 단계를 자연스럽게 만들어주는 효과</h2>
+  <div class="test"></div>
+
+  <div class="transition-1"></div>
+  <div class="transition-2"></div>
+  <div class="transition-3"></div>
+</body>
+</html>
+
+<!-- (정리) Quiz 
+  Q1: transition-property 속성의 기본값은?
+  A1: all (기본적으로 모든 속석에 적용)
+
+  Q2: transition 단축 속성의 필수 포함 속성은?
+  A2: 지속 시간
+-->
