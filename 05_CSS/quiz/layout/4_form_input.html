@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 연습용! */
+    .text-input {
+      /* width: 120px; */
+      padding: 4px;
+      font-size: 20px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      width: 100%;
+    }
+    .text-input:focus {
+      border: 2px solid #000;
+      background-color: #ddd;
+    }
+
+    /* 연습용! */
+    /* 공통 스타일은 앞부분에 작성 */
+    /* 콤마를 써서 여러 개 동시 선택 가능 */
+    div, input, textarea {
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: none;
+    }
+    button {
+      cursor: pointer;
+    }
+
+    .form-background {
+      background-color: #333;
+      padding: 30px 0;
+    }
+
+    /* 실전 */
+    .form-container {
+      background-color: #fff;
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .name-container {
+      display: flex;
+      column-gap: 12px;
+    }
+    p {
+      margin-top: 28px;
+    }
+    .send {
+      display: flex;
+      justify-content: space-between;
+    }
+    .button-send {
+      text-align: center;
+      color: #fff;
+      background-color: orange;
+      width: 100px;
+      border: none;
+      border-radius: 4px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>실전</h2>
+  <!-- 박스부터 그려보기!! (불필요한 div는 생략 가능) -->
+  <div class="form-background">
+    <div class="form-container">
+      <form>
+        <h3>Contact Us</h3>
+        <p>
+          <label for="email">Your Email</label>
+        </p>
+        <input type="text" id="email" class="text-input" placeholder="email@example.com">
+        <div class="name-container">
+          <div style="flex-grow: 1;">
+            <p>
+              <label for="fname">First name</label>
+            </p>
+            <input type="text" id="fname" class="text-input">
+          </div>
+          <div style="flex-grow: 1;">
+            <p>
+              <label for="lname">Last name</label>
+            </p>
+            <input type="text" id="lname" class="text-input">
+          </div>
+        </div>
+        <p>
+          <label for="mtext">Message</label>
+        </p>
+        <textarea name="messege" id="mtext" class="text-input" rows="3"></textarea>
+        <div class="send">
+          <div>
+            <input type="checkbox" name="checkbox" id="agree">
+            <label for="agree">Agree</label>
+          </div>
+          <div>
+            <button type="button" class="button-send">SEND</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
