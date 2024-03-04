@@ -10,16 +10,18 @@
     /* 연습용! */
     .text-input {
       /* width: 120px; */
-      padding: 4px;
+      padding: 10px;
       font-size: 20px;
       border: 2px solid #ccc;
       border-radius: 6px;
       outline: none;
+      /* 선택 시 자동으로 생성되는 아웃라인을 없애야 스타일을 넣을 수 있음 */
       width: 100%;
+      transition: 0.5s;
     }
     .text-input:focus {
-      border: 2px solid #000;
-      background-color: #ddd;
+      border: 2px solid #777;
+      /* background-color: #ddd; */
     }
 
     /* 연습용! */
@@ -52,6 +54,10 @@
       display: flex;
       column-gap: 12px;
     }
+    .name-container > div {
+      /* flex-grow: 1; */
+      flex: 1;
+    }
     p {
       margin-top: 28px;
     }
@@ -80,17 +86,17 @@
         <p>
           <label for="email">Your Email</label>
         </p>
-        <input type="text" id="email" class="text-input" placeholder="email@example.com">
+        <input type="email" id="email" class="text-input" placeholder="email@example.com">
         <div class="name-container">
-          <div style="flex-grow: 1;">
+          <div>
             <p>
-              <label for="fname">First name</label>
+              <label for="fname">First Name</label>
             </p>
             <input type="text" id="fname" class="text-input">
           </div>
-          <div style="flex-grow: 1;">
+          <div>
             <p>
-              <label for="lname">Last name</label>
+              <label for="lname">Last Name</label>
             </p>
             <input type="text" id="lname" class="text-input">
           </div>
@@ -98,18 +104,16 @@
         <p>
           <label for="mtext">Message</label>
         </p>
-        <textarea name="messege" id="mtext" class="text-input" rows="3"></textarea>
+        <textarea id="mtext" class="text-input" rows="3"></textarea>
         <div class="send">
           <div>
-            <input type="checkbox" name="checkbox" id="agree">
-            <label for="agree">Agree</label>
+            <input type="checkbox" name="checkbox" id="agree" style="cursor: pointer;">
+            <label for="agree" style="cursor: pointer;">Agree</label>
           </div>
-          <div>
-            <button type="button" class="button-send">SEND</button>
-          </div>
+          <button type="submit" class="button-send">SEND</button>
         </div>
       </form>
     </div>
   </div>
 </body>
-</html>
+</html> 

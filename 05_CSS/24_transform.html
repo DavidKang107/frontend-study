@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      padding: 0 40px;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: royalblue;
+    }
+
+    .container-1 > .item-1 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+
+      /* 요소를 변환시키는 속성: 변환 함수(); */
+      transform: rotate(45deg);
+      transform: rotate(45deg) scale(1.2);
+    }
+    .translate {
+      /* transform: translate(20px, 20px); */
+      /* transform: translateX(20px); */
+      transform: translateY(20px);
+    }
+
+    /* .scale {
+      transform: scale(0.5);
+      transform: scale(1.5);/
+    } */
+    .scale:hover {
+      transform: scale(0.7);
+      transition: 0.5s;
+    }
+    .rotate {
+      /* 2D */
+      /* transform: rotate(45deg); */
+      /* 3D */
+      /* transform: perspective(300px) rotateX(45deg) */
+      transform: perspective(300px) rotateY(45deg)
+    }
+
+    .skew {
+      /* transform: skew(-30deg); */
+      /* transform: skewY(20deg); */
+      transform: skew(20deg, 20deg);
+    }
+    .container-2 {
+      width: 100px;
+      height: 100px;
+      background-color: royalblue;
+
+      /* 원근법 추가2 - 변환 속성 사용(관찰 대상의 부모에 적용) */
+      perspective: 250px;
+    }
+    .item-2 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      font-size: 60px;
+      /* Quiz: 정중앙 정렬 (2가지) */
+      /* line-height: 100px;
+      text-align: center; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* 원근법 추가1 - 변환 함수 사용(관찰 대상에 적요) */
+      /* transform: perspective(250px) rotateY(45deg); */
+      transform: rotateY(45deg);
+
+      transition: 2s;
+      backface-visibility: hidden;
+    }
+    .container-2 .item-2:hover {
+      transform: rotateY(180deg);
+    }
+
+  </style>
+</head>
+<body>
+  <h1>transform(변환)</h1>
+  <div class="container-1">
+    <div class="item-1">Hello world!</div>
+  </div>
+  <hr>
+  <h2>translate: </h2>
+  <div class="translate">Hello world!</div>
+  <h2>scale: </h2>
+  <div class="scale">Hello world!</div>
+  <h2>rotate: </h2>
+  <div class="rotate">Hello world!</div>
+  <h2>skew: </h2>
+  <div class="skew">Hello world!</div>
+  <hr>
+
+  <h2>perspective & backface-visibility</h2>
+  <div class="container-2">
+    <div class="item-2">가</div>
+  </div>
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: transform 속성의 2D 회전을 지정하는 변환 함수는?
+  A1: rotate()
+
+  Q2: 관찰 대상의 부모 요소에 원근법을 지정하는 속성은?
+  A2: perspective:
+
+  Q3: skewX 변환 함수에서 값으로 사용하는 단위는?
+  A3: deg
+
+  Q4: perspective 함수에서 원근 거리가 적용되는 대상은?
+  A4: 관찰 대상 자체
+
+  Q5: 요소의 뒷면을 숨기는 속성과 값은?
+  A5: backface-visibility: hidden;
+-->

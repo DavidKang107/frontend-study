@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 공통 스타일 */
+   * {
+    box-sizing: border-box;
+  }
+  table {
+    border-collapse: collapse;
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+  }
+  .cart-background {
+    width: 100%;
+    background-color: lightsteelblue;
+    padding: 30px;
+  }
+
+  .inner {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  td {
+    border-top: 2px solid lightsteelblue;
+    padding: 16px;
+    /* height: 80px; */
+  }
+  th {
+    padding: 20px;
+  }
+  img {
+    width: 50px;
+    object-fit: cover;
+  }
+  .cart-list th:nth-child(2) {
+    /* 의미: 다른 셀들은 최소 폭을 가져가면서 해달 셀은 최대 400px까지 늘어남 */
+    width: 400px;
+    /* (참고) 셀 블록마다 width를 설정해 줄 수 있지만 하나의 셀에 width 를 주어도 전체 열의 width가 변함 */
+  }
+  .cart-list td:nth-child(2) {
+    text-align: left;
+  }
+  .cart-list > tbody > tr:nth-child(4) > td {
+    text-align: right;
+  }
+  
+  .btn-group {
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn {
+    width: 120px;
+    background-color: brown;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  .btn:hover {
+    background-color: chocolate;
+    cursor: pointer;
+  }
+  .btn:active {
+    background-color: chocolate;
+  }
+  </style>
+</head>
+<body>
+  <div class="cart-background">
+    <!-- 가운데 정렬을 위한 div -->
+    <div class="inner">
+      <h2>장바구니</h2>
+      <table class="cart-list">
+        <!-- 4행 5열 만들기 -->
+        <tr>
+          <th></th>
+          <th>ITEM</th>
+          <th>AMOUNT</th>
+          <th>PRICE</th>
+          <th>TOTAL</th>
+        </tr>
+        <tr>
+          <td>
+            <img src="./images/item1.png" alt="item1">
+          </td>
+          <td style="text-align: start;">카메라</td>
+          <td>1</td>
+          <td>100,000</td>
+          <td>100,000</td>
+        </tr>
+        <tr>
+          <td><img src="./images/item2.png" alt="item2"></td>
+          <td>신발신발신발</td>
+          <td>2</td>
+          <td>59,000</td>
+          <td>118,000</td>
+        </tr>
+        <tr>
+          <td colspan="5"> 주문금액 218,000원</td>
+          <!-- <td></td>
+          <td></td>
+          <td>주문금액</td>
+          <td>218,000원</td> -->
+        </tr>
+
+      </table>
+      <div class="btn-group">
+        <a href="#">계속 쇼핑하기</a>
+        <button type="button" class="btn">구매하기</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
