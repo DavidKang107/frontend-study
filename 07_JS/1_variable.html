@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 변수
+    // 데이터를 저장할 수 있는 공간(그릇)이고 그 이름을 지정
+    // 쓰는 이유? 변수에 저장해뒀다가 재사용!
+    // (같은 범위 안에서) 동일한 이름으로 중복 선언 불가
+    const a = 2;
+    // const a = 3; //중복 선언 불가
+    const b = 5;
+
+    console.log(a + b);
+    console.log(a - b);
+    console.log(a * b);
+    console.log(a / b);
+
+    //const
+    //변수를 선언하는 가장 기본적인 키워드
+    //값의 재할당이 불가(상수라고 불림)
+    const c = 12;
+    console.log(c);
+
+    // c = 999; //TypeError 발행
+    console.log(c); // 실행 안됨
+
+    // let
+    // 값의 재할당이 가능
+    let d = 20;
+    console.log(d);
+
+    d = 999;
+    console.log(d);
+
+    // 재할당이 가능한 let이 더 편리해 보이지만
+    // 지정된 데이터(값)가 언제든지 바뀔 수 있음은 해석과 관리가 어려울 수 있음, 또는 잘못된 값이 들어갈 수 있음
+    // const를 우선으로 사용하고, 값이 재할당이 필요한 경우에만 let을 사용
+
+    // 예약어
+    // 특별한 의미와 기능을 가진 키워드로 각 언어의 시스템들이 쓰겠다고 예약해준 것
+    // 변수나 함수 등의 이름으로 사용 불가
+    // const let = 'Hello';
+    // const this = 123;
+
+
+  </script>
+</body>
+</html>

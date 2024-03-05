@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- defer  속성 추가 -->
+  <script defer src="./5_dom_api.js"></script>
+  <style>
+    .active {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <!-- DOM API란? 
+    Document Object Model(문서 객체 모델): HTML 문서를 객체로 모델링 
+    => DOM에서는 모든 HTML 요소가 객체로 정의 됨
+    Application Programming Interface: 무언가 동작시킬 때 사용하는 프로그래밍 명령
+    => 각 객체의 속성과 메소드
+    
+    정리: JS에서 HTML을 제저할 수 있는 명령들
+  -->
+  
+  <!-- DOM API로 제어해 보기 -->
+  <div class="box">
+    Box!!
+  </div>
+  <!-- <script src="./5_dom_api.js"></script> -->
+</body>
+</html>
+
+<!-- 
+  DOM API를 사용하려면 HTML구조(DOM Tree)가 필요한데,
+  <script>를 <body>보다 앞에 작성하면 HTML구조를 브라우저가 읽기(분석) 전에
+  JS가 동작하므로 읽을 수 있는게 없음
+
+  해결 방법 2가지
+  1. <script>를 <body>의 가장 뒷부분에 작성해서 HTML구조를 모두 읽은 뒤에 동작하게 하거나
+  2. defer 속성을 추가해 HTML 구조를 읽은 뒤 <script>가 동작하도록 지연시킬 수 있음
+-->
