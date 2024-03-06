@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 메소드 체이닝: 여러 메소드를 이어서 작성
+    const a = 'He-llo-IT';
+    // spilt: 문자를 인수 기준으로 쪼개서 배열로 변환
+    // reverse: 배열을 뒤집기
+    // join: 배열을 인수 기준으로 문자로 병합해 반환
+    const b = a.split('').reverse().join('');
+
+    console.log(a);
+    console.log(b);
+
+    // 메소드 체이닝을 안쓰면?
+    const c = a.split('');
+    const d = c.reverse();
+    const e = d.join('');
+    console.log(e);
+
+    // 정리: 분리해서 작성하면 코드가 길어지니까 필요에 따라 메소드 체이닝을 사용
+  </script>
+</body>
+</html>
