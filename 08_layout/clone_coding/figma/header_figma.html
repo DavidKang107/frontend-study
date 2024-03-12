@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    img {
+      display: block;
+    }
+    .btn {
+      border-radius: 10px;
+      padding: 14px 24px 16px;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      background: rgb(85, 81, 255);
+      cursor: pointer;
+      user-select: none;
+      transition: transform .2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    header {
+      width: 100%;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo img {
+      width: 38px;
+    }
+    
+    header .navbar {
+      display: flex;
+      align-items: center;
+      /* min-height: 42px; */
+    }
+
+    header .navbar .main-menu {
+      display: flex;
+      margin-right: 8px;
+    }
+    header .navbar .main-menu > li {
+      /* sub-menu 가운데 정렬을 위한 작업 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    header .navbar .main-menu > li > a {
+      padding: 8px 16px;
+    }
+    header .navbar .main-menu > li:hover .sub-menu {
+      display: block;
+    }
+    /* hover시 밑줄 효과 */
+    header .navbar .main-menu li > a > span {
+      border-bottom: 3px solid transparent; /* 미리 밑줄 공간 확보 */
+    }
+    header .navbar .main-menu li:hover > a > span {
+      border-bottom: 3px solid #000;
+      transition: border-bottom .8s;
+    }
+
+    .sub-menu {
+      border: 3px solid #000;
+      padding: 8px 0;
+      position: absolute;
+      top: 34px;
+      white-space: nowrap; /* 줄바꿈 안함 */
+      z-index: 9;
+      display: none;
+      /* 스타일 작업 완료 후 숨기기 */
+    }
+    .sub-menu > li > a {
+      padding: 12px 22px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="#">
+        <img src="./images/figma_logo.svg" alt="logo">
+      </a>
+    </div>
+
+    <nav class="navbar">
+      <ul class="main-menu">
+        <li>
+          <a href="#">
+            Products
+            <svg width="8" height="6" viewBox="0 0 8 6" class="figma-1vkg3ei">
+              <path d="M4 6L0.535898 0L7.4641 0L4 6Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><span>Figma</span></a></li>
+            <li><a href="#"><span>FigJam</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            Enterprise
+            <svg width="8" height="6" viewBox="0 0 8 6" class="figma-1vkg3ei">
+              <path d="M4 6L0.535898 0L7.4641 0L4 6Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><span>Overview</span></a></li>
+            <li><a href="#"><span>Customers</span></a></li>
+            <li><a href="#"><span>Contact Sales</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>Pricing</span></a>
+        </li>
+        <li>
+          <a href="#">
+            Community
+            <svg width="8" height="6" viewBox="0 0 8 6" class="figma-1vkg3ei">
+              <path d="M4 6L0.535898 0L7.4641 0L4 6Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><span>Events and livestreams</span></a></li>
+            <li><a href="#"><span>Best practices</span></a></li>
+            <li><a href="#"><span>Education program</span></a></li>
+            <li><a href="#"><span>User groups</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            Company
+            <svg width="8" height="6" viewBox="0 0 8 6" class="figma-1vkg3ei">
+              <path d="M4 6L0.535898 0L7.4641 0L4 6Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><span>Blog</span></a></li>
+            <li><a href="#"><span>Careers</span></a></li>
+            <li><a href="#"><span>Our story</span></a></li>
+            <li><a href="#"><span>Help Center</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>Log in</span></a>
+        </li>
+      </ul>
+
+      <a href="#" class="btn">Get started</a>
+    </nav>
+  </header>
+</body>
+</html>

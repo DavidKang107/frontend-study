@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .gallery {
+      background-color: beige;
+    }
+
+    .gallery .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .gallery h1 {
+      text-align: center;
+    }
+
+    .gallery .img-group {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .gallery .img-group img {
+      /* gap을 넣은 만큼 적당히 빼주기 */
+      width: calc(25% - 8px);
+    }
+
+    /* 768 ~960px 사이 일때는 한줄에 3장 씩 */
+    @media screen and (min-width:768px) and (max-width: 960px) {
+      .gallery .img-group img {
+        width: calc(33.33% - 7px)
+      }
+    }
+    /* 480 ~ 767px 사이 일때는 한줄에 2장 씩 */
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+      .gallery .img-group img {
+        width: calc(50% - 5px)
+      }
+    }
+    /* ~479px 이하 일때는 한줄에 1장 씩 */
+    @media screen and (max-width: 479px) {
+      .gallery .img-group img {
+        width: 100%
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="gallery">
+    <div class="inner">
+      <h1>갤러리</h1>
+      <div class="img-group">
+        <img src="https://via.placeholder.com/1024x768" alt="img1">
+        <img src="https://via.placeholder.com/1024x768" alt="img2">
+        <img src="https://via.placeholder.com/1024x768" alt="img3">
+        <img src="https://via.placeholder.com/1024x768" alt="img4">
+        <img src="https://via.placeholder.com/1024x768" alt="img5">
+        <img src="https://via.placeholder.com/1024x768" alt="img6">
+        <img src="https://via.placeholder.com/1024x768" alt="img7">
+        <img src="https://via.placeholder.com/1024x768" alt="img8">
+      </div>
+    </div>
+  </section>
+</body>
+</html>

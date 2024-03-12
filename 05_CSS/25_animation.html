@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    :root {
+  --animate-repeat: 10;
+  }
+    .btn-shake {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: skyblue;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-shake:hover {
+      animation-name: shake;
+      animation-duration: 1s;
+      
+    }
+
+    #modal {
+      width: 300px;
+      height: 200px;
+      border-radius: 6px;
+      border: 1px solid lightgray;
+      background-color: whitesmoke;
+      padding: 20px;
+    }
+
+
+    /* CSS @keyframes 룰: 애니메이션 코드를 설정 */
+    @keyframes shake {
+      /* keyframes-selector: 애니메이션이 진행되는 과정을 선택해서 지정 
+        0~100%
+        from (0%와 동일)
+        to (100%와 동일)
+      */
+      0% { transform: rotate(0deg);}
+      25% {transform: rotate(-8deg);}
+      50% {transform: rotate(8deg);}
+      75% { transform: rotate(-8deg);}
+      100% { transform: rotate(0deg);}
+    }
+
+    .shake-hard {
+      animation: shake-hard 2s;
+    }
+
+    @keyframes shake-hard {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-2px, 0px) rotate(1deg); }
+      30% { transform: translate(2px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-2px, 1px) rotate(0deg); }
+      70% { transform: translate(2px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+      
+    }
+
+    .material-icons {
+      font-size: 70px;
+      cursor: pointer;
+    }
+
+    @keyframes turn {
+      0% {transform: rotate(0deg);}
+      25% {transform: rotate(-45deg);}
+      100% {transform: rotate(45deg);}
+    }
+
+    .material-icons:hover {
+      animation: turn 1s forwards;
+      animation-iteration-count: 5;
+      /* animation-fill-mode: 애니메이션이 끝났을 때 상태 유지 */
+    }
+
+  </style>
+</head>
+<body>
+  <h2>shake 애니메이션 만들기</h2>
+  <button type="button" class="btn-shake">흔들흔들</button>
+
+  <h2>Tip! 애니메이션을 이용한 창 흔들기</h2>
+  <div id="modal">
+    <label for="age">나이</label>
+    <input type="text" id="age">
+    <button type="button" onclick="shakemodal()">등록</button>
+
+  </div>
+
+  <h2>Turn 애니메이션 만들기</h2>
+  <span class="material-icons">add</span>
+
+  <!-- animate 라이브러리 -->
+  <h1 class="animate__animated animate__bounce animate__repeat-1 ">An animated element</h1>
+
+  <script>
+    const modalEl = document.getElementById('modal')
+    const ageInputEl = document.getElementById('age')
+
+    function shakemodal() {
+      // 유효성 검사
+      console.log(ageInputEl.value);
+      if (ageInputEl.value === '') {
+        modalEl.classList.add('shake-hard');
+        // setTimeout(함수, 500); // 0.5초 뒤에 함수 실행
+        setTimeout(function() {
+          modalEl.classList.remove('shake-hard')
+        }, 500);
+      } 
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 미디어 쿼리: 다양한 유형 및 장치에 다른 스타일을 적용하는데 사용 
+      @media 조건 {
+        조건에 맞을 때 추가할 스타일
+      }
+
+      반응형 웹(화면의 너비에 따라 스타일이 변하는 웹) 만들 때는 조건에 screen
+      (모니터 화면)으로 시작
+      개발자 도구의 토글 디바이스로 반응형 작업 확인 가능
+    */
+    /* 
+      반응형 작업은 '기획자 > 디자이너 > 개발자' 순으로 넘어옴
+
+      실무에서 주로 하는 작업들
+      1) 1행 2열 수옆 구조를 2행 1열의 수직 구조로 변경하거나 중요하지 않은 정보는 과감히 생략
+      2) 게시판이나 리스크 목록의 경우 중요하지 않은 컬럼을 생략, 이미지나 카드형 목록은 줄바꿈
+      3) 폰트 크기나 이미지 사이즈 등 콘텐츠의 크기 및 여백을 모바일 화면에 맞춰서 작게 조절
+    */
+    body {
+      background-color: tan;
+      color: black;
+    }
+
+    /* 장치가 화면이고, 최대 너비가 992px 일 때(=>992 이하) */
+    @media screen and (max-width: 992px) {
+      body {
+        background-color: blue;
+        color: white;
+      }
+      h2 {
+        font-size: 24px;
+      }
+    
+    }
+    /* 장치가 화면이고, 최대 너비가 600px 일 때(=>600 이하) */
+    /* 큰 사이즈에서 작은 사이즈 순으로 작성 */
+    @media screen and (max-width: 600px) {
+      body {
+        background-color: olive;
+        color: white;
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
+
+    /* (중요) 
+      1. 미디어 쿼리는 가장 밑에 작성(기존 스타일을 덮어써야 하므로)
+      2. 큰 사이즈 -> 작은 사이즈 순으로 작성 (가장 마지막에 해석된 것이 적용되므로)
+      3. 앞에서 적용된 스타일 값을 중복으로 넣을 필요 없음
+    */
+
+    /* (참고) 일반적인 중단점(분기점, Break Point)
+      1. 5개 기준(매우 복잡)
+      ~ 479px : 모바일 세로
+      480px ~ 767px : 모바일 가로, 태블릿 세로
+      768px ~ 1023px : 태블릿 가로
+      1024px ~ 1279px : 노트북
+      1280px ~ : 데스크톱
+
+      2. 4개 기준(복잡)
+      ~ 479px : 모바일 세로
+      480px ~ 767px : 모바일 가로, 태블릿 세로
+      768px ~ 1023px : 태블릿 가로
+      1024px ~ : 데스크톱
+
+      3. 3개 기준(일반적, Good)
+      ~ 767px : 모바일
+      768px ~ 1023px : 태블릿
+      1024px ~ : 데스크톱
+
+      4. 2개 기준(일반적, Normal)
+      ~ 767px : 모바일
+      768px ~ : 태블릿, 데스크톱
+    */
+    /* (참고) 부트스트랩에서 사용하는 중단점
+      1200px / 992px / 768px / 576px
+
+      1200px / 992px 중 어디부터 태블릿 사이즈로 볼지
+      768px / 576px 중 어디부터 모바일 사이즈로 볼지는 선택 사항
+    */
+  </style>
+</head>
+<body>
+  <h1>Resize the browser window to see the effect!</h1>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam nam sint quasi est suscipit atque consequuntur odit et, quaerat eius cupiditate magni aperiam, quas dolorum repellat reiciendis! Iure, ullam reprehenderit?</p>
+</body>
+</html>

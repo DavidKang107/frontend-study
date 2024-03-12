@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .header {
+      width: 100%;
+      height: 50px;
+      background-color: aquamarine;
+    }
+
+    .left-menu {
+      width: 20%;
+      height: 400px;
+      background-color: cornflowerblue;
+      float: left;
+      /* 요소를 붕 띄어서 완쪽으로 붙여주세요 */
+      /* float로 띄웠기 때문에 .content요소가 밑에 깔림 */
+    }
+
+    .content {
+      width: 80%;
+      height: 400px;
+      background-color: coral;
+      float: left;
+      /* float로 띄웠기 때문에 .footer 요소가 밑에 깔림 */
+    }
+
+    .footer {
+      width: 100%;
+      height: 100px;
+      background-color: gray;
+
+      /* 문제 해결 방법1 -
+        float 다음에 오는 요소에게 clear를 주면 이전 float 해제
+      */
+      /* clear: both; */
+    }
+    /* 문제 해결 방법2 - 부모 요소에 overflow: hidden;
+    */
+    .section {
+      overflow: hidden;
+      /* float 속성을 준 요소의 부모 요소는 높이 값을 잃어 자식 요소들을 춤지 못한다.
+        overflow 속성을 주어 높이 값을 되찾게 해 떠있는 요소들을 품도록 한다.
+      */
+    }
+    
+    
+
+  </style>
+</head>
+<body>
+  <!-- float를 이용한 레이아웃 만들기 - 옛날 방식(지양) -->
+  <div class="container">
+    <div class="header"></div>
+    <div class="section">
+      <div class="left-menu"></div>
+      <div class="content"></div>
+    </div>
+    <div class="footer"></div>
+  </div>
+
+  <br><br>
+  <h2>원래 float 용도로 사용하는 것은 ok</h2>
+  <img src="https://via.placeholder.com/300x200" alt="" style="float: left;">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit natus, non aut, illo, atque deserunt corporis nobis soluta iste minus repudiandae expedita reiciendis similique dolor. Ab dolor dicta ipsa placeat?
+</body>
+</html>

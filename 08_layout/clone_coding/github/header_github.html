@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    body{
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+      line-height: 1.5;
+      color: #24292f;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .btn {
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 4px 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 500ms;
+      text-align: center;
+      background: transparent;
+    }
+    .btn:hover {
+      opacity: 0.75;
+    }
+    .inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header {
+      width: 100%;
+      padding: 16px 0;
+    }
+    header .inner {
+      display: flex;
+      align-items: center;
+    }
+    header .logo a {
+      margin-right: 16px;
+    }
+    header .logo svg {
+      display: inline-block;
+    }
+
+    .menu-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    /* hover시 밑줄 효과 */
+    .navbar li > a > span {
+      border-bottom: 3px solid transparent;
+    }
+    .navbar li:hover > a > span {
+      border-bottom: 3px solid #000;
+      transition: border-bottom .8s ease;
+    }
+
+    .main-menu {
+      display: flex;
+    }
+    .main-menu > li {
+      position: relative;
+    }
+    .main-menu > li:hover .sub-menu {
+      display: block;
+    }
+    .main-menu > li > a {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+    }
+    .main-menu > li > a > svg {
+      margin-left: 4px;
+    }
+
+    .sub-menu {
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      position: absolute;
+      padding: 8px 0px;
+      white-space: nowrap; /* 줄바꿈 안함 */
+      z-index: 9;
+      left: -16px;
+      display: none;
+    }
+    .sub-menu > li > a {
+      padding: 12px 22px;
+    }
+
+    .sidebar {
+      display: flex;
+      align-items: center;
+    }
+    .sidebar input {
+      width: 240px;
+      padding: 8px 12px;
+      margin-right: 16px;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      line-height: 20px;
+      outline: none;
+    }
+    .sidebar .sign-in {
+      margin-right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <div class="logo">
+        <a href="#">
+          <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github">
+            <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="menu-wrapper">
+        <nav class="navbar">
+          <ul class="main-menu">
+            <li>
+              <a href="#">
+                Product
+                <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                  <path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path>
+                </svg>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#"><span>Actions</span></a></li>
+                <li><a href="#"><span>Packages</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                Solutions
+                <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                  <path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path>
+                </svg>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#"><span>For</span></a></li>
+                <li><a href="#"><span>By Solution</span></a></li>
+                <li><a href="#"><span>Resources</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                Open Source
+                <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                  <path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path>
+                </svg>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#"><span>GitHub Sponsors</span></a></li>
+                <li><a href="#"><span>The ReadME Project</span></a></li>
+                <li><a href="#"><span>Repositories</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>Pricing</span></a>
+            </li>
+          </ul>
+        </nav>
+        
+        <div class="sidebar">
+          <input type="text" placeholder="Search GitHub" spellcheck="false" autocomplete="off">
+          <a href="#" class="sign-in">Sign In</a>
+          <a href="#" class="btn sign-up">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+</body>
+</html>

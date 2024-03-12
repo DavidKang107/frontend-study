@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .box {
+      border: 1px solid black;
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    /* PC */
+    /* 방법1: width값 사용 */
+    .col-1 { width: 8.33%; }
+    .col-2 { width: 16.66%; }
+    .col-3 { width: 25%; }
+    .col-4 { width: 33.33%; }
+    .col-5 { width: 41.66%; }
+    .col-6 { width: 50%; }
+    .col-7 { width: 58.33%; }
+    .col-8 { width: 66.66%; }
+    .col-9 { width: 75%; }
+    .col-10 { width: 83.33%; }
+    .col-11 { width: 91.66%; }
+    .col-12 { width: 100%; }
+    
+    /* 방법2: flex 사용 */
+    /* .col-1 { flex: 1; }
+    .col-2 { flex: 2; }
+    .col-3 { flex: 3; }
+    .col-4 { flex: 4; }
+    .col-5 { flex: 5; }
+    .col-6 { flex: 6; }
+    .col-7 { flex: 7; }
+    .col-8 { flex: 8; }
+    .col-9 { flex: 9; }
+    .col-10 { flex: 10; }
+    .col-11 { flex: 11; }
+    .col-12 { flex: 12; } */
+
+    /* 모바일 */
+    @media screen and (max-width: 768px) {
+      .row {
+        flex-wrap: wrap;
+      }
+      [class*="col-"] {
+        width: 100%;
+      }
+      
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Grid View(Grid System)</h1>
+  <h2>화면을 12등분해서 레이아웃을 구성</h2>
+  <div class="row">
+    <div class="box col-3">3</div>
+    <div class="box col-9">9</div>
+  </div>
+  <div class="row">
+    <div class="box col-6">6</div>
+    <div class="box col-6">6</div>
+  </div>
+  <div class="row">
+    <div class="box col-3">3</div>
+    <div class="box col-5">5</div>
+    <div class="box col-4">4</div>
+  </div>
+</body>
+</html>

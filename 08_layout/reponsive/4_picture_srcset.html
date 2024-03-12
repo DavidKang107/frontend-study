@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- 해상도에 따라 다른 이미지 or 다른 포맷을 보여주고 싶을 때 사용 -->
+  <picture>
+    <!-- 1024px 이상에서 -->
+    <source srcset="https://via.placeholder.com/1000x458.png" media="(min-width: 1024px)">
+    <!-- 768px 이상에서 -->
+    <source srcset="https://via.placeholder.com/768x280.png" media="(min-width: 768px)">
+    <!-- 320px 이상에서 -->
+    <source srcset="https://via.placeholder.com/320x150.png" media="(min-width: 320px)">
+    <!-- 순차적으로 위에서부터 모든 요소의 이미지 사용이 불가능하면 마지막 <img>를 렌더링 -->
+    <img src="https://via.placeholder.com/1024x768" alt="original">
+  </picture>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .product-container {
+      display: flex;
+      width: 80%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .product {
+      width: 25%;
+      padding: 20px;
+    }
+
+    /* 1200px 이하에서는 2열, 768px 이하에서는 1열 수직 구조로 만들기
+      (단, flex 방향은 건드리지 말 것!)
+    */
+    @media screen and (max-width: 1200px) {
+      .product {
+        width: 50%;
+      }
+      .product-container {
+        flex-wrap: wrap;
+        
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .product {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="product-container">
+    <div class="product" style="background-color: #aaa;">
+      <h4>상품 1</h4>
+      <p>상품정보</p>
+    </div>
+    <div class="product" style="background-color: #bbb;">
+      <h4>상품 2</h4>
+      <p>상품정보</p>
+    </div>
+    <div class="product" style="background-color: #ccc;">
+      <h4>상품 3</h4>
+      <p>상품정보</p>
+    </div>
+    <div class="product" style="background-color: #ddd;">
+      <h4>상품 4</h4>
+      <p>상품정보</p>
+    </div>
+  </div>
+</body>
+</html>
