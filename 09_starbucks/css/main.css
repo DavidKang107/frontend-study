@@ -1062,3 +1062,30 @@ footer .logo {
   z-index: 9;
   opacity: 0; /* 처음 상태는 투명 */
 }
+
+/* 반응형 실습 */
+@media screen and (max-width: 960px) {
+  .season-product .inner {
+    height: 700px;
+  }
+  
+  .season-product .product {
+    margin: 0 auto;
+  }
+
+  .season-product .text-group {
+    /* 자식 요소를 수평 가눙제 정렬을 위해 flexbox 사용 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 480px;
+    /* 방법1 */
+    /* left: 0;
+    right: 0;
+    margin: auto; */
+    /* 방법2 */
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}

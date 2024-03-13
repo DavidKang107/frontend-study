@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 스타일 초기화 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+
+  <!-- 구글 머티리얼 아이콘 연결: 구글에서 제공하는 머티리얼 스타일의 아이콘, 글자처럼 취급 가능한 장점 -->
+  <!-- 그 외 fontawsome, bootstrap icon 등 -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+filled" rel="stylesheet">
+  <style>
+    /* 전역 변수 설정 */
+    html {
+      --color-text: #f2f2f2;
+      --color-background: #044288;
+      --color-orange: #ff9950;
+    }
+    /* 또는 */
+    :root {
+      --color-text: #f2f2f2;
+      --color-background: #044288;
+      --color-orange: #ff9950;
+    }
+    /* 공통 스타일 */
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    .btn {
+      width: 100px;
+      height: 40px;
+      border: 2px solid var(--color-orange);
+      border-radius: 4px;
+      outline: none;
+      background-color: transparent;
+      color: var(--color-orange);
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      color: var(--color-text);
+      background-color: var(--color-orange);
+    }
+    .material-icons {
+      font-size: inherit;
+      color: var(--color-orange);
+    }
+
+    header {
+      background-color: var(--color-background);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative; 
+    }
+
+    header .logo {
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav > ul {
+      display: flex;
+    }
+
+    .nav > ul > li {
+      /* 만약 클릭할 수 있는 영역을 넓히려면 a태그에 패딩 넣기 */
+      padding: 8px 12px; 
+    }
+
+    .nav > ul > li:hover {
+      background-color: var(--color-orange);
+      border-radius: 4px;
+    }
+
+    header .btn-group .btn + .btn {
+      margin-left: 10px;
+    }
+
+    header .btn-hamburger {
+      font-size: 48px;
+      position: absolute;
+      right: 32px;
+      display: none;
+    }
+
+    .m-nav {
+      width: 50%;
+      height: 100vh;
+      background-color: var(--color-background);
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      /* 방법1 */
+      right: -50%;
+      /* 방법2: translateX() 써도 구현 가능 */
+      transition: 0.5s;
+    }
+
+    .m-nav div {
+      text-align: right;
+    }
+
+    .m-nav .btn-close {
+      font-size: 48px
+    }
+
+    /* Quiz 768px 이하에서
+    .nav .btn-group은 숨기고, .btn-hamburger는 보이도록 처리 
+    
+    */
+
+    @media screen and (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      .btn-group {
+        display: none;
+      }
+      /* 우선 순위에 유의해서 선택자 적용해야 함 */
+      header .btn-hamburger {
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .m-nav {
+        display: none;
+      }
+    }
+    .m-nav.active {
+      right: 0;
+    }
+
+  </style>
+
+  
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="material-icons">logo_dev</span>
+      <a href="#">David</a>
+    </div>
+
+    <nav class="nav">
+      <ul class="nav__menu-main">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+      </ul>
+    </nav>
+
+    <div class="btn-group">
+      <button type="button" class="btn">Sign In</button>
+      <button type="button" class="btn">Sign Up</button>
+    </div>
+
+    <a href="#" class="btn-hamburger" onclick="addActive()">
+      <span class="material-icons">menu</span>
+    </a>
+  </header>
+
+  <!-- 모바일용 슬라이드 메뉴 -->
+  <nav class="m-nav">
+    <div>
+      <a href="#" class="btn-close" onclick="removeActive()">
+        <span class="material-icons">close</span>
+      </a>
+    </div>
+    <ul>
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+      <li><a href="#">메뉴4</a></li>
+      <li><a href="#">메뉴5</a></li>
+    </ul>
+  </nav>
+  <script>
+    // Quiz2
+      // 햄버거 버튼을 클릭하면 .m-nav 요소에 'active'라는 클래스 값 추가(in JS)
+      // 닫기 버튼을 클릭하면 .m-nav 요소에 'active'라는 클래스 값 제거(in JS)
+      // .m-nav 요소에 'active'라는 클래스 값이 있으면 요소 보이기!(in CSS)
+    function addActive() {
+      document.querySelector('.m-nav').classList.add('active')
+    }
+
+    function removeActive() {
+      document.querySelector('.m-nav').classList.remove('active')
+    }
+  </script>
+</body>
+</html>
