@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 3번 문제
+  // 산술 연산자를 이용하여 평균 판매량을 구하고, 4분기 판매량을 입력하여 평균 판매량의 이상/미달 값을 출력하세요.
+  
+  // 질의응답 창(prompt)을 이용하여 4분기 판매량을 입력받고,
+  // 1~3분기 평균 판매량보다 판매량이 높거나 같을 경우에는 '판매량이 평균 이상입니다.' 라고 출력하고,
+  // 낮을 경우에는 '판매량이 평균 미달입니다.' 라고 화면에 출력하세요.
+
+  // 판매량
+  // 1분기: 1,200
+  // 2분기: 1,300
+  // 3분기: 1,000
+
+  // const avgSales = ; // 평균 판매량
+  // const fourth = prompt('4분기 판매량은?', '0');
+  
+  
+  // 3번 풀이
+  const avgSales = (1200 + 1300 + 1000) / 3; // 평균 판매량
+  const fourth = prompt('4분기 판매량은?', '0');
+  const result = fourth >= avgSales ? '판매량이 평균 이상입니다.' : '판매량이 평균 미달입니다.'
+  document.write(result, '<br>');
+  
+</script>
+</body>
+</html>

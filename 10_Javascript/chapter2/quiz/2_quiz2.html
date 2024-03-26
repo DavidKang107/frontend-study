@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 2번 문제
+  // 재현이의 하루 지출 내역이 다음과 같다고 할 때,
+  // 하루 지출 비용의 합계를 구한 후 적정 지출 비용의 초과 여부를 출력하세요.
+
+  // 재현이의 하루 지출 내역은 교통비 3,000원, 식비 6,000원, 음료비 3,000원입니다.
+  // 삼항 조건 연산자를 사용하여 하루 적정 지출 비용인 1만원을 초과했을 경우에는 '000원 초과' 라고 출력하고,
+  // 아닐 경우에는 '돈 관리 잘 했어요!' 라고 출력하세요.
+
+  // const price1 = ; // 교통비
+  // const price2 = ; // 식비
+  // const price3 = ; // 음료비
+  
+  
+  // 2번 풀이
+  const price1 = 3000; // 교통비
+  const price2 = 6000; // 식비
+  const price3 = 3000; // 음료비
+
+  const sum = price1 + price2 + price3;
+  const over = sum - 10000;
+  // let result = sum > 10000 ? `${over}원 초과` : '돈 관리 잘 했어요!';
+  let result = sum > 10000 ? sum - 10000 + '원 초과' : '돈 관리 잘 했어요!';
+
+  document.write(result, '<br>');
+  
+</script>
+</body>
+</html>

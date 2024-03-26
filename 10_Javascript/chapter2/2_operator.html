@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 연산자
+    // 연산이란 데이터를 처리하여 결과가 나오는 것 -> 우리가 아는 사칙연산이 있음
+    // 프로그래밍에서는 산술, 비교, 논리, 문자열에 대한 연산이 존재
+
+    // 1. 할당(대입) 연산자
+    // 오른쪽의 값을 왼쪽에 할당(대입, 저장)할 때 사용
+    // 등호(=)
+    document.write('<h2>할당(대입) 연산자</h2>');
+    let num1 = 10;
+    let num2 = 3;
+
+    // 복합 할당(대입) 연산자
+    // +=, -=, *=. /=, %=, **= 등
+    // 예) A += B; A = A + B
+    num1 += num2; // num1 = num1 + num2
+    document.write(num1, '<br>');
+    
+    num1 -= num2; // num1 = num1 - num2
+    document.write(num1, '<br>');
+    
+    num1 *= num2; // num1 = num1 * num2
+    document.write(num1, '<br>');
+    
+    num1 /= num2; // num1 = num1 / num2
+    document.write(num1, '<br>');
+
+    // 2. 산술 연산자
+    // +, -, *, /, %(나머지 연산자)
+    document.write('<h2>산술 연산자</h2>');
+    num1 = 15;
+    num2 = 2;
+    let result;
+
+    result = num1 + num2;
+    document.write(result, '<br>');
+    result = num1 - num2;
+    document.write(result, '<br>');
+    result = num1 * num2;
+    document.write(result, '<br>');
+    result = num1 / num2;
+    document.write(result, '<br>');
+    result = num1 % num2;
+    document.write(result, '<br>');
+
+    // 3. 증감 연산자
+    // ++(1씩 증가), --(1씩 감소)
+    document.write('<h2>증감 연산자</h2>')
+    num1 = 10;
+
+    num1--;
+    document.write(num1, '<br>');
+
+    num1++;
+    document.write(num1, '<br>');
+
+    // (중요) 주의사항!
+    // 다른 연사자와 같이 사용 시 위치(전위, 후위)에 따라 연산이 달라짐
+    num2 = 20;
+    result = num2++; // result = num2; num2 = num2 + 1;
+    document.write(result, ' ',num2, '<br>');
+
+    result = ++num2; // num2 = num2 + 1; result = num2;
+    document.write(result, ' ',num2, '<br>');
+
+    // Quiz
+    num1 = 10;
+    num2 = 20;
+    result = ++num1 + num2--; // result = (num1 + 1) + num2; num2 = num2 - 1;
+    // result, num1, num2에 저장된 값은?
+    document.write(result, '<br>');
+    document.write(num2, '<br>');
+
+    // 순서대로 풀어서 써보기 실습!!
+
+    // 4. 문자열 연산자
+    // 여러 개의 문자를 하나의 문자로 결합할 때 사용
+    // 문자 데이터가 하나라도 포함되어 있으면 문자 결합 연산으로 동작함
+    // +
+    document.write('<h2>증감 연산자</h2>');
+    const t1 = '학교종이';
+    const t2 = ' 땡땡땡 ';
+    const t3 = 828282;
+    const t4 = ' 어서 모이자 ';
+
+    result = t1 + t2 + t3 + t4;
+    document.write(result, '<br>');
+    
+    result = t1 + 100 + 200 + t4;
+    document.write(result, '<br>');
+
+    result = 100 + 200 + t1 + t4;
+    document.write(result, '<br>');
+
+    result = t1 + (100 + 200) + t4;
+    document.write(result, '<br>');
+    
+    // 5. 비교 연산자
+    // 데이터를 서로 비교하여 결과값으로 true(참), false(거짓)를 반황
+    // >, <, >=, <=, ==(동등), !=(부등), ===(일치), !==(불일치)
+    document.write('<h2>비교 연산자</h2>');
+    result = 10 > 20;
+    document.write(result, '<br>');
+    result = 10 < 20;
+    document.write(result, '<br>');
+    result = 10 <= 20;
+    document.write(result, '<br>');
+    result = 20 == '20';
+    document.write(result, '<br>');
+    result = 20 === '20';
+    document.write(result, '<br>');
+    result = 10 != 20;
+    document.write(result, '<br>');
+    result = 20 != '20';
+    document.write(result, '<br>');
+    result = 20 !== '20';
+    document.write(result, '<br>');
+
+    // 6. 논리 연산자
+    // Boolean(참, 거짓) 값에 대한 논리(AND, OR) 비교를 통해 Boolean 값을 반환
+    // &&(AND): 둘 다 true일 때만 true, 피자 그리고 떡볶이 사와
+    // ||(OR): 둘 중 하나라도 true이면 true, 피자 또는 떡볶이 사와
+    // !(NOT): 부정 연산자, true <=> false
+
+    // (참고) 연산자의 우선순위 
+    // 1. ( ) - 헷갈리면 사용 권장
+    // 2. 단항 연산자(++, --, !)
+    // 3. 산술 연산자(+, -, *, /, %)
+    // 4. 비교 연산자(>, <, >=, <=, ==, !=, ===, !==)
+    // 5. 논리 연산자(&&, ||)
+    // 6. 대입 연산자(=)
+    document.write('<h2>논리 연산자</h2>');
+    result = 10 > 20 || 20 >= 30 || 30 > 40; // false || false || false => false
+    document.write(result, '<br>');
+
+    result = 10 > 20 || 20 >= 30 || 30 <= 40; // false || false || true => true
+    document.write(result, '<br>');
+
+    result = 10 <= 20 && 20 >= 30 && 30 <= 40; // true && false && true => false
+    document.write(result, '<br>');
+
+    result = !(10 > 20); //!false
+    document.write(result, '<br>');
+
+    // (응용) 사이 범위 확인하기
+    // age(나이)가 14세 이상 90세 이하에 속하는지를 확인하는 if문 작성
+    // "이상과 이하"는 범위에 14나 90이 포함된다는 의미
+    const age = 50;
+    //Quiz
+    if (14 <= age && age <= 90) {
+      document.write('internal', '<br>');
+    } else { 
+      document.write('external', '<br>');
+    };
+
+    // (응용) 바깥 범위 확인하기
+    // age(나이)가 14세 미만 90세 초과하는지를 확인하는 if문 작성
+    // Quiz
+    // (NOT ! 연산자를 사용한 답안과 사용하지 않은 답안 2가지)
+
+    if (14 > age || age > 90) {
+      document.write('external', '<br>');
+    } else {
+      document.write('internal', '<br>');
+    };
+
+    if (!(14 <= age && age <= 90)) {
+      document.write('external', '<br>');
+    } else {
+      document.write('internal', '<br>');
+    }
+
+    // Short-circuit evaluation(단축 평가)
+    // &&(AND): 앞에 값이 truthy면 뒤로 넘어간다.
+    // ||(OR): 앞에 값이 falsy면 뒤로 넘어간다.
+    result = 10 > 20 && 30 <= 40; // false &&
+    document.write(result, '<br>');
+    
+    result = 10 < 20 || 30 <= 40; // true ||
+    document.write(result, '<br>');
+
+    // (응용) 기본값 설정 시 사용
+    // falsy(false로 취급되는 값): false, 0, null, NaN, undefined, ''
+    const dbData = '';
+    result = dbData || '기본값';
+    document.write(result, '<br>');
+
+    // (참고) null 병합 연산자 (ES2020)
+    // nullish(null 계열의 값): null, undefined
+    const inputName = null;
+    const nickName = inputName ?? 'Guest';
+    document.write(nickName, '<br>');
+
+
+
+    // (심화 Quiz)
+    let aa;
+    let bb = null;
+    let cc = undefined;
+    let dd = 4;
+    let ee = 'five';
+    let ff = aa || bb || cc || dd || ee;
+    // ff에 저장된 값은?
+    document.write(ff, '<br>');
+
+    // 7. 삼항 연산자
+    // 조건에 따라 2개의 값 중 하나를 반환
+    // 조건식 ? 값1 : 값2;
+    document.write('<h2>삼항 연산자</h2>');
+    result = 0 < 1 ? 'javascript' : 'hello'
+    document.write(result, '<br>');
+
+    const score = 70;
+    // result = score >= 90 ? 'A' : 'B'
+    result = score >= 90 ? 'A' : (score >= 80 ? 'B' : 'C');
+    document.write(result, '<br>');
+
+    // 홀짝 판별기
+    // window.prompt('', '기본값'): 입력을 요청하는 대화 상자
+    // 확인을 누르면 입력 값이, 취소를 누르면 null을 반환
+
+    const number = Number(prompt('숫자를 입력하세요', '0'));
+    document.write(number, ' ', typeof number, '<br>');
+    result = number % 2 === 0 ? '짝수' : '홀수';
+    document.write(result, '<br>');
+
+  </script>
+</body>
+</html>11

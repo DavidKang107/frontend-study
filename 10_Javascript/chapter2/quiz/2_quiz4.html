@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 4번 문제 - 적정 체중 구하기
+
+  // 질의응답 창(prompt)을 이용해 방문자의 이름, 신장, 체중을 입력받은 후 적정 평균 체중을 구합니다.
+  // 적정 평균 체중 오차는 +-5이며 방문자가 입력한 체중이 적정 체중일 경우에는 'OOO님은 적정 체중입니다.'를,
+  // 아닐 경우에는 'OOO님은 적정 체중이 아닙니다.'를 화면에 출력하세요.
+
+	// 평균 체중 = (키 - 100) * 0.9
+
+  // const name = prompt('당신의 이름은?', '');
+	// const height = prompt('당신의 신장은?', '0');
+	// const weight = prompt('당신의 몸무게는?', '0');
+  
+  
+  // 4번 풀이
+  const name = prompt('당신의 이름은?', '');
+	const height = prompt('당신의 신장은?', '0');
+	const weight = prompt('당신의 몸무게는?', '0');
+
+  const avgWeight = (height - 100) * 0.9
+  const result = (avgWeight - 5) <= weight && (avgWeight + 5) >= weight ? `${name}님은 적정 체중입니다.` : `${name}님은 적정 체중이 아닙니다.`;
+
+  document.write(result, '<br>');
+  
+  document.write(name + '님은 ' + result);
+  
+  
+</script>
+</body>
+</html>
