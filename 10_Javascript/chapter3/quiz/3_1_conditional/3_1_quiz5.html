@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제5
+    // 사용자로부터 세 개의 정수를 입력받아, 
+    // 그 수들의 최대값과 최소값, 합계와 평균을 구해서 브라우저에 출력하세요.
+
+    // 풀이5
+    // 주의! 덧셈을 하거나 문자끼리 비교를 피하려면 숫자로 변환해 줄 것!!
+    //'11' > '2' => false
+    //'11' > 2 => true
+    const num1 = Number(prompt('정수1 입력', '0'));
+    const num2 = Number(prompt('정수2 입력', '0'));
+    const num3 = Number(prompt('정수3 입력', '0'));
+    const sum = num1 + num2 + num3;
+    const avg = sum / 3;
+    
+    let min = num1;
+    let max = num2;
+    
+    if (max < num2) {
+      max = num2;
+    } else if (max < num3) {
+      max = num3;
+    }
+    
+    if (min > num2) {
+      min = num2;
+    } else if (min > num3) {
+      min = num3;
+    }
+    
+    document.write('합계는 ' + sum, '<br>');
+    document.write('평균은 ' + avg, '<br>');
+    document.write('최대값은 ' + max, '<br>');
+    document.write('최소값은 ' + min, '<br>');
+
+
+    
+    // if (num1 >= num2 && num1 >= num3) {
+    //   document.write('최대값은 ' + num1, '<br>');
+    //   if (num2 <= num3) {
+    //     document.write('최소값은 ' + num2, '<br>');
+    //   } else {
+    //     document.write('최소값은 ' + num3);
+    //   }
+    // } else if (num2 >= num1 && num2 >= num3) {
+    //   document.write('최대값은 ' + num2, '<br>');
+    //   if (num1 <= num3) {
+    //     document.write('최소값은 ' + num1, '<br>');
+    //   } else {
+    //     document.write('최소값은 ' + num3, '<br>');
+    //   }
+    // } else {
+    //   document.write('최대값은 ' + num3, '<br>');
+    //   if (num1 <= num2) {
+    //     document.write('최소값은 ' + num1, '<br>');
+    //   } else {
+    //     document.write('최소값은 ' + num2, '<br>');
+    //   }
+    // }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

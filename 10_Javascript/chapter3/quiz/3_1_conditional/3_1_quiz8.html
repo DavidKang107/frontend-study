@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제8
+    // 아래 코드를 switch문을 사용한 코드로 바꿔보세요. switch문은 하나만 사용해야 합니다.
+    const a = Number(prompt('a?', ''));
+
+    // if (a === 0) {
+    //   alert(0);
+    // }
+
+    // if (a === 1) {
+    //   alert(1);
+    // }
+
+    // if (a === 2 || a === 3) {
+    //   alert('2,3');
+    // }
+
+    // 풀이8
+    switch (a) {
+      case 0:
+        alert(0);
+        break;
+      case 1:
+        alert(1);
+        break;
+      case 2:
+      case 3:
+        alert('2,3');
+        break;
+      default:
+        break;
+    }
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
