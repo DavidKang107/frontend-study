@@ -12,11 +12,20 @@
 
     // 풀이2
     const num = prompt('정수를 입력하시오.');
-    if (num % 3 == 0) {
-      document.write('3의 배수입니다.');
-    } else {
-      document.write('3의 배수가 아닙니다.');
+    let msg = '3의 배수가 아닙니다.'
+
+    // if (num % 3 == 0) {
+    //   document.write('3의 배수입니다.');
+    // } else {
+    //   document.write('3의 배수가 아닙니다.');
+    // }
+
+    if (num % 3 === 0) {
+      msg = '3의 배수입니다.'
     }
+
+    document.write(msg);
+
 
 
 

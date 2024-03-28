@@ -12,11 +12,17 @@
 
     // 풀이1
     const num = prompt('정수를 입력하시오.');
+    // if (num >= 50) {
+    //   document.write('50 이상입니다.');
+    // } else {
+    //   document.write('50 미만입니다.');
+    // }
+
+    let msg = '50 미만';
     if (num >= 50) {
-      document.write('50 이상입니다.');
-    } else {
-      document.write('50 미만입니다.');
+      msg = '50 이상'
     }
+    document.write(msg);
     
   </script>
 </head>

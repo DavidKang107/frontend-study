@@ -14,27 +14,40 @@
     // (점수가 0미만 100초과이면 "에러입니다." 라는 alert창을 띄우세요.)
 
     // 풀이3
-    const grade = prompt('학년을 입력하시오.');
-    const score = prompt('점수를 입력하시오.');
+    const grade = Number(prompt('학년을 입력하시오.'));
+    const score = Number(prompt('점수를 입력하시오.'));
 
 
-    if (grade >= 1 && grade <= 3) {
-      if (score >= 60 && score <= 100) {
-        document.write('합격')
-      } else if (score >= 0 && score < 60) {
-        document.write('불합격')
-      } else {
-        alert('에러입니다.')
-      }
+    // if (grade >= 1 && grade <= 3) {
+    //   if (score >= 60 && score <= 100) {
+    //     document.write('합격')
+    //   } else if (score >= 0 && score < 60) {
+    //     document.write('불합격')
+    //   } else {
+    //     alert('에러입니다.')
+    //   }
+    // } else {
+    //   if (score >= 70 && score <= 100) {
+    //     document.write('합격')
+    //   } else if (score >= 0 && score < 70) {
+    //     document.write('불합격')
+    //   } else {
+    //     alert('에러입니다.')
+    //   }
+    // }
+
+    if (score < 0 || score > 100) {
+      alert(msg);
     } else {
-      if (score >= 70 && score <= 100) {
-        document.write('합격')
-      } else if (score >= 0 && score < 70) {
-        document.write('불합격')
-      } else {
-        alert('에러입니다.')
-      }
+      if (grade >= 1 && grade <= 3 && score >= 60 ||
+          grade >= 4 && grade <= 6 && score >= 70) {
+            msg = '합격'
+          } else {
+            msg = '불합격';
+          }
     }
+    document.write(msg);
+
 
   </script>
 </head>

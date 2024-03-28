@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 반복문
+    // 조건식을 만족하는 동안 실행 코드를 반복하여 수행
+    // 예) 데이터를 반복해서 처리해야 될 때, 100개의 데이터를 100번 쓰는 것보다 코드 한줄로 100번 반복이 효율적
+    // 주로 배열과 함께 많이 쓰임
+    // for문, while문
+    
+    // 1. for문(제일 많이 사용)
+    // 1) 기본 문법
+    // for (1. 초기화식; 2. 5. 조건식; 4. 증감식) {
+    //   3. 실행코드
+    // }
+
+    // 반복 1~10까지 10회 출력
+    document.write('반복1', '<br>');
+
+    for (let i = 1; i <= 10; i++) {
+      document.write('반복' + i, '<br>');
+    }
+
+    // 1~100까지의 합
+    let sum = 0;
+    for (i = 1; i <= 100; i++) {
+      sum += i;
+    }
+
+    document.write('1~100까지의 합: ' + sum, "<br>");
+    document.write('============================', "<br>");
+    
+    // 2) break문
+    // switch문 또는 반복문을 빠져나갈 때 사용
+    
+    // 1 ~ 10까지 반복중 i의 값이 6일때 강제 종료
+    
+    for (i = 1; i <= 10; i++) {
+      if (i === 6) break;
+      document.write(i, '<br>');
+    }
+    document.write('============================', "<br>");
+    
+    // 3)continue문
+    // 반복문에서만 사용 가능
+    // 뒤에오는 코드는 무시하고 다음 반복을 계속할 때 사용
+    
+    // 1 ~ 10까지 홀수만 출력(짝수일때는 건너뛰기)
+    for (let i = 1; i <= 10; i++ ) {
+      if (i % 2 == 0) continue; 
+      document.write(i, '<br>');
+    }
+    
+    // document.write('============================', "<br>");
+
+    // 4)중첩 for문
+    // for문 안에 for문 사용
+    // 중첩할수록 퍼포먼스가 떨어짐
+    // for (초기화식; 조건식; 증감식) { // 바깥 for문
+    //   for (초기화식; 조건식; 증감식) { // 안쪽 for문
+    //     실행 코드;
+    //   }
+    // }
+
+    // 3행 2열 구조의 데이터 출력
+    for (let i = 1; i <= 3; i++) {
+      for (let j = 1; j <= 2; j++) {
+        document.write(i + '행' + j + '열' + '  ');
+      }
+      document.write('<br>')
+    }
+
+    // Quiz
+    // 구구단 출력하기
+    for (let i = 2; i <= 9; i++) {
+      document.write('***' + i + '단***', '<br>');
+      for (let j = 1; j <= 9; j++) {
+        let multi = i * j;
+        document.write(i + ' x ' + j + ' = ' + multi, '<br>');
+      }
+    }
+    
+
+  </script>
+</body>
+</html>

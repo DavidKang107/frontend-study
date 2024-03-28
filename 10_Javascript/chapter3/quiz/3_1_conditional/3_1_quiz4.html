@@ -19,15 +19,18 @@
     // 풀이4-1
 
     const height = prompt('키를 입력하세요.');
-    if (height >= 150) {
-      document.write('놀이기구 이용 가능')
-    } else {
-      if (confirm('부모님과 함께 왔나요?')) {
-        document.write('좋은 시간 보내세요.')
-      } else {
-        document.write('어른 모시고 다시 오렴')
-      }
+    let msg = '놀이기구 이용 가능'
+
+    if (height <= 150) {
+      // if (confirm('부모님과 함께 왔나요?')) {
+      //   msg = '좋은 시간 보내세요.'
+      // } else {
+      //   msg = '어른 모시고 다시 오렴'
+      // }
+      msg = confirm('부모님과 함께 왓니?') ? '좋은 시간 보내렴~' : '어른 모시고 다시 오렴~';
     }
+
+    document.write(msg);
     
   </script>
 </head>

@@ -21,19 +21,15 @@
     const avg = sum / 3;
     
     let min = num1;
-    let max = num2;
+    let max = num1;
     
-    if (max < num2) {
-      max = num2;
-    } else if (max < num3) {
-      max = num3;
-    }
+    if (max < num2) max = num2;
+    if (max < num3) max = num3;
     
-    if (min > num2) {
-      min = num2;
-    } else if (min > num3) {
-      min = num3;
-    }
+    
+    if (min > num2) min = num2;
+    if (min > num3) min = num3;
+    
     
     document.write('합계는 ' + sum, '<br>');
     document.write('평균은 ' + avg, '<br>');
