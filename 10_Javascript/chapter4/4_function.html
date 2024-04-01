@@ -179,8 +179,16 @@
     // }
     // document.write(`평균점수는 ${testAvg(subjects)}입니다.`, '<br>');
     
-    function gallery() {
-      
+    const imgNumber = document.querySelector('.photo');
+    let i = 1;
+    function gallery(button) {
+      if (button === 'NEXT') {
+        i++;
+      } else if (button === 'PREV') {
+        i--;
+      } 
+      console.log(i);
+      imgNumber.setAttribute('src', `images/pic_${i}.jpg`);
     }
 
 
