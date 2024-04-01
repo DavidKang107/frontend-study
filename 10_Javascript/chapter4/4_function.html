@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--  -->
+  <button type="button" onclick="changColor()">배경색 바꾸기</button>
+  <br>
+
+
+  <!-- ** -->
+  <input type="text" class="id">
+  <input type="password" class="pw">
+  <button type="button" class="btn-login">로그인</button>
+
+  <!-- *** -->
+  <div>
+    <p>
+      <button type="button" onclick="gallery('PREV')">이전</button>
+      <button type="button" onclick="gallery('NEXT')">다음</button>
+    </p>
+    <p>
+      <img src="images/pic_1.jpg" alt="photo" class="photo">
+    </p>
+  </div>
+
+
+  <script>
+    
+    // 함수
+    // 여러 실행 코드들의 묶음(그룹화)
+    // 자주 사용하는 코드들(기능)을 저장했다가 필요할 때 호출해서 사용
+    // function 키워드를 사용하여 정의 => ES6차에서는 화살표 함수 사용
+
+    // 1) 함수 선언문: 기명 함수로 정의 (세미콜론 안붙임)
+    // fuction 함수명(파라미터) {
+    //   실행 코드;
+    // }
+
+    // 2) 함수 표현식: 익명 함수를 변수에 할당
+    // 변수 = fuction (파라미터) {
+    //   실행 코드
+    // };
+
+    // 위와 같이 정의된 함수는 즉시 실행되지 않음
+    // 메모리에 할당되어 있다가 함수가 호출되면 실행
+    // 1) 함수명();
+    // 2) 변수명();
+
+    function greeting() {
+      document.write('Hello<br>');
+    }
+    greeting();
+
+    // (참고) 함수 선언문과 함수 표현식의 차이점
+    // 함수 선언문은 호이스팅(끌어 올리기)이 일어난다. hoisting
+    // 해당 스코프(유효범위)의 최상단으로 끌어올여진 것과 같은 현상(실제로 끌어올리는 것은 아님)
+    // 변수나 함수 선언이 코드 실행보다 먼저 메모리에 할당(저장)되는 과정
+    let count = 0;
+
+    myFunc();
+
+    function myFunc() {
+      count++;
+      document.write('Hello ' + count, '<br>');
+    }
+
+    // theFunc(); // 초기화 전에는 쓸 수 없음, 변수를 선언하고 값을 할당하는 행위
+
+    const theFunc = function() {
+      count++;
+      document.write('bye ' + count, '<br>');
+    }
+
+    theFunc();
+
+    // 버튼 클릭할 때마다 배경색이 바뀌도록 함수 만들기
+    // (위에 body 태그 참조*)
+    const colors = ['yellow', 'aqua', 'purple', 'white']
+    const bodyTag = document.querySelector('body');
+    let index = 0;
+    function changColor() {
+      bodyTag.style.backgroundColor = colors[index++];
+      if (index >= colors.length) {
+        index = 0;
+      }
+    }
+
+    // 매개변수가 있는 함수
+    // function 함수명(매개변수1, 매개변수2, ....) {
+    //   실행코드;
+    // } 
+    // 함수명(인자값1, 인자값2, ...);
+
+    function introduce(name, area){ //외부에서 받을 데이터가 있으면 매개변수 선언
+      document.write(`안녕하세요. ${name} 입니다.<br>`);
+      document.write(`사는 곳은 ${area} 입니다.<br>`);
+    }
+
+    introduce('david', 'kimpo');
+    introduce('david'); // 꼭 인자값 수를 맞출 필요는 없음!
+    introduce('david', 'kimpo', '무의미한 데이터');
+
+    // 로그인 함수 만들기 실습
+    const dbUser = {
+      id: 'david',
+      pw: '1234',
+      name: '강정모'
+    };
+
+    // Quiz: login 함수 선언하고 호출하기
+    // 잘못된 id 입력: alert('존재하지 않은 아이디입니다.')
+    // 잘못된 pw 입력: alert('잘못된 비밀번호입니다..')
+    // 잘못된 id 입력: alert('~~님 방문을 환영합니다.')
+
+    function login(id, pw) {
+      if (id === dbUser.id) {
+        if (pw === dbUser.pw) {
+          alert(`${dbUser.name}님 방문을 환영합니다.`);
+        } else {
+          alert('잘못된 비밀번호입니다..');
+        }
+      } else {
+        alert('존재하지 않은 아이디입니다.');
+      }
+    }
+
+    // 풀이2
+
+    // if (dbUser.id !== id) {
+    //   alert('잘못된 비밀번호입니다..');
+    // } else if (dbUser.pw !== pw){
+    //   alert('잘못된 비밀번호입니다..');
+    // } else {
+    //   alert(`${dbUser.name}님 방문을 환영합니다.`);
+    // }
+
+
+    // 위에 ** 참조
+    const btnLogin = document.querySelector('.btn-login');
+    const inputId = document.querySelector('.id');
+    const inputPw = document.querySelector('.pw');
+
+
+    btnLogin.addEventListener('click', function() {
+      console.log(inputId.value, inputPw.value);
+      login(inputId.value, inputPw.value);
+    });
+
+    // 4) 함수에서 return문의 역할
+    // 데이터(결과값)를 반환
+    // 함수를 강제 종료
+    // function 함수명() {
+    //   실행코드;
+    //   return 값;
+
+    //   실행코드2; (실행x)
+    // }
+
+    function sum(num1, num2) {
+      return num1 + num2;
+    }
+
+    const result = sum(10, 20);
+    document.write(`두수의 합은 ${result}입니다.<br>`);
+
+    // 여러 과목의 점수를 입력받아 평균 점수 구하기
+    // const subjects = ['국어', '수학', '영어'];
+
+    // function testAvg(arrData) {
+    //   let sum = 0;
+    //   for (i = 0; i < arrData.length; i++) {
+    //     sum += Number(prompt(`${arrData[i]}의 점수는?`, '0'));
+    //   }
+    //   return sum / arrData.length;
+    // }
+    // document.write(`평균점수는 ${testAvg(subjects)}입니다.`, '<br>');
+    
+    function gallery() {
+      
+    }
+
+
+
+
+  </script>
+</body>
+</html>
