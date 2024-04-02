@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 객체의 정의
+    // 여러 데이터들의 묶음
+    // 속성(데이터, property)과 기능(동작, method)을 가짐
+    // 예:
+    // 1) 차 - 속성(제조사, 색상, 가격, 배기량), 기능(달리다, 멈추다)
+    // 2) 사람 - 속성(이름, 나이, 주민번호), 기능(말하다, 걷다, 먹다)
+
+    // 2. 자바스크립트 객체의 종류
+    // 1) 내장 객체 > 사용자 정의 객체
+    // 2) 브라우저 객체(BOM) > 문서 객체(DOM)
+
+    // 3. 사용자 정의 객체 만들기(2가지 방법)
+    // 1) Object 내장 객체 이용
+    // 변수 = new 객체 생성자 함수();
+    // new 객체 생성 키워드
+    // 생성한 객체를 사용하기 위해 변수에 저장
+
+    // 변수 = new Object(); // 객체 생성자 함수(constructor)는 대문자로 시작!!
+    const tv = new Object(); // 빈 객체 생성
+    // 속성 및 메소드 추가
+    tv.color = 'white'; // color 속성 추가
+    tv.price = 300000;  // price 속성 추가
+    tv.info = function() { // 값으로 함수를 추가 => info 메소드 추가
+      // this: 객체 자기 자신을 가리킴
+      return `tv 색상: ${this.color}, 가격 ${this.price}`;
+    }
+    document.write('<h1>tv 객체 매소드 호출</h1>');
+    document.write(tv.info(), '<br>');
+
+    // 2) 리터럴 방식을 이용
+    const car = {
+      color: 'black',
+      price: 50000000,
+      info : function() {
+        return `car 색상: ${this.color}, 가격: ${this.price}`;
+      }
+    }
+
+
+  </script>
+</body>
+</html>

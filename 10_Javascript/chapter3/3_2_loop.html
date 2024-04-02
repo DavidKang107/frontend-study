@@ -85,6 +85,75 @@
       }
     }
     
+    // 2. while문
+    // 1) 기본 문법
+    // while (1. 3. 조건식) {
+    //   2. 실행코드
+    // }
+
+    // 안녕하세요1~10까지 10회 출력
+    let i = 1;
+    while (i <= 10) {
+      document.write('안녕하세요' + i, '<br>');
+      i++;
+    }
+    document.write('=====<br>');
+
+    // Quiz
+    // 1~30까지 숫자 중 2의 배수이면서 3의 배수인 숫자만 출력
+    i = 1;
+    while (i <= 30) {
+      if (i % 2 === 0 && i % 3 === 0) {
+        document.write(i, '<br>');
+      }
+      i++;
+    }
+    document.write('=====<br>');
+
+    // Quiz
+    // 20~10까지 숫자 중 짝수일 경우 파란색, 홀수일 경우 빨간색으로 출력
+    // document.write('<p style="color: blue;">2</p>');
+    // document.write('<p style="color: red;">1</p>');
+    i = 20;
+    while (i >= 10) {
+      if (i % 2 === 0) {
+        // document.write('<p style="color: blue;">' + i + '</p>');
+        document.write(`<p style="color: blue;">${i}</p>`);
+      } else {
+        // document.write('<p style="color: red;">' + i + '</p>');
+        document.write(`<p style="color: red;">${i}</p>`);
+      }
+      i--;
+    }
+    document.write('=====<br>');
+
+    // 지폐를 투입하면 500원짜리 동전으로 교환해주는 자판기
+    // 500원짜리 동전을 몇 개 내보낼지 계산해보기
+    let inputPrice = 7000; // 사용자가 넣은 지폐 금액
+    const coinUnit = 500; // 반환할 동전 금액
+    let coinCount = 0; // 반환될 동전 개수
+
+    // 사용자가 넣은 금액이 0원이 될 때까지 while문을 이용하여 500원씩 차감
+    while (inputPrice > 0) {
+      // inputPrice = inputPrice - coinUnit;
+      inputPrice -= coinUnit;
+      coinCount++; // 반복문이 한 번 돌때마다 반환되는 500원짜리 동전 수 증가시킴
+    }
+    document.write(coinCount, '개<br>');
+    document.write('=====<br>');
+    // 이처럼 특정 조건을 만족하는 동안 반복문을 실행하고자 할 때 while문 사용
+    
+    // 2) do while문(잘 안씀)
+    // while문과 차이점: 무조건 한 번은 코드를 실행하고 조건식 검사
+    // do {
+    //   1. 실행코드
+    // } while (2. 조건식);
+    
+    i = 5;
+    do {
+      document.write('hello<br>');
+      i++;
+    } while (i < 3);
 
   </script>
 </body>

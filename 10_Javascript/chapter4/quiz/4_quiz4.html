@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 문제4
+    // 일초 간격으로 숫자 출력하기
+    // from에 명시한 숫자부터 to에 명시한 숫자까지 출력해주는 함수 printNumbers(from, to)를 만들어보세요.
+    // (from 값이 to 값보다 작은 수가 입력된다고 가정하고 풀 것!)
+    // 숫자는 1초 간격으로 출력되어야 합니다.
+    // 힌트: setInterval(), clearInterval()을 이용
+    // const 타이머 = setInterval(function() {
+    //   실행코드;
+    // }, 1000); //1초마다 실행
+    // clearInterval(타이머); // 타이머를 취소
+
+    // 풀이4
+    function printNumbers(n1, n2) {
+      const timer = setInterval(function() {
+        document.write(n1, '<br>');
+        n1++;
+        if (n1 > n2) {
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+
+    printNumbers(5, 10); // 5~10까지 1초 간격으로 출력
+
+  </script>
+</body>
+</html>

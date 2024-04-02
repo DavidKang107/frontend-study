@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 문제1
+    // a와 b 중 작은 값을 반환해주는 함수, min(a,b)을 만들어보세요.
+    // 만든 함수는 아래와 같이 동작해야 합니다.
+    // 결과
+    // min(2, 5) == 2
+    // min(3, -1) == -1
+    // min(1, 1) == 1
+    
+
+    // 풀이1-1
+    function min(a, b) {
+      // result = a;
+      // if (result >= b) {
+      //   result = b;
+      // }
+      // return result;
+      return a < b ? a : b;
+    }
+
+    document.write(min(2, 5));
+
+  </script>
+</body>
+</html>
