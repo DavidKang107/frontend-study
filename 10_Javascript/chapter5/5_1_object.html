@@ -15,10 +15,11 @@
     // 2) 사람 - 속성(이름, 나이, 주민번호), 기능(말하다, 걷다, 먹다)
 
     // 2. 자바스크립트 객체의 종류
-    // 1) 내장 객체 > 사용자 정의 객체
-    // 2) 브라우저 객체(BOM) > 문서 객체(DOM)
+    // 1) 사용자 정의 객체 만들기(2가지 방법)
+    // 2) 내장 객체 > 사용자 정의 객체
+    // 3) 브라우저 객체(BOM) > 문서 객체(DOM)
 
-    // 3. 사용자 정의 객체 만들기(2가지 방법)
+    // 3. 사용자 객체 사용
     // 1) Object 내장 객체 이용
     // 변수 = new 객체 생성자 함수();
     // new 객체 생성 키워드
@@ -44,6 +45,68 @@
         return `car 색상: ${this.color}, 가격: ${this.price}`;
       }
     }
+    document.write('<h1>car 객체 매소드 호출</h1>');
+    document.write(car.info(), '<br>');
+
+    // 4. 객체 속성 추가, 수정, 삭제
+    car.company = 'Hyundai'; // company 속성 추가
+    document.write(car.company, '<br>');
+
+    car.company = 'Kia'; // company 속성 수정
+    document.write(car.company, '<br>');
+
+    delete car.company;
+    document.write(car.company, '<br>');
+
+    // 5. 객체 안에 객체도 넣을 수 있음
+    const obj = {
+      key1: 'value1',
+      key2: 100,
+      key3: {
+        key4: 'value2',
+        key5: function() {
+          return '객체 안에 객체 안에 함수';
+        }
+      }
+    };
+
+
+    document.write(obj.key3.key4, '<br>');
+    document.write(obj.key3.key5(), '<br>');
+
+    // 6. 대괄호 표기법으로 속성 값 얻기(특징 2가지)
+    document.write('<h1>대괄호 표기법</h1>');
+    const user = {
+      name: 'David',
+      age: 50,
+      'my hobby': ['배드민터', '싸이클', '스노우 보드']
+    };
+
+    document.write(`name: ${user.name}<br>`);
+    document.write(`age: ${user['age']}<br>`);
+    document.write(`my hobby: ${user['my hobby']}<br>`); // 특징1: 여러 단어로 이루어진 Key값 사용 가능
+
+    // 키 값을 변수로 받아 접근하기
+    const key = prompt('사용자의 어떤 정보를 얻고 싶으신가요?', 'name');
+    document.write(`${key}: ${user[key]}`); // 특징2: 변수나 복잡한 표현식 사용 가능
+
+    // 정리: 대괄호 표기법을 쓰는 이유?
+    // 1) 여러 단어로 이루어진 키에 접근할 때
+    // 2) 키 값을 변수로 받아올 때 (주된 원인)
+
+    // 7. const? 변하지 않는 객체??
+    // 객체를 정의할 때 주소가 저장됨
+    const testUser = {
+      name: 'David'
+    };
+    // 아래 코드는 애러 없이 실행 될까요?
+    testUser.name = 'peter'; // 객체 주소를 바뀌지 않고 객체 값만 변경됨.
+    // testUser = 3; // 애러 발생
+
+    // const는 한 번이라도 값을 할당한 변수가 변경되는 걸 막음
+    // 변수 testUser는 객체의 참조값(주소값, 번지)을 저장하고 있는데, 
+    // const는 이 값이 변경되는걸 막는 것이지, 객체의 내용(속성)을 변경하는 건 막지 않음.
+    
 
 
   </script>

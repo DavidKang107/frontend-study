@@ -22,8 +22,8 @@
     // 풀이4
     function printNumbers(n1, n2) {
       const timer = setInterval(function() {
-        document.write(n1, '<br>');
-        n1++;
+        document.write(n1++, '<br>');
+        // n1++;
         if (n1 > n2) {
           clearInterval(timer);
         }
