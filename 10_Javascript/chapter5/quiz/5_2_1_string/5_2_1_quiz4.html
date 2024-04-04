@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file">
+  <!-- <input type="file" multiple> -->
+
+  <script>
+    // 문제4
+    // 사용자가 파일을 첨부하면
+    // 문자열 객체를 이용하여 파일 확장자를 추출한 뒤 fileExt 변수에 저장하고,
+    // 이미지 파일(jpg, png, gif)이 맞는지 검사하여
+    // 아닐 경우에만 alert() 창을 띄워 경고하기.
+    // (아래 샘플 코드의 주석을 해제하고 이어서 풀면 됩니다.)
+
+    // 샘플 코드
+    const imgFileExt = ['jpg', 'png', 'gif'];
+    const fileInput = document.querySelector('input[type="file"]');
+
+    // 첨부된 파일에 변화가 감지되었을때 'change' 이벤트 발생
+    fileInput.addEventListener('change', function () {
+      debugger;
+      console.log(fileInput); // file input DOM 객체
+      console.log(fileInput.files); // FileList 객체
+      console.log(fileInput.files[0]); // File 객체
+
+      // 풀이4
+
+    });
+  </script>
+</body>
+</html>
