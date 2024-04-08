@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제3
+    // 먹기 싫은 과일을 입력받은 다음 과일을 담은 배열에서 찾아 제거하고 콘솔에 출력해보세요.
+    // 입력한 과일이 배열에 없을 경우 '제거할 과일이 없습니다.' 라고 alert창을 띄운다.
+
+    const fruits = ['사과', '바나나', '딸기', '포도', '두리안', '파인애플'];
+
+    // 풀이3
+    const el = prompt('과일을 입력하세요');
+    
+    if (fruits.includes(el)) {
+      fruits.splice(fruits.indexOf(el), 1);
+      console.log(fruits);
+    } else {
+      alert('제거할 과일이 없습니다.');
+    }
+
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

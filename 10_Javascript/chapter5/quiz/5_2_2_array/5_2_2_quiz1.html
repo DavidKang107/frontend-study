@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제1
+    // 배열의 복사본 만들기
+    // 기존 배열의 값을 이용해 새로운 배열로 만들고 콘솔에 출력해보세요.
+    // 힌트: slice(), concat() 사용 또는 그 외 다른 방법을 이용해도 무관
+
+    const originArr = [1, 2, 4, 0];
+
+    // 아래와 같이 복사하면..?
+    // const copyArr = originArr;
+    // copyArr.push(99);
+    // console.log(originArr);
+    // 배열은 객체이기 때문에 copyArr와 originArr는 모두 같은 배열을 참조합니다.
+    // 즉, 원본도 같이 변경됨
+
+    // 풀이1
+    const copyArr = originArr.slice(0, originArr.length);
+    console.log(copyArr);
+
+    const copyArr1 = [].concat(originArr);
+    console.log(copyArr1);
+
+    // (참고) ES6차 spread 연산자
+    const copyArr2 = [...originArr];
+    console.log(copyArr2);
+    
+    
+
+    
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

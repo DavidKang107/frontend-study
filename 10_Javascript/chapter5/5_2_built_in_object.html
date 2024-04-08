@@ -193,6 +193,397 @@
     const arrBirthday = birthday.split('-');
     console.log(arrBirthday);
     
+    // 2. Array 객체
+    // 여러 데이터를 순차적으로 저장 가능한 객체로 배열을 다룰 때 유용한 속성과 함수를 제공
+    // 배열 객체 생성 3가지 방식
+    // 첫번째 방식
+    // 변수 = new Array(값1, 값2, 값3);
+
+    // 두번째 방식
+    // 변수 = new Array();
+    // 변수[0] = 값1;
+    // 변수[1] = 값2;
+    // 변수[2] = 값3;
+
+    // 세번째 방식
+    // 변수 = [값1, 값2, 값3]; => 리터럴 방식
+
+    document.write('<h1>Array 객체</h1>');
+    const arr = ['Apple', 'Banana', 'Mango'];
+
+    // 배열 요소 변경
+    // 인덱스로 접근해서 새로운 요소를 할당
+    arr[0] = 'Kiwi';
+    console.log(arr);
+
+    // 배열 요소 접근
+    document.write('<h4>배열값 가져오기-1</h4>');
+    document.write(arr[0], '<br>');
+    document.write(arr[1], '<br>');
+    document.write(arr[2], '<br>');
+
+    document.write('<h4>배열값 가져오기-2</h4>');
+    for (let i = 0; i < arr.length; i++) {
+      document.write(arr[i], '<br>');
+    }
+    
+    document.write('<h4>배열값 가져오기-3(권장 안함)</h4>');
+    for (const i in arr) { // Key 값을 가져옴
+      document.write(arr[i], '<br>');
+    }
+    
+    document.write('<h4>배열값 가져오기-4</h4>');
+    for (const el of arr) { // Value 값을 가져옴
+      document.write(el, '<br>');
+    }
+    
+    document.write('<h4>배열값 가져오기-5</h4>');
+    arr.forEach(function (element, index) {
+      document.write(index, ': ', element, '<br>');
+    });
+
+    // 1) toString()
+    // 배열 안의 모든 요소를 쉼표(,)를 이용해 결합해서 하나의 문자열로 반환
+    let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+    console.log(fruits.toString());
+
+    // 2) join()
+    // 배열 안의 모든 요소를 지정한 문자를 이용해 결합해서 하나의 문자열로 반환
+    console.log(fruits.join(' * '));
+
+    // 3) pop()
+    // 배열에서 마지막 데이터를 제거하고, 마지막 데이터를 반환
+    // 원본 배열이 변경됨
+    let x = fruits.pop();
+    console.log(x);
+    console.log(fruits);
+    
+    // 4) shift()
+    // 배열에서 첫 번째 데이터를 제거하고, 첫 번째 데이터를 반환
+    // 원본 배열이 변경됨
+    x = fruits.shift();
+    console.log(x);
+    console.log(fruits);
+
+    // 5) push()
+    // 배열에 새로운 요소를 추가하고, 배열의 길이를 반환
+    // 원본 배열이 변경됨
+    let ln = fruits.push('Mango');
+    console.log(fruits);
+    console.log(ln);
+
+    // 6) unshift()
+    // 배열의 맨 앞에 요소를 추가하고, 배열의 길이를 반환
+    // 원본 배열이 변경됨
+    ln = fruits.unshift('Banana');
+    console.log(fruits);
+    console.log(ln);
+
+    // 7) splice()
+    // 새로운 요소를 특정 위치에 추가하거나 기존 요소를 삭제할 수도 있음
+    // 원본 배열이 변경됨
+    // fruits.splice(index, howmany, item1, ..., itemX)
+    // index: 항목을 추가하거나 제거할 인덱스 번호
+    // howmany: 제거할 항목 수
+    // 나머지 파라미터: 추가할 새 요소
+    fruits.splice(2, 0, 'Lemon', 'Kiwi');
+    console.log(fruits);
+
+    // 8) concat()
+    // 2개 이상의 배열을 하나의 배열로 결합
+    // 새로운 배열로 반환
+    const arr1 = ['Cecil', 'Lon'];
+    const arr2 = ['Emil', 'Tobi', 'Lin'];
+    const arr3 = ['Robin', 'Morgan'];
+    const myChildren = arr1.concat(arr2, arr3);
+    console.log(myChildren);
+
+    // 9) slice()
+    // 지정된 시작과 끝 위치(포함되지 않음) 구간만큼 잘라내서 반환
+    // 새로운 배열로 반환
+    fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+    const citrus = fruits.slice(3);
+    console.log(citrus);
+    const citrus2 = fruits.slice(1, 3);
+    console.log(citrus2);
+
+    // 10) sort()
+    // 배열에 문자형 데이터가 있는 경우 오름차순으로 정렬
+    // 원본 배열이 변경됨
+    fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+    fruits.sort();
+    console.log(fruits);
+
+    // 배열 안에 숫자형 데이터가 있더라도 기본적으로는 문자로 인식해서 오름차순으로 정렬
+    const points = [40, 100, 1, 5, 25, 10];
+    points.sort();
+    console.log(points);
+    // '25'는 '100'보다 크다. 왜냐하면 '2'가 '1'보다 크기 때문
+    // 그래서 숫자 값으로 정렬하려면 정렬 (비교) 함수를 정의해서 사용해야 함
+    // array.sort(정렬함수);
+    // 정렬함수: function (a, b) { return a - b; }
+    points.sort(function (a, b) { return a - b; });
+    console.log(points);
+    // 정렬 원리
+    // 음수가 나오면 a, b 순으로 두 요소의 위치를 바꾸지 않음
+    // 양수가 나오면 b, a 순으로 두 요소의 위치를 바꿈
+    // 0이 나오면 변화 없음
+    
+    // Quiz: 숫자 데이터 내리차순 정렬하기
+    points.sort(function (a, b) { return b - a; });
+    console.log(points);
+
+    // 활용 Tip:
+    // Object의 특정 키를 기준으로 sort() 함수를 사용하는 경우가 많음
+    // 예: 쇼핑몰 상품 목록에서 가격 높은 순, 낮은 순, 리뷰 많은 순, 누적 판매 순
+    // 실습: 아래 사람들을 점수가 높은 순으로 정렬하기
+    const persons = [
+      {
+        name: '유재석',
+        point: 78,
+        city: '서울',
+      },
+      {
+        name: '김종국',
+        point: 92,
+        city: '서울',
+      },
+      {
+        name: '양세찬',
+        point: 76,
+        city: '제주',
+      },
+      {
+        name: '하하',
+        point: 81,
+        city: '서울',
+      },
+    ];
+
+    persons.sort(function (a, b) {
+      return b.point - a.point;
+    });
+    console.log(persons);
+
+    // 11) reverse()
+    // 배열의 순서를 반대로 바꿈
+    // 원본 배열이 변경됨
+    // 보통 정렬된 배열을 역순으로 정렬할 때 사용
+    fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+    fruits.sort();
+    fruits.reverse();
+    console.log(fruits);
+
+    // 12) indexOf(), lastIndexOf()
+    // 배열 안에 특정 요소가 존재하는지를 찾고,
+    // 찾으면 첫번째 인덱스(위치)를 반환
+    // 찾을 수 없는 경우 -1을 반환
+    fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Apple'];
+    let index = fruits.indexOf('Apple');
+    console.log(index); // 2
+    index = fruits.indexOf('Apple', 3); // 검색 시작 위치 지정
+    console.log(index); // 4
+    index = fruits.lastIndexOf("Apple");
+    console.log(index); // 4
+
+    // (ES7차) includes()
+    // 지정된 값이 포함된 경우 true를 반환
+    // 포함되지 않은 경우 false를 반환
+    index = fruits.includes('Mango');
+    console.log(index); // true
+    index = fruits.includes('Banana', 3); // 검색 시작 위치 지정
+    console.log(index); // false
+
+    // 3. Math 객체
+    // 수학적인 상수와 내장 함수를 가진 객체로 수학 관련 속성과 함수를 제공
+    // 다른 객체와 달리 Math 생성자가 아님. 즉, 객체 생성을 하지 않고 사용 가능
+    // Math.속성명;
+    // Math.함수명();
+
+    document.write('<h4>원주율 pi</h4>');
+    document.write(Math.PI, '<br>');
+
+    // 1) Math.round()
+    // 숫자에 대한 반올림 처리(소수점 첫째 자리 반올림)
+    document.write('<h4>round</br>');
+    document.write(Math.round(4.9), '<br>');
+    document.write(Math.round(4.7), '<br>');
+    document.write(Math.round(4.4), '<br>');
+    document.write(Math.round(4.2), '<br>');
+    document.write(Math.round(-4.2), '<br>');
+    
+    // 2) Math.ceil()
+    // 숫자에 대한 무조건 올림 처리(소수점 첫째 자리 반올림)
+    document.write('<h4>ceil</br>');
+    document.write(Math.ceil(4.9), '<br>');
+    document.write(Math.ceil(4.7), '<br>');
+    document.write(Math.ceil(4.4), '<br>');
+    document.write(Math.ceil(4.2), '<br>');
+    document.write(Math.ceil(-4.2), '<br>');
+    
+    // 3) Math.floor()
+    // 숫자에 대한 무조건 내림 처리(소수점 첫째 자리 반올림)
+    document.write('<h4>floor</br>');
+    document.write(Math.floor(4.9), '<br>');
+    document.write(Math.floor(4.7), '<br>');
+    document.write(Math.floor(4.4), '<br>');
+    document.write(Math.floor(4.2), '<br>');
+    document.write(Math.floor(-4.2), '<br>');
+
+    // 4) Math.trunc()
+    // 소수 부분은 무조건 버리고 정수 부분만 반환 
+    document.write('<h4>trunc</br>');
+    document.write(Math.trunc(4.9), '<br>');
+    document.write(Math.trunc(4.7), '<br>');
+    document.write(Math.trunc(4.4), '<br>');
+    document.write(Math.trunc(4.2), '<br>');
+    document.write(Math.trunc(-4.2), '<br>');
+
+    // 5) Math.sign()
+    // 숫자가 양수인지 음수인지 확인하는 용도로 사용
+    // 양수이면 1, 음수이면 -1, 0이면 0을 반환
+    document.write('<h4>sign</h4>');
+    document.write(Math.sign(-4), '<br>');
+    document.write(Math.sign(0), '<br>');
+    document.write(Math.sign(4), '<br>');
+
+    // 6) Math.pow()
+    // 거듭제곱(power)한 값을 반환
+    document.write('<h4>pow</h4>');
+    document.write(Math.pow(8, 2), '<br>');
+
+    // (ES7차) 지수 연산자
+    // **은 지수를 뜻함
+    document.write(8 ** 2, '<br>');
+
+    // 거듭 제곱 연산을 여러번 결합할 때 유용
+    document.write(Math.pow(Math.pow(2, 2), 2), '<br>');
+    document.write(2 ** 2 ** 2, '<br>');
+
+    // 7) Math.sqrt()
+    // 제곱근(square root) 값을 반환
+    document.write('<h4>sqrt</h4>');
+    document.write(Math.sqrt(64), '<br>');
+
+    // 8) Math.abs()
+    // 절대값(absolute)을 반환. 즉, 무조건 양수로 반환
+    document.write('<h4>abs</h4>');
+    document.write(Math.abs(-4.7))
+
+    // 9) Math.min(), Math.max()
+    document.write('<h4>min, max</h4>');
+    document.write(Math.min(0, 150, 30, 20, -8, -200), '<br>')
+    document.write(Math.max(0, 150, 30, 20, -8, -200), '<br>')
+
+    // Math.ramdon()
+    // 0보다 크거나 같고 1보다 작은 범위에서 숫자형 값을 반환
+    // 0.0 이상 1.0 미만의 부동소수점 난수를 반환
+    document.write('<h4>random</h4>');
+    document.write(Math.random(), '<br>');
+
+    // (응용) 1에서 10사이의 랜점한 정수
+    const randomNum = Math.random();
+    document.write(Math.floor(randomNum * 10) + 1);
+
+    // 실제 실무에서 특정 범위의 랜점 정수값을 생성하는 경우가 많음
+    // 공식화: Math.floor(Math.random() * (최대값 - 최소값 + 1)) + 최소값
+    // 자주 쓰면 함수로 만들어 놓기
+    document.write('<h4> 최소값과 최대값 사이의 정수를 반환하는 함수</h4>');
+    function getRandomInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    document.write(getRandomInteger(30, 50));
+
+    // 실습: 가위, 바위, 보 맞추기
+    document.write('<h4>가위, 바위, 보 맞추기</h4>');
+    const selectRps = prompt('가위, 바위, 보 중 선택하세요.', '가위');
+
+    let user;
+
+    switch (selectRps) {
+      case '가위':
+        user = 1;
+        break;
+      case '바위':
+        user = 2;
+        break;
+      case '보':
+        user = 3;
+        break;
+      default:
+        alert('잘못 작성하셨습니다.')
+        location.reload(); // 새로 고침
+        break;
+    }
+
+    const com = getRandomInteger(1, 3);
+    
+    // if (com === user) {
+      //   document.write(`<img src="images/game_1.jpg">`);
+      // } else {
+        //   document.write(`<img src="images/game_2.jpg">`);
+        // }
+        // document.write('<br>');
+        
+    // Quiz: 가위, 바위, 보 게임 만들기
+    document.write('<h4>가위, 바위, 보 게임</h4>');
+    
+    document.write('컴퓨터가 낸 것');
+    document.write(`<img src="images/math_img_${com}.jpg">`);
+        
+    document.write('vs 내가 낸 것');
+    document.write(`<img src="images/math_img_${user}.jpg">`);
+    
+    let winner;
+
+    // if (user === com) {
+    //   document.write('비겼습니다.');
+    // } else {
+    //   if (user === 1) {
+    //     if (com === 2) {
+    //       winner = '컴퓨터'
+    //     } else {
+    //       winer = '내'
+    //     }
+    //   } else if (user === 2) {
+    //     if (com === 3) {
+    //       winner = '컴퓨터'
+    //     } else {
+    //       winer = '내'
+    //     }
+    //   } else if (user === 3) {
+    //     if (com === 1) {
+    //       winner = '컴퓨터'
+    //     } else {
+    //       winner = '내'
+    //     }
+    //   };
+    //   document.write(winner + '가 이겼습니다.');
+    // }
+
+    // 누가 이겼는지 출력하기
+    // user아 com의 차를 이용
+    // 0이면 비김
+    // 1 또는 -2dlaus sork dlrla
+    // 그 외는 내가 짐
+
+    const whoWin = user - com;
+    if (whoWin === 0) {
+      document.write('비겼다!');
+    } else if (whoWin === 1 || whoWin === -2) {
+      document.write('내가 이겼다!');
+    } else {
+      document.write('내가 졌다!');
+    }
+    document.write('<br>');
+    
+
+
+
+
+
+
 
 
 
