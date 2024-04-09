@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제2
+    // 점심 시간에 어떤 메뉴를 선택할지 고민이 되어 랜덤으로 선택되도록 만들어보련다.
+    // 메뉴: '짜장면', '돈가스', '된장국', '김치찌개', '회덮밥'
+
+    // 배열 객체를 이용하여 위 5개의 메뉴를 변수 menu에 할당하세요.
+    // Math.random()을 이용하여 0~4사이의 랜덤한 정수값이 나오도록 작성하고 변수 menuNum에 할당하세요.
+    // 랜덤하게 나오는 menuNum을 이용하여 menu배열에서 메뉴를 출력해보세요.
+
+    // const menu = ;
+		// const menuNum = ;
+
+    // 풀이2
+    function getRandomInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    const menu = ['짜장면', '돈가스', '된장국', '김치찌개', '회덮밥'];
+    const menuNum = getRandomInteger(0, 4);
+
+    document.write(menu[menuNum]);
+		
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

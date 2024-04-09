@@ -13,7 +13,20 @@
     // while문 사용하면 조금 더 편함!
 
     const lottoArr = []; // 빈 배열
-    
+    function getRandomInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+    while (lottoArr.length < 6) {
+      let lottoNum = getRandomInteger(1, 45)
+      if (!(lottoArr.includes(lottoNum))) {
+        lottoArr.push(lottoNum);
+      } 
+    }
+
+    lottoArr.sort(function(a, b) {return a-b});
+    document.write(lottoArr);
+
+
     // 풀이6
     
     // 6번은 풀지 마세요. Math 객체 배우고 와서 풀거에요~~

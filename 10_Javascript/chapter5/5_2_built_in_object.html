@@ -496,28 +496,28 @@
     document.write(getRandomInteger(30, 50));
 
     // 실습: 가위, 바위, 보 맞추기
-    document.write('<h4>가위, 바위, 보 맞추기</h4>');
-    const selectRps = prompt('가위, 바위, 보 중 선택하세요.', '가위');
+    // document.write('<h4>가위, 바위, 보 맞추기</h4>');
+    // const selectRps = prompt('가위, 바위, 보 중 선택하세요.', '가위');
 
-    let user;
+    // let user;
 
-    switch (selectRps) {
-      case '가위':
-        user = 1;
-        break;
-      case '바위':
-        user = 2;
-        break;
-      case '보':
-        user = 3;
-        break;
-      default:
-        alert('잘못 작성하셨습니다.')
-        location.reload(); // 새로 고침
-        break;
-    }
+    // switch (selectRps) {
+    //   case '가위':
+    //     user = 1;
+    //     break;
+    //   case '바위':
+    //     user = 2;
+    //     break;
+    //   case '보':
+    //     user = 3;
+    //     break;
+    //   default:
+    //     alert('잘못 작성하셨습니다.')
+    //     location.reload(); // 새로 고침
+    //     break;
+    // }
 
-    const com = getRandomInteger(1, 3);
+    // const com = getRandomInteger(1, 3);
     
     // if (com === user) {
       //   document.write(`<img src="images/game_1.jpg">`);
@@ -527,15 +527,7 @@
         // document.write('<br>');
         
     // Quiz: 가위, 바위, 보 게임 만들기
-    document.write('<h4>가위, 바위, 보 게임</h4>');
     
-    document.write('컴퓨터가 낸 것');
-    document.write(`<img src="images/math_img_${com}.jpg">`);
-        
-    document.write('vs 내가 낸 것');
-    document.write(`<img src="images/math_img_${user}.jpg">`);
-    
-    let winner;
 
     // if (user === com) {
     //   document.write('비겼습니다.');
@@ -568,20 +560,104 @@
     // 1 또는 -2dlaus sork dlrla
     // 그 외는 내가 짐
 
-    const whoWin = user - com;
-    if (whoWin === 0) {
-      document.write('비겼다!');
-    } else if (whoWin === 1 || whoWin === -2) {
-      document.write('내가 이겼다!');
-    } else {
-      document.write('내가 졌다!');
-    }
-    document.write('<br>');
+    // const whoWin = user - com;
+    // if (whoWin === 0) {
+    //   document.write('비겼다!');
+    // } else if (whoWin === 1 || whoWin === -2) {
+    //   document.write('내가 이겼다!');
+    // } else {
+    //   document.write('내가 졌다!');
+    // }
+    // document.write('<br>');
+
+    // 4. Date 객체
+    // 날짜와 시간을 다루는 객체로 날짜와 시간에 대한 정보를 보여줌
+    document.write('<h1>Date 객체</h1>');
+
+    // 1) Date() 객체
+    // Date 객체 생성 4가지 방식
+    // 변수 = new Date();
+    const now = new Date(); // 현재 날짜와 시간을 가져옴
+    document.write(now, '<br>');
     
+    // 변수 = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+    const d1 = new Date(2021, 6, 24, 10, 33, 30, 0);
+    document.write(d1, '<br>');
 
+    // 변수 = new Date(milliseconds);
+    const d2 = new Date(0);
+    document.write(d2, '<br>');
+    const d3 = new Date(1000000);
+    document.write(d3, '<br>');
 
+    // 변수 = new Date(date string);
+    const d4 = new Date('October 15, 2022 11:30:00');
+    document.write(d4, '<br>');
+    
+    const d5 = new Date('2022-10-15T11:30:00');
+    document.write(d5, '<br>');
 
+    // 2) Get 함수
+    document.write('<h3>Get 함수</h3>');
+    // 오늘 날짜에 대한 정보를 가지고 있는 객체 생성
+    const today = new Date();
+    const nowYear = today.getFullYear();
+    const nowMonth = today.getMonth();
+    const nowDate = today.getDate();
+    const nowDay = today.getDay();
 
+    document.write('<h4>오늘 날짜 정보');
+    document.write(`날짜 정보(기본 포멧): ${today}<br>`);
+    document.write(`연도 : ${nowYear}<br>`);
+    document.write(`월 : ${nowMonth}<br>`);
+    document.write(`일 : ${nowDate}<br>`);
+    document.write(`요일 : ${nowDay}<br>`);
+
+    // 특정 날짜 정보를 갖는 날짜 객체 생성
+
+    // 예: 2024년 12월 31일
+    const someday = new Date('2024-12-31');
+    const theYear = someday.getFullYear();
+    const theMonth = someday.getMonth();
+    const theDate = someday.getDate();
+    const theDay = someday.getDay();
+
+    document.write('<h4>오늘 날짜 정보');
+    document.write(`날짜 정보(기본 포멧): ${someday}<br>`);
+    document.write(`연도 : ${theYear}<br>`);
+    document.write(`월 : ${theMonth}<br>`);
+    document.write(`일 : ${theDate}<br>`);
+    document.write(`요일 : ${theDay}<br>`);
+
+    // 실습: 특정 날짜까지 D-day 구하기
+    // 남은 일 수(밀리초) = 특정 날짜 객체 - 현재 날짜 객체 시간
+    // 1초 = 1000ms
+    // 1분(60초) = 1000 * 60ms
+    // 1시간(60분) = 1000 * 60 * 60ms
+    // 1일(24시간) = 1000 * 60 * 60 * 24ms
+
+    const classEndDate = new Date('2024-7-18');
+    const diffTime = classEndDate.getTime() - today.getTime();
+    // classEndDate - today => 자동으로 getTime 호출
+    const diffDate = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.write(diffDate);
+    
+    // 3) Set 함수
+    document.write('<h3>Set 함수</h3>');
+    let d = new Date();
+    d.setFullYear(2020);
+    document.write(d, '<br>');
+
+    // 날짜를 6개월 전으로 설정
+    d = new Date();
+    d.setFullYear(d.getFullYear(), d.getMonth() - 6);
+    document.write(d, '<br>');
+
+    // 날짜를 지난 달의 마지막 날로 설정
+    d = new Date();
+    d.setMonth(d.getMonth(), 0); // 0: 지난달 말일
+    document.write(d, '<br>');
+    
 
 
 
