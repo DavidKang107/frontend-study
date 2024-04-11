@@ -22,19 +22,37 @@
     // 풀이2-1
     let date = new Date();
     const day = date.getDay();
-    document.write(day);
     let printDay;
     switch (day) {
       case 0:
-        p
+        printDay = '일요일';
         break;
-    
-      default:
+      case 1:
+        printDay = '월요일';
+        break;
+      case 2:
+        printDay = '화요일';
+        break;
+      case 3:
+        printDay = '수요일';
+        break;
+      case 4:
+        printDay = '목요일';
+        break;
+      case 5:
+        printDay = '금요일';
+        break;
+      case 6:
+        printDay = '토요일';
         break;
     }
     
+    document.write(printDay, '<br>');
     
     // 풀이2-2
+    printDay = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+    document.write(printDay[day], '<br>');
+
     
   </script>
 </head>

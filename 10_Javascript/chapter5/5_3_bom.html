@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- * -->
+  <h1>setTimeout()동작을 취소하려면 5초안에 버튼을 클릭하세요.</h1>
+  <p>콘솔 매널을 열어 확인하세요.</p>
+  <button type="button" onclick="clearTimeout(myTimeout)">멈추기</button>
+
+  <!-- ** -->
+  <h1>일정 시간 간격으로 값 증감시키기</h1>
+  <p>콘솔 패널을 열어 확인하세요.</p>
+  <button type="button" onclick="clearInterval(counter)">증가 정지</button>
+  <button type="button" onclick="clearInterval(timer)">감소 정지</button>
+
+  <!-- *** -->
+  <h1>리다이랙트</h1>
+  <button type="button" onclick="href()">Naver로 이동<br>(href) 속성</button>
+  <button type="button" onclick="assign()">Naver로 이동<br>(assign() 메소드)</button>
+  <button type="button" onclick="replace()">Naver로 이동<br>(replace() 메소드)</button>
+
+  <!-- **** -->
+  <h1>이전, 다음 페이지로 이동</h1>
+  <button type="button" onclick="back()">뒤로 가기</button>
+  <button type="button" onclick="forward()">앞으로 가기</button>
+
+
+
+  <script>
+    // 브라우저 객체 모델(BOM)
+    // 브라우저에 내장된 객체를 가리키고 브라우저를 제어 및 조작 가능
+    // window: 브라우저 객체의 최상위 객체, 아래와 같은 하위 객체를 계층 구조로 포함
+    // - screen: 스크린 관련된 정보 제공(화면 정보)
+    // - location: 현재 브라우저의 위치 정보(URL 정보)
+    // - history: 브라우저에서 웹 서핑을 할 때 기록들을 가짐
+    // - navigator: OS, 브라우저에 대한 다양한 정보를 가짐
+    // - document(DOM): 문서 객체, 웹 문서 관련
+
+    // 1. window 객체
+    // 1) alert()
+    // 경고창을 띄워 경고 메세지를 출력
+    // alert('이것은 alert 창 입니다.')
+
+    // 2) confirm()
+    // 확인창을 띄워 진행할지, 종료할지에 대한 진행 여부를 확인
+    // 확인을 누르면 true 반환
+    // 취소를 누르면 false를 반환
+    // if (confirm('정말 삭제하시겠습니까?')) {
+    //   console.log('삭제 실행');
+    // }
+
+    // 3) prompt()
+    // 질의응답 창을 띄워 문자열을 압력 받음
+    // 확인을 누르면 입력한 값을 반환
+    // 취소를 누르면 null을 반환
+    const txt = prompt('비밀번호를 입력하시오.');
+
+    if (txt === null) {
+      console.log('취소 버튼을 눌럿을 때');
+    } else if (txt === '') {
+      console.log('어떤 값도 입력하지 않고 확인 버튼을 클릭했을 때');
+    } else if (txt !== '') {
+      console.log('값을 입력하고 확인 버튼을 클릭했을 때');
+    }
+
+    // 4) open()
+    // 팝업창(브라우저 새 창/탭)을 띄워 지정한 url을 오픈
+    // open('https://www.naver.com');
+    // open('https://www.naver.com', 'naver', 'width=300, height=400, left=300, top=50');
+
+    // 5) setTimeout(), clearTimeout()
+    // id = setTimeout(): 지정한 시간 뒤에 정의한 함수를 실행
+    // clearTimeout(): setTimeout으로 설정된 타이버를 지움(위에 * 참조)
+    const myTimeout = setTimeout(function() {
+      console.log('5초 후 프로그램 실행');
+    }, 5000);
+
+
+    // 6) setInterval(), clearInterval()
+    // id = setInterval(): 지정한 시간 가격마다 정의한 함수를 반복적으로 실행
+    // clearInterval(id): setInterval로 설정된 타이머를 지움(위에 ** 참조)
+    let addNum = 0;
+    let subNum = 1000;
+
+    const counter = setInterval(function() {
+      addNum++;
+      console.log('addNum: ' + addNum);
+    }, 3000);
+    
+    const timer = setInterval(function() {
+      subNum--;
+      console.log('subNum: ' + subNum);
+    }, 3000);
+
+    // 2. screen 객체
+    // 사용자의 모니터(화면) 정보를 제공
+    document.write('<h2>screen 관련 속성</h2>');
+    document.write(screen.width, '<br>');
+    document.write(screen.height, '<br>');
+    document.write(screen.availWidth, '<br>'); // 작업 표시줄을 제외한 값
+    document.write(screen.availHeight, '<br>'); // 작업 표시줄을 제외한 값
+
+    // 3. location 객체
+    // 현재 URL과 관련된 속성과 메소드 제공
+    document.write('<h2>location 관련 속성</h2>')
+    document.write(`origin: ${location.origin}<br>`);
+    document.write(`protocol: ${location.protocol}<br>`);
+    document.write(`host: ${location.host}<br>`);
+    document.write(`hostname: ${location.hostname}<br>`);
+    document.write(`port: ${location.port}<br>`);
+    document.write(`href: ${location.href}<br>`);
+    document.write(`search: ${location.search}<br>`); // 쿼리 스트링
+
+    // location.reload(); // 새로 고침
+
+    // 리다이렉트 하기(위에 *** 참조)
+    // 다른 주소나 페이지로 보내기
+
+    function href() {
+      // 현재 URL을 설정
+      location.href = 'https://naver.com';
+    }
+
+    function assign() {
+      // 새 문서를 로드
+      // 히스토리가 쌓임
+      location.assign('https://naver.com');
+    }
+    function replace() {
+      // 현재 문서를 새 문서로 교체
+      // 히스토리에서 현재 URL제거, 원래 문서로 back 불가
+      location.replace('https://naver.com');
+    }
+
+    // 4. history 객체
+    // 사용자가 방문한 사이트의 기록을 남기고, 이전과 다음 페이지로 다시 돌아갈 수 있도록 제공
+    document.write('<h2>history 관련 속성</h2>');
+    document.write('length: ' + history.length); // 방문 기록에 저장된 URL 개수
+
+    // 이전, 다음 페이지로 이동
+    // 브라우저 뒤로가기, 앞으로 가기와 동일 (위에 **** 참조)
+    function back() {
+      history.back();
+      
+    }
+
+    function forward() {
+      history.forward();
+      
+    }
+
+    // 5. navigator 객체
+    // 현재 방문자가 사용하는 브라우저와 운영체제 정보를 제공
+    document.write('<h2>navigator 관련 속성</h2>');
+    document.write(`userAgent: ${navigator.userAgent}<br>`); // 브라우저 및 운영체제에 대한 종합 정보
+
+    const info = navigator.userAgent.toLowerCase();
+    let osImg = null;
+    if (info.includes('windows')) {
+      osImg = 'windows.png';
+    } else if (info.includes('macintosh')) {
+      osImg = 'macintosh.png';
+    } else if (info.includes('iphone')) {
+      osImg = 'iphone.png';
+    } else if (info.includes('android')) {
+      osImg = 'android.png';
+    }
+    document.write(`<img src="images/${osImg}">`);
+
+
+
+
+
+  </script>
+</body>
+</html>

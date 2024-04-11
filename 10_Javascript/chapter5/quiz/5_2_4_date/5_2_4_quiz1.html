@@ -21,7 +21,11 @@
     const theDate = date.getDate();
     const theDay = date.getDay();
 
-    document.write(`${theYear}년 ${theMonth + 1}월 ${theDate}일 입니다.`)
+    document.write(`${theYear}년 ${theMonth + 1}월 ${theDate}일 입니다.<br>`)
+    document.write(date.toLocaleString(), '<br>');
+    document.write(date.toLocaleDateString());
+    
+
 
 
   </script>
