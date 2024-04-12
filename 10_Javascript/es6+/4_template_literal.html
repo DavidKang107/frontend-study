@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 템플릿 리터럴
+    // 백틱 (``) 기호를 사용하여 문자열 삽입
+
+    // 1. 문자열 삽입
+    // ESS 
+    var name = 'David';
+    var greeting = 'Hello my name is ' + name;
+    console.log(greeting); 
+
+    //ES6
+    var name2 = 'David';
+    var greeting2 = `Hello my name is ${name2}`;
+    console.log(greeting); 
+
+    // 2. 표현식 삽입
+    // ES5
+    var exp1 = 1;
+    var exp2 = 10;
+    console.log('1 * 10 = ' + (exp1 * exp2));
+
+    // ES6 
+    const exp3 = 1;
+    const exp4 = 10;
+    console.log(`1 * 10 = ${exp1 * exp2}`);
+
+    // 3. 여러 줄 문자열 생성
+    // ES5: 각 행마다 백슬래시를 삽입해야 함
+    var text1 = 'hello, \
+    my name is david';
+    
+    console.log(text1);
+    // 이스케이프 문자로 줄바꿈 넣기
+    var text2 = 'hello, \nmy name is david';
+    console.log(text2);
+    
+    // ES6: 전체를 백틱으로 감싸기만 하면 됨
+    const content = `hello,
+my name is David
+how are you?`;
+    console.log(content);
+
+     // Quiz 
+    // 4.1 다음 작업을 수행하는 코드를 작성하자.
+    // 템플릿 리터럴을 활용하여 다양한 변수를 결합하고 원하는 출력을 얻도록 코드를 구현해보자.
+    let a = 'Hello,';
+    let b = 'is';
+    let c = 'my';
+    let d = 'name';
+    let e = 'Kim';
+
+    // 예상 결과를 얻기 위해 다음 코드를 수정해보자.
+    let result1 = '';
+    
+    console.log(result1);
+    // 예상 결과: Hello, my name is Kim
+
+    // 4.2
+    // 템플릿 리터럴을 사용하여 다음 코드를 리팩터링하자.
+    let v = '1';
+    let w = '2';
+    let x = 'plus';
+    let y = '3';
+    let z = 'equals';
+
+    // 다음 코드에 템플릿 리터럴을 사용해보자.
+    let result2 = v + ' ' + w + ' ' + x + ' ' + y + ' ' + z;
+    
+    console.log(result2);
+    // 1 plus 2 equals 3
+
+    // 4.3
+    // 템플릿 리터럴을 사용하여 다음 코드를 리팩터링하자.
+    // 다음 코드에 템플릿 리터럴을 사용해보자.
+    let str = 'this is a very long text\n' + 
+    'a very long text';
+    
+    console.log(str);
+    // this is a very long text
+    // a very long text
+
+
+  </script>
+</body>
+</html>

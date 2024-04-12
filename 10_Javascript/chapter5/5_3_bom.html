@@ -28,6 +28,10 @@
   <button type="button" onclick="back()">뒤로 가기</button>
   <button type="button" onclick="forward()">앞으로 가기</button>
 
+  <!-- ***** -->
+  <h1>Geolocation</h1>
+  <button type="button" onclick='getLocation()'>좌표 얻기</button>
+
 
 
   <script>
@@ -171,6 +175,27 @@
     }
     document.write(`<img src="images/${osImg}">`);
 
+    // Tip! 위치 정보(좌표) 가져오기 (위에 *****참조)
+    // HTML Geolocation API는 사용자의 위치를 찾는데 사용
+    function getLocation() {
+      if (navigator.geolocation) {
+        // getCurrentPosition(); 사용자의 위치를 반환
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(position);
+          document.write(position.coords.latitude);
+          document.write(position.coords.longitude);
+
+        }) // 함수(가져오면), 함수(가져오기 실패), 옵션
+
+        // (참고)
+        // navigator.geolocation.clearWatch: watchPosition 설정을 취소
+        // navigator.geolocation.watchPosition: 사용자의 현재 위치를 반환하고 사용자가 움직일때 마다 업데이트된 위치를 계속 반환
+
+
+      } else {
+        alert('이 브라우저는 위치 정보가 지원되지 않습니다.');
+      }
+    }
 
 
 
