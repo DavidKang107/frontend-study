@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 새로운 문자열 메소드
+
+    // 1. startsWith()
+    // 전달한 값으로 문자열이 시작하는지 확인
+    const code = 'ABCDEFG';
+    
+    console.log(code.startsWith('ABB'));
+    console.log(code.startsWith('abc'));
+    console.log(code.startsWith('DEF', 3));// 검사의 시작점 지정
+
+    // 사용자가 입력한 웹사이트 주소가 "http" 로 시작하는지 확인하고자 할 때
+    const url = 'https://naver.com';
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      console.log('올바른 형식의 웹사이트 url');
+    } else {
+      console.log('잘못된 형식의 웹사이트 url');
+    }
+
+    // 2. endsWith()
+    // 전달한 값으로 문자열이 끝나는지 확인
+    console.log(code.endsWith('EFG'));
+    console.log(code.endsWith('EF', 6)); //문자열의 얼마만큼만을 확인할 지 길이 지정 (갯수)
+
+    // 사용자가 업로드한 차일의 확장자가 PDF인지 확인하고자 할 때
+    const file = 'abc.pdf';
+    if (file.endsWith('.pdf')) {
+      console.log('pdf 파일');
+    } else {
+      console.log('다른 형식의 파일');
+    }
+
+    // 3. includes()
+    // 전달한 값이 문자열에 포함되어 있는지 확인
+    console.log(code.includes('ABB'));
+    console.log(code.includes('abc'));
+    console.log(code.includes('CDE'));
+
+    // 4. reprat()
+    // 문자열을 지정한 횟수만큼 반복
+    const hello = 'Hi';
+    console.log(hello.repeat(10));
+
+    // 5. padStart(), padEnd()
+    // padStart(문자열의 총 길이, 추가할 문자): 문자열 앞에 지정된 문자를 지정된 길이만큼 추가
+    let text = '5';
+    console.log(text.padStart(4, '0')); // 총 길이는 4이기 때문에 0이 3개 추가됨
+
+    // padEnd(문자열의 총 길이, 추가할 문자): 문자열 뒤에 지정된 문자를 지정된 길이 만큰 추가
+    console.log(text.padEnd(4, '0'));
+
+    // Quiz 
+    // 1. 다음 코드의 올바른 출력은? 1
+    const code1 = 'ABCDEFGHI';
+    code1.startsWith('EFG', 4);
+
+    // 1) true
+    // 2) false
+
+    // 2. 다음 코드의 올바른 출력은? 2
+    const code2 = 'ABCDEF';
+    code2.endsWith('def');
+
+    // 1) true
+    // 2) false
+
+    // 3. 원하는 값을 출력하도록 코드의 구현을 완성하자.
+    let str = 'Na';
+    let bat = 'BatMan';
+
+    let batman = str.repeat(8) + ' ' + bat;
+    console.log(batman);
+    // 예상 결과: NaNaNaNaNaNaNaNa BatMan
+
+    // 4. 날짜 포맷을 연(4자리)-월(2자리)-일(2자리) 형식으로 출력하도록 코드의 구현을 완성하자.
+    const theDay = new Date(2024, 2, 15);
+
+    const formatDay = `${theDay.getFullYear()}-${String(theDay.getMonth() + 1).padStart(2, 0)}-${String(theDay.getDate()).padStart(2, 0)}`;
+    console.log(formatDay);
+    // 예상 결과: 2024-03-01
+  </script>
+</body>
+</html>

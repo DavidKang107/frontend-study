@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. for of 루프 (ES6차)
+    // 반복 가능한 객체(iterable)의 값을 반복
+    // 예: Array, String, Map, NodeList 등과 같이 반복 가능한 데이터 구조를 반복할 수 있음
+
+    // (참고) iterable = Symbol.iterator가 구현된 객체를 말함
+    // 반복 가능한 객체인지 구분하는 법
+    // 1) for of 루프를 써러 에러나면 아님
+    // 2) Symbol.iterator 가 있는지 확인
+    // 확인 실습:
+    console.log([1, 2, 3]);
+    console.log(new String('abc'));
+
+    // for (const iterator of object) {
+      
+    // }
+
+    // 1) 배열에 대한 반복
+    const fruits = ['apple', 'banana', 'orange'];
+
+    for (i = 0; i < fruits.length; i++) {
+      document.write(fruits[i], '<br>');
+    }
+
+    // for of 루프 사용
+    for (const fruit of fruits) {
+      document.write(fruit, '<br>');
+    }
+
+    // 2) 문자열에 대한 반복
+    const language = 'JavaScript';
+
+    for (const i of language) {
+      console.log(i);
+    }
+
+    // 3) 객체에 대한 반복
+    // Object 객체는 iterable이 아니다.
+    const car = {
+      maker: 'BMW',
+      color: 'white',
+      year: '2020',
+      key: 555
+    }
+
+    // for (const prop of car) {
+    //   console.log(prop);
+    // }
+
+    // 객체의 key-value 쌍에 대한 반복은 어떻게 구현할까?
+    // Object.keys()를 사용하여 객체의 모든키를 배열로 가져온 후 , 키에 대한 반복을 수행하면 값에 접근 가능
+    console.log(Object.keys(car));
+    for (const key of Object.keys(car)) {
+      const value = car[key];
+      console.log(key, value);
+    }
+
+    // (참고) Object.entries(): 객체의 모든 키/값 싸을 배열로 가져옴
+    // console.log(Object.values(car));
+    
+
+  </script>
+</body>
+</html>

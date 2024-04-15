@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 함수 매개변수의 기본값
+
+    //ES5
+    function getLocation(city, country, continent) {
+      // 전달 받은 값이 없는 경우에 기본값을 제공하는 코드
+      if (typeof country === 'undefined') {
+        country = '대한민국'
+      }
+      if (typeof continent === 'undefined') {
+        continent = '아시아'
+      }
+      console.log(continent, country, city);
+    }
+
+    getLocation('서울');
+    getLocation('도쿄', '일본');
+
+    // 만약 매개 변수의 순서를 바꾼다면..?
+    function getLocation2(continent, country, city) {
+      // 전달 받은 값이 없는 경우에 기본값을 제공하는 코드
+      if (typeof country === 'undefined') {
+        country = '대한민국'
+      }
+      if (typeof continent === 'undefined') {
+        continent = '아시아'
+      }
+      console.log(continent, country, city);
+    }
+
+    getLocation2(undefined, undefined, '서울');
+    getLocation2(undefined, '일본', '도쿄');
+
+    // ES6
+    function myFunc(x, y = 10) {
+      return x + y;
+    }
+
+    console.log(myFunc(5)); 
+
+    function calculate(total, tax = 0.2, tip = 0.1) {
+      return total + (total * tax) + (total * tip)
+    }
+
+    console.log(calculate(100, 0.3));
+    console.log(calculate(100, undefined, 0.15)); // 깔씀하지 않음, 개선하 방법은 디스트럭처링!
+
+    // Quiz 
+    // 1. 다음 작업을 수행하는 코드를 작성해보자.
+    // 다음 코드에서 arg1과 arg2를 변경하여 첫 번째는 tax를 나타내고 두 번째는 tip의 값을 나타내게 만들어보자.
+    // tax에는 기본값 0.1을 지정하고 tip에는 기본값 0.05를 지정하자.
+
+    function calculatePrice(total, tax = 0.1, tip = 0.05) {
+      return total + (total * tax) + (total * tip);
+    }
+    console.log(calculatePrice(10));
+
+    // 2. 다음 코드의 올바른 출력은?
+    const b = 3;
+    function multiply(a, b = 2) {
+      return a * b;
+    }
+    console.log(multiply(5));
+
+
+  </script>
+</body>
+</html>
