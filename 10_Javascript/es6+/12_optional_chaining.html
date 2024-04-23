@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // ?. 옵셔널 체이닝 연산자 (ES2020)
+    // 예제1: 사용자를 나타내는 간단한 객체
+    const user1 = {
+      name: 'David',
+      age: 30,
+      work: {
+        title: 'IT teacher',
+        location: 'Korea'
+      }
+    }
+
+    const user2 = {
+      name: 'Tom',
+      age: 28
+    }
+
+    // 사용자의 직업명(title)에 접근하고 싶을 때
+    // work는 선택정 속성(user1에는 있지만 user2에는 없는)이므로 다음과 같이 작성
+    let jobtitle;
+    jobtitle = user1.work.title;
+    // jobtitle = user2.work.title; // 에러 발생
+
+    // if 문 사용
+    if (user2.work) {
+      jobtitle = user2.title.title;
+    }
+    // 또는 논리 연산자 사용
+    jobtitle = user2.work && user2.work.title
+
+    // 접근하려는 속성이 깊게  중첩되어 잇는 경우 코드가 복잡해지는데
+    // 이 때 옵셔널 체이닝 연산자를 사용하면 간결함
+
+    jobtitle = user1.title?.title;
+    console.log(jobtitle);
+    jobtitle = user2.title?.title;
+    console.log(jobtitle);
+    // work 속성의 존재 여부를 묻고
+    // 존재한다면 title 속성에 접근
+    // 존재 않지 않으면 에러가 발행하는 대신에 undefined를 반환
+
+    // 예제2: 선택적 속성이 깊게 중첩된 경우
+    const ceos = [
+      {
+        name: 'Elon Musk',
+        education: {
+          primary_school: { /* 초등학교 관련 데이터 */ },
+          middle_school: { /* 중학교 관련 데이터 */ },
+          high_school: { /* 고등학교 관련 데이터 */ },
+          university: {
+            name: 'University of Pennsylvania',
+            graduation: {
+              year: 1995
+            }
+          }
+        }
+      },
+      {
+        name: 'Mark Zuckerberg',
+        education: {
+          primary_school: { /* 초등학교 관련 데이터 */ },
+          middle_school: { /* 중학교 관련 데이터 */ },
+          high_school: { /* 고등학교 관련 데이터 */ },
+          university: {
+            name: 'Harvard University'
+          }
+        }
+      }
+    ];
+    // 선택적 속성: education, university, graduation 이라고 가정
+    
+    // 대학 졸업 연도에 접근하고 싶다면..?
+    let graduationYear;
+    for (const ceo of ceos) {
+      if (ceo.education &&
+          ceo.education.university &&
+          ceo.education.university.graduation &&
+          ceo.education.university.graduation.year) {
+            graduationYear = ceo.education.university.graduation.year;
+          }
+    }
+
+    // 옵셔널 체이닝 사용
+
+    for (const ceo of ceos) {
+      graduationYear = ceo.education?.university?.graduation?.year;
+      console.log(graduationYear);
+    }
+
+  </script>
+</body>
+</html>
