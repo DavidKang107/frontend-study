@@ -9,7 +9,7 @@ function LogoutButton(props) {
   return <button type="button" onClick={props.onClick}>로그아웃</button>
 }
 
-function LoginControl(props) {
+function LoginControlRefactoring(props) {
 
   const [isLoggedIn, setIsToggleOn] = useState(false);
 
@@ -21,12 +21,6 @@ function LoginControl(props) {
     setIsToggleOn(false);
   };
 
-  let button;
-  if (isLoggedIn) {
-    button = <LogoutButton onClick={handleLogout}/>;
-  } else {
-    button = <LoginButton onClick={handleLogin}/>;
-  }
   // if문 사용 + button 변수에 컴포넌트를 대임
 
   // 2단계: if문 사용 + button 변수에 컴포넌트를 대입
@@ -37,9 +31,13 @@ function LoginControl(props) {
     <>
       {/* Greeting 컴포넌트 재사용 */}
       <Greeting isLoggedIn={isLoggedIn} />
-      {button}
+      {/* 삼항 연산자로 if-else 구문을 JSX 내부에서 표현 */}
+      {/* 조건에 따라 각기 다른 엘리먼트를 렌더링하고 싶을 떄 사용 */}
+      {isLoggedIn
+        ? <LogoutButton onClick={handleLogout}/> 
+        : <LoginButton onClick={handleLogin}/> }
     </>
   );
 }
 
-export default LoginControl;
+export default LoginControlRefactoring;

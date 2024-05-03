@@ -3,8 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Greeting from './chapter9/9.1/Greeting';
-import LoginControl from './chapter9/9.2/LoginControl';
+// import Reservation from './chapter11/11.4/Reservation';
+import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
+import SignUp from './chapter11/SignUp';
+// import EssayForm from './chapter11/11.3/EssayForm';
+// import FlavorForm from './chapter11/11.3/FlavorForm';
+// import LandingPage from './chapter9/LandingPage';
+// import NumberList from './chapter10/10.1/NumberList';
+// import ListKey from './chapter10/10.2/ListKey';
+// import AttendanceBook from './chapter10/AttendanceBook';
+// import NameForm from './chapter11/11.2/NameForm';
+// import Greeting from './chapter9/9.1/Greeting';
+// import LoginControl from './chapter9/9.2/LoginControl';
+// import Mailbox from './chapter9/9.3/Mailbox';
+// import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
+// import MainPage from './chapter9/9.4/MainPage';
 // import JsxUse from './chapter3/3.4/JsxUse';
 // import Library from './chapter3/Library';
 // import Clock from './chapter4/Clock';
@@ -47,8 +60,21 @@ root.render(
     
     // 9장 예제
     // <Greeting isLoggedIn={true} />
-    <LoginControl />
-
+    // <LoginControl />
+    // <Mailbox unreadMessage = {['React', 'Re: React', 'Re: Re: React']}/>
+    // <LoginControlRefactoring />
+    // <MainPage />
+    // <LandingPage />
+    // <NumberList />
+    // <ListKey />
+    // 10장
+    // <AttendanceBook />
+    // <NameForm />
+    // <EssayForm />
+    // <FlavorForm />
+    // <Reservation />
+    // <ReservationRefactoring />
+    <SignUp />
 
 
 
