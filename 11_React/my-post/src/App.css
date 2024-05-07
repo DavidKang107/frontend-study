@@ -1,0 +1,25 @@
+.header--dark {
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #fff;
+  display: flex;
+  padding: 0 20px;
+}
+
+.inner {
+  padding: 0 20px;
+  /* display: flex;
+  column-gap: 50px; */
+}
+
+.list {
+  margin: 20px 0;
+  padding: 0 10px 10px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.list:hover {
+  background-color: #eaeaea;
+}

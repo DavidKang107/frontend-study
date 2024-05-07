@@ -21,21 +21,47 @@ import { useState } from "react";
 
 function SignUp() {
 
-  const [SignUp, setSignUp] = useState({
+  const [signUp, setSignUp] = useState({
     name: '',
-    gender: 'MAN'
+    gender: '남자'
   });
 
-  const handleSubmit = () => {
+  const {name, gender} = signUp;
+
+  // const handleChangeName = (e) => {
+  //   setSignUp({
+  //     ...signUp,
+  //     name: e.target.value
+  //   })
+  // }
+  const handleChange = (e) => {
+    const {name, value} = e.target;
     
+    setSignUp({
+      ...signUp,
+      [name]: value
+    })
+  }
+  
+  // const handleChangeGender = (e) => {
+  //   setSignUp({
+  //     ...signUp,
+  //     gender: e.target.value
+  //   })
+  // }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`이름: ${name}, 성별: ${gender}`);
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" />
-      <select>
-        <option value="MAN">남자</option>
-        <option value="WOMAN">여자</option>
+      <input type="text" name="name" onChange={handleChange} value={name}/>
+      <select onChange={handleChange} name="gender" value={gender}>
+        <option value="남자">남자</option>
+        <option value="여자">여자</option>
       </select>
       <button type="submit">가입하기</button>
     </form>
