@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
+import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
 // import Reservation from './chapter11/11.4/Reservation';
 // import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
-import SignUp from './chapter11/SignUp';
+// import SignUp from './chapter11/SignUp';
+// import TextInputWithFocusButton from './chapter7/7.6/TextInputWithFocusButton';
+// import FileInput from './chapter11/11.3/FileInput';
+// import UnitCalculator from './chapter12/UnitCalculator';
 // import EssayForm from './chapter11/11.3/EssayForm';
 // import FlavorForm from './chapter11/11.3/FlavorForm';
 // import LandingPage from './chapter9/LandingPage';
@@ -74,8 +79,16 @@ root.render(
     // <FlavorForm />
     // <Reservation />
     // <ReservationRefactoring />
-    <SignUp />
-
+    // <SignUp />
+    // 7장 예게 
+    // <TextInputWithFocusButton />
+    // 11장
+    // <FileInput />
+    // 12장
+    // <UnitCalculator />
+    // 13장
+    // <WelcomeDialog />
+    <SplitPaneSection />
 
 
 );
