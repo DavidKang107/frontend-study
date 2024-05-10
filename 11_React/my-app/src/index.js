@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
+// import ProfileCard from './chapter13/ProfileCard';
+import StyledPage from './chapter15/StyledPage';
 // import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
-import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
+// import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
+// import DialogContainer from './chapter13/13.1.2/DialogContainer';
 // import Reservation from './chapter11/11.4/Reservation';
 // import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
 // import SignUp from './chapter11/SignUp';
@@ -88,7 +92,12 @@ root.render(
     // <UnitCalculator />
     // 13장
     // <WelcomeDialog />
-    <SplitPaneSection />
+    // <SplitPaneSection />
+    // <DialogContainer />
+    // <SignUpDialog />
+    // <ProfileCard />
+    // 15장
+    <StyledPage />
 
 
 );
