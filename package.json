@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-icons": "^5.2.1",
+    "styled-components": "^6.1.11",
+    "styled-reset": "^4.5.2"
+  }
+}
