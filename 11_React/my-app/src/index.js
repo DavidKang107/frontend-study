@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
+// import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
+import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 // import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 // import ProfileCard from './chapter13/ProfileCard';
 // import StyledPage from './chapter15/StyledPage';
-import Blocks from './chapter15/theme/Blocks';
+// import Blocks from './chapter15/theme/Blocks';
+// import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
 // import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
 // import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
 // import DialogContainer from './chapter13/13.1.2/DialogContainer';
@@ -99,7 +103,11 @@ root.render(
     // <ProfileCard />
     // 15장
     // <StyledPage />
-    <Blocks />
+    // <Blocks />
+    // <CounterEffect />
+    // <TimerContainer />
+    // <EffectSummary />
+    <EffectContainer />
 
 
 );
