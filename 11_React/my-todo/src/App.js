@@ -3,9 +3,9 @@ import reset, { Reset } from "styled-reset";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
-import { useRef, useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Modal from "./components/Modal";
 
 // 패키지 설치
 // npm install styled-components styled-reset react-icons
@@ -26,38 +26,58 @@ function App() {
   // todos 배열 안에 객체 형태로 데이터가 존재
   // id, 내용, 완료 여부
   // TodoList에 props로 전달
-  
   const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '수업 교안 작성하기',
-      done: true
-    },
-    {
-      id: 2,
-      text: '시험 채점하기',
-      done: true
-    },
-    {
-      id: 3,
-      text: '단계별 실습 예제 만들기',
-      done: false
-    },
+    // {
+    //   id: 1,
+    //   text: '수업 교안 작성하기',
+    //   done: true
+    // },
+    // {
+    //   id: 2,
+    //   text: '시험 채점하기',
+    //   done: true
+    // },
+    // {
+    //   id: 3,
+    //   text: '단계별 실습 예제 만들기',
+    //   done: false
+    // },
   ]);
 
-  // 로컬 스토리지에 저장하기 (주의: DB가 아님, DB처럼 쓰면 안됨!!)
-  // 추가, 수정, 삭제 각 함수에 로직을 넣어도 되지만, useEffect()를 활용하면 한번에 처리 가능!
-  // todos가 변경될 때마다 실행해라!
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos])
+  const [showModal, setShowModal] = useState(false); // 모달 상태
+  const [editTodo, setEditTodo] = useState({}); // 현재 수정할 todo 상태
+
+  const handleOpenModal = (id) => {
+    // 모달 열면서 현재 수정할 todo를 state에 저장
+    setEditTodo(todos.find(todo => todo.id === id));
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleChange = (e) => { // 제어 컴포넌트로 관리
+    setEditTodo({
+      ...editTodo,
+      text: e.target.value
+    });
+  };
+  const handleEdit = () => { // 실제 수정
+    setTodos(todos.map(todo => todo.id === editTodo.id ? editTodo : todo));
+    handleCloseModal();
+  };
 
   // 로컬 스토리지에서 가져오기
   useEffect(() => {
     const dbTodos = JSON.parse(localStorage.getItem('todos')) || []; // 초기에 'todos'가 없으면 null을 반환함
     setTodos(dbTodos);
-  }, [])
+  }, []);
 
+  // 로컬 스토리지에 저장하기(주의: DB가 아님, DB처럼 쓰면 안됨!!)
+  // 추가, 수정, 삭제 각 함수에 로직을 넣어도 되지만, useEffect()를 활용하면 한번에 처리 가능!
+  // todos가 변경될 때마다 실행해라!!
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   // 새 객체를 만들 때마다 id값에 1씩 더해줘야 하는데 
   // id값은 렌더링되는 정보가 아님
@@ -86,7 +106,6 @@ function App() {
     setTodos(todos.concat(todo));
 
     nextId.current += 1; // nextId에 1씩 더하기
-    console.log(nextId.current);
   };
 
   // todos 배열에서 id값으로 항목을 지우기 위한 함수
@@ -99,21 +118,19 @@ function App() {
 
     // 방법2 - 배열의 내장 함수 이용
     setTodos(todos.filter(todo => todo.id !== id));
-    nextId.current -= 1;
   };
-  const handleDone = (id) => {
+
+  // todos 배열의 특정 요소를 수정하기 위한 함수
+  const handleToggle = (id) => {
     // 방법1
-    // const targetIndex = todos.findIndex(todo => todo.id === id);
     // const copyTodos = [...todos];
-    // copyTodos[targetIndex].done = !(copyTodos[targetIndex].done);
+    // const targetIndex = todos.findIndex(todo => todo.id === id);
+    // copyTodos[targetIndex].done = !copyTodos[targetIndex].done;
     // setTodos(copyTodos);
 
-    // 방법2 - 배열의 내장함수 이용
-    setTodos(todos.map(todo =>  todo.id === id ? {...todo, done: !todo.done } : todo))
-
-
+    // 방법2 - 배열의 내장 함수 이용
+    setTodos(todos.map(todo => todo.id === id ? { ...todo, done: !todo.done } : todo));
   };
-
 
   return (
     <>
@@ -121,8 +138,19 @@ function App() {
       <GlobalStyle />
       <TodoTemplate>
         <TodoInsert onInsert={handleInsert} />
-        <TodoList todos={todos} onRemove={handleRemove} onDone={handleDone} />
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onModal={handleOpenModal} />
       </TodoTemplate>
+
+      {/* 수정하기 모달 */}
+      {showModal && (
+        <Modal
+          title="할 일 수정"
+          onCloseModal={handleCloseModal}
+          onEdit={handleEdit}
+        >
+          <input type="text" value={editTodo.text} onChange={handleChange} />
+        </Modal>
+      )}
     </>
   );
 }

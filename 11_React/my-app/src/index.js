@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import MainPage from './chapter16/pages/MainPage';
+import SimpleRouter from './chapter16/SimpleRouter';
 // import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
 // import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
-import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
+// import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 // import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 // import ProfileCard from './chapter13/ProfileCard';
 // import StyledPage from './chapter15/StyledPage';
@@ -107,7 +109,9 @@ root.render(
     // <CounterEffect />
     // <TimerContainer />
     // <EffectSummary />
-    <EffectContainer />
+    // <EffectContainer />
+    // 16장
+    <SimpleRouter />
 
 
 );
