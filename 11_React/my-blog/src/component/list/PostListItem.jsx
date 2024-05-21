@@ -25,9 +25,9 @@ const TitleText = styled.p`
 
 function PostListItem(props) {
   const { post: {id, title} } = props;
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   return (
-    <Wrapper onClick={() => {navigate('/post/${id')}}>
+    <Wrapper onClick={() => navigate(`/post/${id}`)}>
       <TitleText>{title}</TitleText>
     </Wrapper>
   );

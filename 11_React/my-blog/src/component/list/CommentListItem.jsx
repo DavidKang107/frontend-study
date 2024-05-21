@@ -17,10 +17,12 @@ const Wrapper = styled.div`
   }
 `;
 
-function CommentListItem() {
+function CommentListItem(props) {
+  const { comment } = props;
   return (
-    <>
-    </>
+    <Wrapper>
+      {comment.content}
+    </Wrapper>
   );
 };
 

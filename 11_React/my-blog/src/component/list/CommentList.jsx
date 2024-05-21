@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CommentListItem from "./CommentListItem";
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,10 +12,14 @@ const Wrapper = styled.div`
   }
 `;
 
-function CommentList() {
+function CommentList(props) {
+  const { comments } = props;
   return (
-    <>
-    </>
+    <Wrapper>
+      {comments.map((comment) => {
+        return <CommentListItem key={comment.id} comment={comment} />
+      })}
+    </Wrapper>
   );
 };
 
