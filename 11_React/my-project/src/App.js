@@ -16,20 +16,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MainTitleText = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 40px;
-`;
+
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <MainTitleText>
-        To-do List
-      </MainTitleText>
       <Mainpage />
     </>
   );
