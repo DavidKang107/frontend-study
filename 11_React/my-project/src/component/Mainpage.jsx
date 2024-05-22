@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import SubjectList from './SubjectList';
+import TodoList from './TodoList';
+import TodoInsert from './TodoInsert';
+import TitleInsert from './TitleInsert';
 
 const Wrapper = styled.div`
   width: calc(100% - 32px);
@@ -27,6 +30,9 @@ const ContentArea = styled.div`
   flex: 1;
   background-color: #d2d1e9;
   border-radius: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 function Mainpage() {
@@ -35,7 +41,12 @@ function Mainpage() {
       <SubjectArea>
         <SubjectList></SubjectList>
       </SubjectArea>
-      <ContentArea />
+      <ContentArea>
+        <TitleInsert />
+        <TodoList />
+        <TodoInsert />
+
+      </ContentArea>
     </Wrapper>
   );
 };
