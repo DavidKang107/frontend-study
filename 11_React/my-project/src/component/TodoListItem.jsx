@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { MdOutlineCircle, MdOutlineStarOutline } from "react-icons/md";
+import { MdOutlineCircle, MdOutlineStarOutline, MdCheckCircleOutline } from "react-icons/md";
 import dayjs from "dayjs"
+import { useState } from "react";
+
 
 const Wrapper = styled.div`
   background: #f2f2f2;
@@ -52,10 +54,17 @@ function TodoListItem() {
   now.format("YY-MM-DD");
   console.log(now);
   
+  const [checkIcon, setCheckIcon] = useState(false);
+  const [dueDate, setDueDate] = useState(new Date());
+
+
   return (
     <Wrapper>
-      <TodoButton>
-        <MdOutlineCircle />
+      <TodoButton 
+        onMouseOver={() => setCheckIcon(true)}
+        onMouseOut={() => setCheckIcon(false)}
+      >
+        {checkIcon ? <MdCheckCircleOutline /> : <MdOutlineCircle />}
       </TodoButton>
       <Todo>
         
