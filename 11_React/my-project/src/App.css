@@ -2,4 +2,12 @@ div.react-datepicker-wrapper{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
+
+.custom-input {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+

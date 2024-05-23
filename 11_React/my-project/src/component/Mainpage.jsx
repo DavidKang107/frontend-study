@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
   max-width: 1040px;
+  min-width: 800px;
   height: 800px;
   margin-top: 40px;
   background: #f2f2f2;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
 
 const SubjectArea = styled.div`
   padding: 80px 8px 0;
-  width: 240px;
+  width: 30%;
   background-color: #f2f2f2;
 `;
 const ContentArea = styled.div`
@@ -33,6 +34,7 @@ const ContentArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 70%;
 `;
 
 function Mainpage() {

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { forwardRef, useState } from "react";
-import "../App.css";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -52,7 +51,7 @@ function TodoInsert() {
   const [dueDate, setDueDate] = useState(new Date());
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button id="button" className="custom-input" onClick={onClick} ref={ref}>
-      기한: {value}
+      {value}까지
     </button>
   ));
 
