@@ -70,6 +70,7 @@ const Edit = styled.div`
 // todo 객체를 props로 받아와서 상태에 따라 다른 스타일의 UI를 보여줌
 function TodoListItem(props) {
   const { todo: { id, text, done }, onRemove ,onToggle, onModal } = props;
+  console.log(props);
 
   return (
     <TodoListItemWrapper>

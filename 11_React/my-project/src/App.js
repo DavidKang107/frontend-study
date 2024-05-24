@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components";
 import { Reset } from "styled-reset";
 import Mainpage from './component/Mainpage';
 
-
 const GlobalStyle = createGlobalStyle`
   /* 글로벌(공통) 스타일 */
  
@@ -14,8 +13,6 @@ const GlobalStyle = createGlobalStyle`
     
     min-width:800px;
     overflow-x: hidden;
-
-
   }
 
   button {
@@ -30,10 +27,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 
-
-
-
 function App() {
+  
+
   return (
     <>
       <Reset />

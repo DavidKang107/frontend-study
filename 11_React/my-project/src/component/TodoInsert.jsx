@@ -24,8 +24,10 @@ const SubmitButton = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
   & > svg {
     font-size: 20px;
+    color: ${props => props.regTodo ? 'black': '#757575' }
   }
 `;
 
@@ -47,20 +49,36 @@ const CalendarButton = styled.label`
   }
 `;
 
-function TodoInsert() {
-  const [dueDate, setDueDate] = useState(new Date());
+function TodoInsert(props) {
+
+  const { handleInsert } = props;
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button id="button" className="custom-input" onClick={onClick} ref={ref}>
-      {value}까지
+      {value} 까지
     </button>
   ));
+  
+  const [dueDate, setDueDate] = useState(new Date());
+  const [regTodo, setRegTodo] = useState('');
 
   return (
     <Wrapper>
-      <SubmitButton>
+      <SubmitButton 
+        disabled={!regTodo}
+        regTodo={regTodo}
+        onClick={() => {
+        handleInsert(regTodo, dueDate);
+        setRegTodo('');
+        setDueDate(new Date());
+      }}>
         <AiOutlinePlus />
       </SubmitButton>
-      <TodoInput />
+      <TodoInput
+        value={regTodo}
+        onChange={(e) => {
+          setRegTodo(e.target.value)
+        }}
+      />
       <DatePicker
         locale={ko}
         selected={dueDate}

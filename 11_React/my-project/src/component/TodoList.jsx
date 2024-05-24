@@ -13,11 +13,22 @@ const Wrapper = styled.div`
   }
 `;
 
-function TodoList() {
+function TodoList(props) {
+
+  const { todos, handleOnDone, handleImportant, handleRemove } = props;
+  console.log(todos);
   return (
     <Wrapper>
-      <TodoListItem />
-      <TodoListItem />
+      {todos.map(todo =>
+        <TodoListItem
+          todo={todo}
+          handleOnDone={handleOnDone}
+          handleImportant={handleImportant}
+          key={todo.todoNo}
+          handleRemove={handleRemove}
+          
+        />
+      )}
     </Wrapper>
   );
 };

@@ -3,6 +3,9 @@ import SubjectList from './SubjectList';
 import TodoList from './TodoList';
 import TodoInsert from './TodoInsert';
 import TitleInsert from './TitleInsert';
+import dataJson from '../data.json';
+import { useState } from 'react';
+import { v4 as uuidv4 } from "uuid";
 
 const Wrapper = styled.div`
   width: calc(100% - 32px);
@@ -37,7 +40,34 @@ const ContentArea = styled.div`
   width: 70%;
 `;
 
-function Mainpage() {
+function Mainpage(props) {
+  const [todos, setTodos] = useState(dataJson.content);
+
+  
+  const handleOnDone = (id) => {
+    setTodos(todos.map(todo => todo.todoNo === id ? {...todo, done: !todo.done} : todo))
+  }
+  const handleImportant = (id) => {
+    setTodos(todos.map(todo => todo.todoNo === id ? {...todo, important: !todo.important} : todo))
+  }
+
+  const handleRemove = (id) => {
+    setTodos(todos.filter(todo => todo.todoNo !== id));
+  }
+
+  const handleInsert = (text, date) => {
+    const todo = {
+      todoNo: uuidv4(),
+      todo: text,
+      createDate: new Date(),
+      dueDate: date,
+      done : false,
+      important : false
+    };
+    setTodos([...todos, todo]);
+  }
+
+
   return (
     <Wrapper>
       <SubjectArea>
@@ -45,8 +75,15 @@ function Mainpage() {
       </SubjectArea>
       <ContentArea>
         <TitleInsert />
-        <TodoList />
-        <TodoInsert />
+        <TodoList
+          todos={todos}
+          handleOnDone={handleOnDone}
+          handleImportant={handleImportant}
+          handleRemove={handleRemove}
+          
+          
+        />
+        <TodoInsert handleInsert = {handleInsert}/>
 
       </ContentArea>
     </Wrapper>
