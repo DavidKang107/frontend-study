@@ -27,7 +27,7 @@ const SubmitButton = styled.button`
   
   & > svg {
     font-size: 20px;
-    color: ${props => props.regTodo ? 'black': '#757575' }
+    color: ${props => props.$insertTodo ? 'black': '#757575' }
   }
 `;
 
@@ -54,36 +54,36 @@ function TodoInsert(props) {
   const { handleInsert } = props;
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button id="button" className="custom-input" onClick={onClick} ref={ref}>
-      {value} 까지
+      ~ {value}
     </button>
   ));
   
   const [dueDate, setDueDate] = useState(new Date());
-  const [regTodo, setRegTodo] = useState('');
+  const [insertTodo, setInsertTodo] = useState('');
 
   return (
     <Wrapper>
       <SubmitButton 
-        disabled={!regTodo}
-        regTodo={regTodo}
+        disabled={!insertTodo}
+        $insertTodo={insertTodo}
         onClick={() => {
-        handleInsert(regTodo, dueDate);
-        setRegTodo('');
+        handleInsert(insertTodo, dueDate);
+        setInsertTodo('');
         setDueDate(new Date());
       }}>
         <AiOutlinePlus />
       </SubmitButton>
       <TodoInput
-        value={regTodo}
+        value={insertTodo}
         onChange={(e) => {
-          setRegTodo(e.target.value)
+          setInsertTodo(e.target.value)
         }}
       />
       <DatePicker
         locale={ko}
         selected={dueDate}
         onChange={(date) => setDueDate(date)}
-        dateFormat={"yyyy년 MM월 dd일"}
+        dateFormat={"yyyy. MM. dd"}
         customInput={<CustomInput />}
       ></DatePicker>
       <CalendarButton htmlFor="button">

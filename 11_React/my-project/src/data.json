@@ -1,23 +1,18 @@
-
+[
   {
-    "titleNo": "1",
-    "title": "프론트앤드",
-    "content": [
-      {
-        "todoNo": "1",
-        "todo": "투두리스트 만들기",
-        "createDate": "2024-05-24",
-        "dueDate": "2024-05-30",
-        "done": false,
-        "important": false
-      },
-      {
-        "todoNo": "2",
-        "todo": "프로젝트하기",
-        "createDate": "2024-05-24",
-        "dueDate": "2024-06-05",
-        "done": false,
-        "important": true
-      }
-    ]
+    "todoNo": "1",
+    "todo": "투두리스트 만들기",
+    "createDate": "2024-05-24",
+    "dueDate": "2024-05-30",
+    "done": false,
+    "important": false
+  },
+  {
+    "todoNo": "2",
+    "todo": "프로젝트하기",
+    "createDate": "2024-05-24",
+    "dueDate": "2024-06-05",
+    "done": false,
+    "important": true
   }
+]

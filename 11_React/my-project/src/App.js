@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
     font-optical-sizing: auto;
     font-style: normal;
     
-    min-width:800px;
+    
+    /* min-width:800px; */
     overflow-x: hidden;
   }
 

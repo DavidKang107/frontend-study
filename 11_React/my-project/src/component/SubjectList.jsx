@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { MdOutlineStarOutline, MdOutlineWbSunny } from "react-icons/md";
+import { MdOutlineStarOutline, MdOutlineWbSunny, MdHome, MdOutlineSort } from "react-icons/md";
+import { useState } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,17 +12,45 @@ const Wrapper = styled.div`
   }
 `;
 
-const Items = styled.div`
+const HomeButton = styled.button`
   font-size: 16px;
-  height: 40px;
+  height: 80px;
   display: flex;
   align-items: center;
   padding: 0 12px;
-  border-radius: 4px;
+  border-radius: 8px 0 0 8px;
   cursor: pointer;
   &:hover {
     background-color: #dddddd;
   }
+  ${props => props.$homeBG && `background: #d2d1e9`}
+`;
+const TodayButton = styled.button`
+  font-size: 16px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #dddddd;
+  }
+  ${props => props.$todayBG && `background: #d2d1e9`}
+`;
+
+const ImportantButton = styled.button`
+  font-size: 16px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #dddddd;
+  }
+  ${props => props.$importantBG && `background: #d2d1e9`}
 `;
 
 const IconWrapper = styled.div`
@@ -34,26 +63,83 @@ const IconWrapper = styled.div`
     color: #717171;
   }
 
-`
+`;
 
-function SubjectList() {
+const DueDateSortButton = styled.button`
+  font-size: 16px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #dddddd;
+  }
+  ${props => props.$importantBG && `background: #d2d1e9`}
+`;
+
+function SubjectList(props) {
+  const { handleImportantList, handleHomeList, handleTodayList, handleSortDueDate } = props;
+  const [homeBG, setHomeBG] = useState(true);
+  const [todayBG, setTodayBG] = useState(false);
+  const [importantBG, setImportantBG] = useState(false);
+
+
   return (
     <Wrapper>
-      <Items>
+      <HomeButton
+        $homeBG={homeBG}
+        onClick={() => {
+          handleHomeList();
+          setHomeBG(true);
+          setTodayBG(false);
+          setImportantBG(false);
+        }}>
         <IconWrapper>
+          <MdHome />
+        </IconWrapper>
+        <span>홈</span>
+      </HomeButton>
+      <TodayButton
+        $todayBG={todayBG}
+        onClick={() => {
+          handleTodayList()
+          setHomeBG(false);
+          setTodayBG(true);
+          setImportantBG(false);
+        }}>
+        <IconWrapper >
           <MdOutlineWbSunny />
         </IconWrapper>
         <span>오늘 할 일</span>
-      </Items>
-      <Items>
+      </TodayButton>
+      <ImportantButton
+        $importantBG={importantBG}
+        onClick={() => {
+          setHomeBG(false);
+          setTodayBG(false);
+          setImportantBG(true);
+          handleImportantList()
+        }}>
         <IconWrapper>
           <MdOutlineStarOutline />
         </IconWrapper>
         <span>중요</span>
-      </Items>
-      <hr style={{background: '#717171', width: '200px', margin: '0 auto'}}/>
-      
-      
+      </ImportantButton>
+      <div>
+        <hr style={{ background: '#717171', width: '80%', margin: '0 auto' }} />
+      </div>
+      <DueDateSortButton
+        onClick={() => {
+          handleSortDueDate()
+        }}>
+        <IconWrapper>
+          <MdOutlineSort />
+        </IconWrapper>
+        <span>마감일 순</span>
+      </DueDateSortButton>
+
     </Wrapper>
   );
 };

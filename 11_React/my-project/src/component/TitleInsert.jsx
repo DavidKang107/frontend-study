@@ -3,7 +3,6 @@ import { GoPencil } from "react-icons/go";
 
 const Wrapper = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   background-color: transparent;
   width: 100%;
