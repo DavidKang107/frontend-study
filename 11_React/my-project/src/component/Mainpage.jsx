@@ -56,6 +56,25 @@ function Mainpage() {
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
+
+  }, [todos]);
+
+  useEffect(() => {
+    switch (view) {
+      case 'home':
+        handleHomeList();
+        break;
+      case 'today':
+        handleTodayList();
+        break;
+      case 'important':
+        handleImportantList();
+        break;
+    
+      default:
+        break;
+    };
+
   }, [todos]);
 
   
@@ -78,26 +97,14 @@ function Mainpage() {
     const todo = {
       todoNo: uuidv4(),
       todo: text,
-      createDate: new Date(),
+      createDate: dayjs(),
       dueDate: date,
       done : false,
       important : false
     };
     setTodos([...todos, todo]);
     setFilteredTodos([...filteredTodos, todo]);
-    switch (view) {
-      case 'home':
-        handleHomeList();
-        break;
-      case 'important':
-        handleImportantList();
-        break;
-      case 'today':
-        handleTodayList();
-        break;
-      default:
-        break;
-    }
+    
   };
 
   const handelUpdate = (text, id) => {

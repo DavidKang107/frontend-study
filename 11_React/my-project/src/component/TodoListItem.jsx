@@ -121,7 +121,8 @@ function TodoListItem(props) {
   }
 
   const dayjsDuedate = dayjs(dueDate);
-  const diffDuedate = Math.floor(dayjsDuedate.diff(dayjs(), "days"));
+  const diffDuedate = Math.ceil(dayjsDuedate.diff(dayjs(), "days", true));
+  console.log(diffDuedate);
 
 
 
