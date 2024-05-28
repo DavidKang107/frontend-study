@@ -46,6 +46,8 @@ function Mainpage() {
   });
   const [filteredTodos, setFilteredTodos] = useState(todos);
 
+  const [view, setView] = useState('home');
+
   useEffect(() => {
     const dbTodos = JSON.parse(localStorage.getItem('todos')) || dataJson;
     setTodos(dbTodos);
@@ -83,6 +85,19 @@ function Mainpage() {
     };
     setTodos([...todos, todo]);
     setFilteredTodos([...filteredTodos, todo]);
+    switch (view) {
+      case 'home':
+        handleHomeList();
+        break;
+      case 'important':
+        handleImportantList();
+        break;
+      case 'today':
+        handleTodayList();
+        break;
+      default:
+        break;
+    }
   };
 
   const handelUpdate = (text, id) => {
@@ -92,15 +107,17 @@ function Mainpage() {
 
   const handleImportantList = () => {
     setFilteredTodos(todos.filter(todo => todo.important))
+    setView('important');
   };
 
   const handleHomeList = () => {
     setFilteredTodos(todos)
-    console.log(filteredTodos);
+    setView('home');
   };
 
   const handleTodayList = () => {
     setFilteredTodos(todos.filter(todo => dayjs(todo.dueDate).format('YYYY-MM-DD') === dayjs().format('YYYY-MM-DD')))
+    setView('today');
   };
 
   const handleSortDueDate = () => {
