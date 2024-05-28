@@ -96,6 +96,7 @@ function Mainpage() {
 
   const handleHomeList = () => {
     setFilteredTodos(todos)
+    console.log(filteredTodos);
   };
 
   const handleTodayList = () => {
@@ -103,9 +104,9 @@ function Mainpage() {
   };
 
   const handleSortDueDate = () => {
-    const newList = filteredTodos.sort(function(a,b) {
+    const newList = [...filteredTodos].sort(function(a,b) {
       
-      return new Date (b.dueDate) - new Date (a.dueDate);
+      return dayjs(a.dueDate) - dayjs(b.dueDate);
     });
     setFilteredTodos(newList);
   }

@@ -120,11 +120,14 @@ function TodoListItem(props) {
     setUpdateTodo(false);
   }
 
+  const dayjsDuedate = dayjs(dueDate);
+  const diffDuedate = Math.floor(dayjsDuedate.diff(dayjs(), "days"));
+
 
 
   return (
     <Wrapper
-      $warning={(dayjs(dueDate).format("DD") < dayjs().format("DD"))}
+      $warning={diffDuedate < 0}
       onMouseOver={() => setEditTodo(true)}
       onMouseOut={() => setEditTodo(false)}
     >
@@ -144,16 +147,16 @@ function TodoListItem(props) {
         /> :
         <Todo
           $done={done}
-          $warning={(dayjs(dueDate).format("DD") < dayjs().format("DD"))}
+          $warning={diffDuedate < 0}
         >
           {todo}
         </Todo>}
       {updateTodo && <SaveButton onClick={handleSave}><MdSave /></SaveButton>}
       {!updateTodo &&
         <DueDate>
-          {(dayjs(dueDate).format("DD") >= dayjs().format("DD")) ?
-            (dayjs(dueDate).format("DD") - dayjs().format("DD")) + '일 남았습니다.' :
-            (dayjs().format("DD")) - dayjs(dueDate).format("DD") + '일 초과하였습니다.'}
+          {diffDuedate >= 0 ?
+            diffDuedate + '일 남았습니다.' :
+            (diffDuedate * -1) + '일 초과하였습니다.'}
         </DueDate>}
       {!updateTodo && editTodo &&
         <IconWrapper onClick={handleUpdate}>
