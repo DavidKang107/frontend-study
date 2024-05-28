@@ -110,6 +110,20 @@ function Mainpage() {
     });
     setFilteredTodos(newList);
   }
+  const handleSortTodo = () => {
+    const newList = [...filteredTodos].sort(function(a,b) {
+      
+      return a.todo.localeCompare(b.todo);
+    });
+    setFilteredTodos(newList);
+  }
+  const handleSortCreateDate = () => {
+    const newList = [...filteredTodos].sort(function(a,b) {
+      
+      return dayjs(a.createDate) - dayjs(b.createDate);
+    });
+    setFilteredTodos(newList);
+  }
 
   return (
     <Wrapper>
@@ -119,6 +133,8 @@ function Mainpage() {
           handleHomeList={handleHomeList}
           handleTodayList={handleTodayList}
           handleSortDueDate={handleSortDueDate}
+          handleSortTodo={handleSortTodo}
+          handleSortCreateDate={handleSortCreateDate}
         />
       </SubjectArea>
       <ContentArea>

@@ -67,7 +67,7 @@ const IconWrapper = styled.div`
 
 const DueDateSortButton = styled.button`
   font-size: 16px;
-  height: 80px;
+  height: 72px;
   display: flex;
   align-items: center;
   padding: 0 12px;
@@ -80,7 +80,7 @@ const DueDateSortButton = styled.button`
 `;
 
 function SubjectList(props) {
-  const { handleImportantList, handleHomeList, handleTodayList, handleSortDueDate } = props;
+  const { handleImportantList, handleHomeList, handleTodayList, handleSortDueDate, handleSortTodo, handleSortCreateDate } = props;
   const [homeBG, setHomeBG] = useState(true);
   const [todayBG, setTodayBG] = useState(false);
   const [importantBG, setImportantBG] = useState(false);
@@ -138,6 +138,24 @@ function SubjectList(props) {
           <MdOutlineSort />
         </IconWrapper>
         <span>마감일 순</span>
+      </DueDateSortButton>
+      <DueDateSortButton
+        onClick={() => {
+          handleSortCreateDate()
+        }}>
+        <IconWrapper>
+          <MdOutlineSort />
+        </IconWrapper>
+        <span>생성일 순</span>
+      </DueDateSortButton>
+      <DueDateSortButton
+        onClick={() => {
+          handleSortTodo()
+        }}>
+        <IconWrapper>
+          <MdOutlineSort />
+        </IconWrapper>
+        <span>가나다 순</span>
       </DueDateSortButton>
 
     </Wrapper>
