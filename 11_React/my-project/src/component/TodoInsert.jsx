@@ -49,14 +49,15 @@ const CalendarButton = styled.label`
   }
 `;
 
+const CustomInput = forwardRef(({ value, onClick }, ref) => (
+  <button id="button" className="custom-input" onClick={onClick} ref={ref}>
+    ~ {value}
+  </button>
+));
+
 function TodoInsert(props) {
 
   const { handleInsert } = props;
-  const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button id="button" className="custom-input" onClick={onClick} ref={ref}>
-      ~ {value}
-    </button>
-  ));
   
   const [dueDate, setDueDate] = useState(new Date());
   const [insertTodo, setInsertTodo] = useState('');

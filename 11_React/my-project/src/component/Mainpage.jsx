@@ -107,9 +107,9 @@ function Mainpage() {
     
   };
 
-  const handelUpdate = (text, id) => {
-    setTodos(todos.map(todo => todo.todoNo === id ? {...todo, todo: text} : todo))
-    setFilteredTodos(filteredTodos.map(todo => todo.todoNo === id ? {...todo, todo: text} : todo))
+  const handelUpdate = (text, date, id) => {
+    setTodos(todos.map(todo => todo.todoNo === id ? {...todo, todo: text, dueDate: date} : todo))
+    setFilteredTodos(filteredTodos.map(todo => todo.todoNo === id ? {...todo, todo: text, dueDate: date} : todo))
   };
 
   const handleImportantList = () => {

@@ -1,7 +1,10 @@
 import styled, { css } from "styled-components";
 import { MdSave, MdEdit, MdRemoveCircleOutline, MdOutlineStar, MdCheckCircle, MdOutlineCircle, MdOutlineStarOutline, MdCheckCircleOutline } from "react-icons/md";
 import dayjs from "dayjs"
-import { useState } from "react";
+import { forwardRef, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import ko from "date-fns/locale/ko";
 
 
 const Wrapper = styled.div`
@@ -116,15 +119,20 @@ function TodoListItem(props) {
 
   const [updateTodoValue, setUpdateTodoValue] = useState(todo);
   const handleSave = () => {
-    handelUpdate(updateTodoValue, todoNo);
+    handelUpdate(updateTodoValue, dueDateModified, todoNo);
     setUpdateTodo(false);
   }
+  const [dueDateModified , setDueDateModified] = useState(new Date());
 
   const dayjsDuedate = dayjs(dueDate);
   const diffDuedate = Math.ceil(dayjsDuedate.diff(dayjs(), "days", true));
   console.log(diffDuedate);
 
-
+  const CustomInput = forwardRef(({ value, onClick }, ref) => (
+    <button id="button" className="custom-input" onClick={onClick} ref={ref}>
+      ~ {value}
+    </button>
+  ));
 
   return (
     <Wrapper
@@ -152,11 +160,20 @@ function TodoListItem(props) {
         >
           {todo}
         </Todo>}
-      {updateTodo && <SaveButton onClick={handleSave}><MdSave /></SaveButton>}
+      {updateTodo &&
+        <DatePicker
+        locale={ko}
+        selected={dueDateModified}
+        onChange={(date) => setDueDateModified(date)}
+        dateFormat={"yyyy. MM. dd"}
+        customInput={<CustomInput />}
+      ></DatePicker>}
+      {updateTodo &&
+        <SaveButton onClick={handleSave}><MdSave /></SaveButton>}
       {!updateTodo &&
         <DueDate>
           {diffDuedate >= 0 ?
-            diffDuedate + '일 남았습니다.' :
+            (diffDuedate === 0 ? '오늘까지' : diffDuedate + '일 남았습니다.') :
             (diffDuedate * -1) + '일 초과하였습니다.'}
         </DueDate>}
       {!updateTodo && editTodo &&

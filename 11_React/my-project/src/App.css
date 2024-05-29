@@ -8,6 +8,7 @@ div.react-datepicker-wrapper{
 .custom-input {
   font-size: 14px;
   white-space: nowrap;
+  background-color: transparent;
 }
 
 
