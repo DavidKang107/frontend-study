@@ -27,6 +27,8 @@ const TodoButton = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 0;
   & > svg {
     font-size: 20px;
   }
@@ -68,6 +70,8 @@ const ImportantButton = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 0;
   & > svg {
     font-size: 20px;
   }
@@ -80,6 +84,9 @@ const IconWrapper = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 0;
+  margin: 4px;
   & > svg {
     font-size: 20px;
   }
@@ -99,6 +106,8 @@ const SaveButton = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 0;
   & > svg {
     font-size: 20px;
   }
