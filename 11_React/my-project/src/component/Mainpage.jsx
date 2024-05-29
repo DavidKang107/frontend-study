@@ -10,11 +10,10 @@ import dayjs from 'dayjs';
 const Wrapper = styled.div`
   width: calc(100% - 32px);
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   margin: 0 auto;
   max-width: 1040px;
-  min-width: 800px;
+  min-width: 640px;
   margin-top: 40px;
   background: #f2f2f2;
   border-radius: 8px;

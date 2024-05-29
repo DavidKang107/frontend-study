@@ -10,10 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Noto Sans KR", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    
-    
-    /* min-width:800px; */
-    overflow-x: hidden;
   }
 
   button {
