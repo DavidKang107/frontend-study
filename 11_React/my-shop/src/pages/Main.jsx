@@ -1,36 +1,42 @@
-// 리액트(JS)에서 이미지 파일 가져오기
-// 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
 import styled from "styled-components";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts, selectProduct } from "../features/product/productSlice";
 import axios from "axios";
 
+import { getAllProducts, selectProductList } from "../features/product/productSlice";
+import ProductListItem from "../components/ProductListItem";
+
+// 리액트(JS)에서 이미지 파일 가져오기
+// 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
 import yonexImg from "../images/yonex.jpg";
+// 2) public 폴더 안 이미지(root 경로로 바로 접근)
+// 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public 폴더에 있는 것들은 그대로 보존
+// 이미지 같은 수정이 필요없는 static 파일의 경우 public에 보관하기도 함
 
 
 const MainBackground = styled.div`
   height: 500px;
-  background-image: url(${yonexImg});
+  /* background-image: url(${yonexImg}); */
+  background-image: url("/images/yonex.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 `;
 
 function Main() {
-  // 처음 마운트 되었을 때 서버에 상품 목록 데이터를 요처하고
-  // 그 결과를 리덕스 스토어에 전역 상태로 저장
-  const product = useSelector(selectProduct);
+
+  const productList = useSelector(selectProductList);
   const dispatch = useDispatch();
+
   useEffect(() => {
     // 서버에 상품 목록 요청
     axios.get("https://my-json-server.typicode.com/DavidKang107/db-shop/products")
       .then((res) => {
         dispatch(getAllProducts(res.data));
-        })
-        .catch((err) => {
-          console.error(err);
+      })
+      .catch((err) => {
+        console.error(err);
       })
   }, []);
 
@@ -45,20 +51,10 @@ function Main() {
       <section>
         <Container>
           <Row>
-            {/* 부트스트랩 이용한 반응형 작업 */}
-            {/* md >= 768px 이상에서 전체 12 등분 중 4:4:4로 보여줌 */}
-            {/* <Col md={4} sm={6}>
-              <img src="https://www.yonexmall.com/shop/data/goods/1645767865278s0.png" width="80%" />
-              <h4>상품명</h4>
-              <p>상품가격</p>
-            </Col> */}
-            {product.map((value) => {
-              return <Col md={4}>
-                <img src={value.imagePath} width="80%" alt="product-img" />
-                <h4>{value.title}</h4>
-                <p>\{Number(value.price).toLocaleString()}</p>
-              </Col>
+            {productList.map((product) => {
+              return <ProductListItem product={product} key={product.id} />
             })}
+            {/* ProductListItem 컴포넌트를 만들어서 반복 렌더링으로 바꾸고 데이너 바인딩 */}
           </Row>
         </Container>
       </section>
@@ -78,7 +74,7 @@ export default Main;
 // json-server 사용법
 // ./src/data.json 이라는 파일을 작성
 // npx json-server ./src/data.json --port 4000
-// 또는 
+// 또는
 // npm i -g json-server
 // json-server --watch ./src/data.json --port 4000
 

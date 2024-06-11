@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { Route, Routes } from 'react-router-dom';
 import Layout from "./pages/Layout";
 import Main from "./pages/Main";
+import ProductDetail from "./pages/ProductDetail";
 
 // 글로번(공통) 스타일 설정
 const GlobalStyle = createGlobalStyle`
@@ -41,6 +42,8 @@ function App() {
         <Route path='/' element={<Layout />}>
           {/* index: index route(여기서는 기본 자식 라우트를 의미) */}
           <Route index element={<Main />}/>
+          {/* <Route path="detail" element={<ProductDetail />} /> */}
+          <Route path='/detail/:productId' element={<ProductDetail />}/>
         </Route>
       </Routes>
     </>
