@@ -1,8 +1,6 @@
 import { Col } from "react-bootstrap";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { getSelectedProduct } from "../features/product/productSlice";
 
 // 방법1: 스타일드 컴포넌트 스타일 확장
 const StyledCol = styled(Col)`
@@ -19,14 +17,13 @@ function ProductListItem(props) {
 
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
 
   return (
     <StyledCol md={4} sm={6} className="cursor-pointer">
       <img src={imagePath} width="80%" alt="product-img" 
         onClick={() => {
           navigate(`/detail/${id}`)
-          dispatch(getSelectedProduct({}))
+          
         }}
       />
       <h4>{title}</h4>
