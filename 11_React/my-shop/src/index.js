@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './app/store';
 
-import 'bootstrap/dist/css/bootstrap.min.css'; //bootstrap CSS 추가
-import 'react-toastify/dist/ReactToastify.min.css' //react-toastify CSS 추가
+import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap CSS 추가
+import 'react-toastify/dist/ReactToastify.min.css'; // ReactToastify CSS 추가
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

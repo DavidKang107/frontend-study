@@ -1,6 +1,4 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Outlet, useNavigate } from "react-router-dom";
 
 function Layout() {
@@ -8,11 +6,11 @@ function Layout() {
 
   return (
     <>
-      {/* 헤더 */}
+      {/* 헤더 영역: 상단 내비게이션 바 */}
       <header>
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand href="#home" onClick={() => navigate('/')}>정모네 샵</Navbar.Brand>
+            <Navbar.Brand href="#" onClick={() => navigate('/')}>정모네 샵</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link onClick={() => navigate('/')}>홈</Nav.Link>
               <Nav.Link onClick={() => navigate('/cart')}>장바구니</Nav.Link>
@@ -20,11 +18,13 @@ function Layout() {
           </Container>
         </Navbar>
       </header>
+
+      {/* 자식 컴포넌트가 렌더링 될 위치 */}
       <Outlet />
-      {/* 자식 텀포넌트가 렌더링 될 위치 */}
+
       <footer>
-        <p className="py-5 bg-dark text-white">
-          &copy; David Kang. All Rights Reserved.
+        <p className="py-5 mb-0 bg-dark text-white">
+          &copy; KJM David Kang. All Rights Reserved.
         </p>
       </footer>
     </>
