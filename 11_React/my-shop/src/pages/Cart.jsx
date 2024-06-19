@@ -5,7 +5,6 @@ import { decreaseCount, increaseCount, removeItemFromCart, selectCartList } from
 function Cart() {
   const dispatch = useDispatch();
   const cartList = useSelector(selectCartList);
-
   const formatter = new Intl.NumberFormat('ko-KR');
 
   return (
@@ -54,6 +53,16 @@ function Cart() {
             </tr>
             
           )}
+          {/* 합계 구하기 */}
+          <tr>
+            <th>총 합계</th>
+            <td></td>
+            <td></td>
+            <th>{formatter.format(cartList.reduce((prev, cartItem) =>{
+              return prev + (cartItem.price * cartItem.count);
+            }, 0))}원
+            </th>
+          </tr>
         </tbody>
       </Table>
     </>
