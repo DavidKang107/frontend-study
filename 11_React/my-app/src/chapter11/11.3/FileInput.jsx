@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import axios from 'axios';
 
 function FileInput() {
 
@@ -7,6 +8,24 @@ function FileInput() {
     e.preventDefault();
     console.log(fileInput.current.files);
     alert(`선택된 파일: ${fileInput.current.files[0].name}`)
+
+    const formData = new FormData();
+    formData.append('file', fileInput.current.files[0] || null);
+
+    // 아래 두 가지 방식 중에 택1
+    // 1) 
+    axios.post('https://api-url', formData);
+
+    // 2)
+    axios.post('https://api-url', {
+      // title,
+      // content,
+      file: fileInput.current.files[0]
+    }, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
     
   };
 

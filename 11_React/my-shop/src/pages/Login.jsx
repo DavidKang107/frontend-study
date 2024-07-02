@@ -38,15 +38,18 @@ function Login() {
   };
   const handleLogin = async () => {
     try {
-      const result = await axios.get(`http://localhost:8080/login?id=${loginForm.username}&pw=${loginForm.password}`);
+      const result = await axios.get(`${process.env.REACT_APP_LOCAL_URL}/login?id=${loginForm.username}&pw=${loginForm.password}`);
       console.log(result);
 
       // const { token, user } = result.data;
       // 전역 상태에 사용자 정보 저장
-      dispatch(loginSuccess({name: '강정모'}));
+      dispatch(loginSuccess(result.data.user));
 
       // 발급받은 토큰 저장
-      localStorage.setItem('token', result.data);
+      localStorage.setItem('token', result.data.token);
+      localStorage.setItem('user', JSON.stringify(result.data.user));
+      
+
 
       navigate('/')
     } catch (error) {
